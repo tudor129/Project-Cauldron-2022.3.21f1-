@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &786242769419962840
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 614485571519905460, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 614485571519905460, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: lengthInSec
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640744097017541558, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: simulationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640744097017541558, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640744097017541558, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2693470400814773797, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_Name
+      value: Projectile_Fire_Green_WilfireLeap_Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4018105576490939281, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8918890621123903881, guid: c824479b712b86f439b23433c3f0390f, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2693470400814773797, guid: c824479b712b86f439b23433c3f0390f,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8163418744458101254}
+  m_SourcePrefab: {fileID: 100100000, guid: c824479b712b86f439b23433c3f0390f, type: 3}
+--- !u!1 &2277937454822944832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1546308802888366488, guid: c824479b712b86f439b23433c3f0390f,
+    type: 3}
+  m_PrefabInstance: {fileID: 786242769419962840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3425104808009859069 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2693470400814773797, guid: c824479b712b86f439b23433c3f0390f,
+    type: 3}
+  m_PrefabInstance: {fileID: 786242769419962840}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8163418744458101254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425104808009859069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ca48ef328af53e4091a630040c1fd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpellSO: {fileID: 11400000, guid: d017177ee22a1d84cb621fd7dbf998bb, type: 2}
+  _effectsOnCollision: []
+  _destroyTimeDelay: 5
+  _useWorldSpacePosition: 0
+  _offset: 0
+  _rotationOffset: {x: 0, y: 0, z: 0}
+  _useOnlyRotationOffset: 1
+  _useFirePointRotation: 0
+  _destoyMainEffect: 0
+  hit: {fileID: 4286295628185081889, guid: d93d088d0b4f42140aa9b802a8e79243, type: 3}
+  flash: {fileID: 0}
+  hitOffset: 0
+  UseFirePointRotation: 0
+  rotationOffset: {x: 0, y: 0, z: 0}
+  Detached:
+  - {fileID: 2277937454822944832}
+  _rb: {fileID: 0}
+  ChainLightningSO: {fileID: 0}
+  WildfireLeapSO: {fileID: 11400000, guid: d017177ee22a1d84cb621fd7dbf998bb, type: 2}
