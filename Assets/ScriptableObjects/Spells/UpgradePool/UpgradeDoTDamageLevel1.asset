@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd11b73052c1f2b42bd1f7e0b1bee607, type: 3}
+  m_Name: UpgradeDoTDamageLevel1
+  m_EditorClassIdentifier: 
+  ItemName: DoTDamageUpgradeDecoratorLevel1
+  Sprite: {fileID: 21300000, guid: fb66d462b4252764aabe9a84bfa4f157, type: 3}
+  IsStatUpgrade: 1
+  Modifier: 1.2
+  ModifierLevel2: 1.5
+  ModifierLevel3: 1.8
+  ModifierLevel4: 2
+  ModifierLevel5: 2.5
+  UpgradeTypeIdentifier: 

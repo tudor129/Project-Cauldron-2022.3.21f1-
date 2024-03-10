@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce95a70e9385ae46bf4e32655330447, type: 3}
+  m_Name: Rubbleweed
+  m_EditorClassIdentifier: 
+  _itemID: 07247e83-f60f-4279-90f5-a715f795246a
+  _displayName: Rubbleweed
+  _description: A hardy, fantastical flora, sprouts from stone itself, its ashen
+    tendrils weaving a path through the toughest bedrock. Its verdigris leaves glisten
+    under moonlight, while starlit blooms pulse with a potent, magical aura. Famed
+    in eldritch circles, it's a vital ingredient for fortitude potions and transmutation
+    spells, but its overpowering, metallic scent requires careful balancing in any
+    mystical concoction.
+  _icon: {fileID: 21300000, guid: e1fbd204b6ab26c4ca26ab80d1f98445, type: 3}
+  _pickup: {fileID: 3634298517663282246, guid: 9c75cd06f4ee08541a14ecdeb50e2070, type: 3}
+  _stackable: 0
+  DropBehavior: 0
+  _materialType: 
+  _rarity: 0
+  _amount: 1
