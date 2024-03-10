@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - TopTrigger
+  - DownTrigger
+  - LeftTrigger
+  - RightTrigger
+  - Left-UpTrigger
+  - Left-DownTrigger
+  - Right-UpTrigger
+  - Right-DownTrigger
+  - PW - Building
+  - Spell
+  - Loot
+  - Enemy
+  - Ground
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Tiles
+  - Gems
+  - Player
+  - Ground
+  - Spell
+  - Enemy
+  - SeeThrough
+  - Loot
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
