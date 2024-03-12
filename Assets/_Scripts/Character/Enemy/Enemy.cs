@@ -1,4 +1,5 @@
 using Pathfinding;
+using Pathfinding.Util;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ public class Enemy : MonoBehaviour
     public EnemySO EnemyData;
   
     AIPath _aiPath;
+    FollowerEntity _followerEntity;
+    AIDestinationSetter _aiDestinationSetter;
     
     
     protected CharacterAnimatorManager _animatorManager;
@@ -49,7 +52,9 @@ public class Enemy : MonoBehaviour
     protected void Awake()
     {
         _enemyHealth = GetComponent<EnemyHealth>();
-        _aiPath = GetComponent<AIPath>();
+        //_aiPath = GetComponent<AIPath>();
+        _followerEntity = GetComponent<FollowerEntity>();
+        _aiDestinationSetter = GetComponent<AIDestinationSetter>();
         _health = GetComponent<Health>();
         _animatorManager = GetComponent<CharacterAnimatorManager>();
         if (_animatorManager == null)
@@ -62,9 +67,11 @@ public class Enemy : MonoBehaviour
             ActiveEnemies.Add(this);
         }
     }
-
+   
     protected void OnEnable()
     {
+        _followerEntity = GetComponent<FollowerEntity>();
+        _aiDestinationSetter.target = _playerTransform;
         if(!ActiveEnemies.Contains(this))
         {
             ActiveEnemies.Add(this);
@@ -89,7 +96,10 @@ public class Enemy : MonoBehaviour
             Debug.LogError("Player transform is null!");
         }
         //_rigidbody.isKinematic = false;
-       
+
+        //StartCoroutine(InitializePathfinding());
+        
+        
     }
     
     public void SetEnemyData(EnemySO enemyData)
@@ -105,6 +115,11 @@ public class Enemy : MonoBehaviour
     {
         _playerTransform = playerTransform;
         _returningToPool = false; 
+    }
+    
+    public AIDestinationSetter GetAIDestinationSetter()
+    {
+        return _aiDestinationSetter;
     }
 
     protected virtual void Update()
@@ -162,7 +177,43 @@ public class Enemy : MonoBehaviour
         if (EnemySpawner.Instance.GetFormation() == EnemySpawner.FormationType.Square)
         {
             //HandleNormalMovement();
-            _aiPath.destination = _playerTransform.position;
+            
+            float radius = 10f;
+            float offset = 2f;
+            
+            var normal = (transform.position - _playerTransform.position).normalized;
+            var tangent = Vector3.Cross(normal, _playerTransform.up);
+            
+            //_aiPath.destination = _playerTransform.position;
+            
+            //_aiPath.destination = _playerTransform.position + normal * radius + tangent * offset;
+
+            if (_followerEntity == null)
+            {
+                Debug.LogError("FollowerEntity component is null.");
+                return;
+            }
+
+            if (_playerTransform == null) 
+            {
+                Debug.LogError("PlayerTransform is null.");
+                return;
+            }
+            
+            
+            if (_followerEntity == null || _playerTransform == null)
+            {
+                Debug.LogWarning("Pathfinding components not initialized yet.");
+                return; // Skip this frame.
+            }
+            
+            {
+                //_followerEntity.SetDestination(_playerTransform.position + normal * radius + tangent * offset);
+                //_aiDestinationSetter.target = _playerTransform;
+                
+            }
+
+            
         }
 
         if (distanceToPlayer <= EnemyData.AttackRange)
@@ -170,6 +221,20 @@ public class Enemy : MonoBehaviour
             _currentState = EnemyState.Attacking;
             _animatorManager.StopWalkingAnimation();
         }
+    }
+    
+    private IEnumerator InitializePathfinding()
+    {
+        // Wait until the end of the frame to ensure all Start methods are called.
+        yield return new WaitForEndOfFrame();
+
+        float radius = 5f;
+        float offset = 2f;
+            
+        var normal = (transform.position - _playerTransform.position).normalized;
+        var tangent = Vector3.Cross(normal, _playerTransform.up);
+        // Now it's safe to start pathfinding.
+        _followerEntity.SetDestination(_playerTransform.position + normal * radius + tangent * offset);
     }
     
    
@@ -400,5 +465,8 @@ public class Enemy : MonoBehaviour
         return distanceToPlayer;
     }
     
+   
+
+
    
 }

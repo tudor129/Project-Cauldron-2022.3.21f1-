@@ -159,11 +159,12 @@ public class EnemySpawner : MonoBehaviour
 
         var enemyObject = ObjectPoolManager.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
         var enemy = enemyObject.GetComponent<Enemy>();
-
-        if (enemy != null)
+        
+       if (enemy != null)
         {
             enemy.SetPlayerTransform(_playerTransform);
             enemy.SetEnemyData(enemySO);
+            enemy.GetAIDestinationSetter().target = _playerTransform;
         }
     }
     
@@ -180,6 +181,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 enemy.SetPlayerTransform(_playerTransform);
                 enemy.SetEnemyData(enemySO);
+                enemy.GetAIDestinationSetter().target = _playerTransform;
             }
         }
     }

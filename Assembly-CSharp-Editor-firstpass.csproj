@@ -43,6 +43,18 @@
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.SystemAPI.QueryBuilder.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.SystemAPI.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.Analyzer.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.LambdaJobs.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.Common.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.SystemAPI.Query.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.Analyzer.CodeFixes.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.AspectGenerator.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.Common.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.SystemGenerator.EntityQueryBulkOperations.dll" />
+    <Analyzer Include="C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.entities@1.0.16\Unity.Entities\SourceGenerators\Unity.Entities.SourceGen.JobEntityGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
@@ -311,7 +323,7 @@
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Assets\Plugins\Demigiant\DemiLib\Core\Editor\DemiEditor.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Assets\AstarPathfindingProject\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.arongranberg.astar@5.0.3\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.YamlDotNet">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll</HintPath>
@@ -320,7 +332,7 @@
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Assets\Plugins\Sirenix\Assemblies\Sirenix.Reflection.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.collections@2.1.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
     </Reference>
     <Reference Include="Sirenix.Serialization">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Assets\Plugins\Sirenix\Assemblies\Sirenix.Serialization.dll</HintPath>
@@ -365,7 +377,7 @@
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Assets\Plugins\Demigiant\DOTween\DOTween.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.ClipperLib">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Assets\AstarPathfindingProject\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.arongranberg.astar@5.0.3\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
@@ -379,11 +391,14 @@
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.nuget.mono-cecil@1.11.4\Mono.Cecil.dll</HintPath>
+    </Reference>
     <Reference Include="unityplastic">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.collab-proxy@2.0.5\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.arongranberg.astar@5.0.3\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -769,47 +784,44 @@
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualEffectGraph.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    <Reference Include="Unity.Entities.Build">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="Drawing">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Drawing.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualEffectGraph.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Config.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Config.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="DependenciesHunter.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\DependenciesHunter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.UI.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.UI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="AstarPathfindingProject">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\AstarPathfindingProject.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Hybrid.HybridComponents">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Hybrid.HybridComponents.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Collections">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Deformations">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Deformations.dll</HintPath>
     </Reference>
     <Reference Include="PPv2URPConverters">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
@@ -823,23 +835,113 @@
     <Reference Include="Unity.RenderPipelines.Universal.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TerrainTools.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
+    <Reference Include="Unity.Mathematics.Extensions.Hybrid">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Universal.Runtime">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.PlasticSCM.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Burst">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Serialization.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Serialization.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Transforms">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Transforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Serialization">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Scenes.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Scenes.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.UI">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Editor.Properties">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Editor.Properties.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Scenes">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Scenes.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="DrawingPackageToolsEditor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\DrawingPackageToolsEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Hybrid">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="AstarPathfindingProjectEditor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\AstarPathfindingProjectEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Profiling.Core">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="PackageTools">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\PackageTools.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TerrainTools.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.PlasticSCM.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -853,35 +955,26 @@
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.CacheServer">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEditor.CacheServer.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
+    <Reference Include="Unity.Transforms.Hybrid">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Transforms.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.InputSystem">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
@@ -892,23 +985,23 @@
     <Reference Include="Unity.Mathematics">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    <Reference Include="Unity.Mathematics.Extensions">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    <Reference Include="DrawingEditor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\DrawingEditor.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.HighDefinition.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.HighDefinition.Runtime.dll</HintPath>
+    <Reference Include="Unity.Entities.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="AstarPackageToolsEditor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\AstarPackageToolsEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -920,73 +1013,21 @@
       <Project>{822cf50f-03d9-475e-fcf0-78be14507483}</Project>
       <Name>MoreMountains.Feedbacks.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
-      <Project>{b47ad9c4-ab8b-4c7f-ac4c-79ebba5acca1}</Project>
-      <Name>MoreMountains.Tools.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.PostProcessing.csproj">
       <Project>{27d85fc0-2d62-2976-1360-d9fea119d182}</Project>
       <Name>MoreMountains.Feedbacks.PostProcessing</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
-      <Project>{4073c94b-92ba-5ed6-5319-d5f4fb45194f}</Project>
-      <Name>MoreMountains.Feedbacks</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.URP.csproj">
       <Project>{bfa935bc-cbd1-a033-6fbb-3868027eeb87}</Project>
       <Name>MoreMountains.Feedbacks.URP</Name>
     </ProjectReference>
-    <ProjectReference Include="Lofelt.NiceVibrations.csproj">
-      <Project>{71af4d42-f059-9292-aee9-dd9c645ee036}</Project>
-      <Name>Lofelt.NiceVibrations</Name>
-    </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{2f941442-f654-6f80-a8af-297aeb7bd249}</Project>
-      <Name>PackageToolsEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.TextMeshPro.csproj">
       <Project>{8ce609cc-0afe-3571-a856-ddd36d100540}</Project>
       <Name>MoreMountains.Feedbacks.TextMeshPro</Name>
     </ProjectReference>
-    <ProjectReference Include="AllIn1VfxDemoScriptAssemblies.csproj">
-      <Project>{29262eac-d700-8238-a55c-3a46ddbcf8a4}</Project>
-      <Name>AllIn1VfxDemoScriptAssemblies</Name>
-    </ProjectReference>
-    <ProjectReference Include="DamageNumbersPro.csproj">
-      <Project>{57099fc7-02ac-6703-9eed-597d90d86d54}</Project>
-      <Name>DamageNumbersPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{82fff029-5f91-793c-0a82-3444d6699fd8}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="Nova.UIControls.csproj">
       <Project>{91435f0a-748e-e96d-0a21-ae19a70bfb9a}</Project>
       <Name>Nova.UIControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="Nova.csproj">
-      <Project>{ecc6d1df-e049-dfe6-01c0-582bddfe1da0}</Project>
-      <Name>Nova</Name>
-    </ProjectReference>
-    <ProjectReference Include="OtoonEditor.csproj">
-      <Project>{d7b82a73-3b21-911f-79fe-09e93e5591fe}</Project>
-      <Name>OtoonEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1VfxAssmebly.csproj">
-      <Project>{ab95a237-2472-288e-56b2-74a7ff93bf9c}</Project>
-      <Name>AllIn1VfxAssmebly</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.Authorizations.csproj">
-      <Project>{07393e57-d7cb-74b6-403c-78c77bb698b2}</Project>
-      <Name>MoreMountains.Feedbacks.Authorizations</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{2f208f72-a592-db33-7578-7452a76a7117}</Project>
-      <Name>MoreMountains.Tools</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1VfxTexDemoAssembly.csproj">
-      <Project>{c3e18277-8591-9114-db42-1c97366f1aaf}</Project>
-      <Name>AllIn1VfxTexDemoAssembly</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
       <Project>{e96d7149-8c06-0346-3aac-4c67ba813ffa}</Project>
@@ -1004,29 +1045,65 @@
       <Project>{2a33c7fc-bd24-f0ec-12c2-ec8e5fb6ed2b}</Project>
       <Name>MoreMountains.Feedbacks.HDRP</Name>
     </ProjectReference>
-    <ProjectReference Include="OtoonShader.csproj">
-      <Project>{3c9571b7-3146-b9e1-5470-305c177bc997}</Project>
-      <Name>OtoonShader</Name>
+    <ProjectReference Include="Lofelt.NiceVibrations.Editor.csproj">
+      <Project>{f051d3f0-8315-10de-de25-fe34464019b9}</Project>
+      <Name>Lofelt.NiceVibrations.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
+      <Project>{d49b15a9-bbaf-58c5-c98e-d7c582a5ac41}</Project>
+      <Name>MoreMountains.Feedbacks.MMTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="TAA.Runtime.csproj">
+      <Project>{1747f795-4b30-f9ac-fb96-8cec688e3c1b}</Project>
+      <Name>TAA.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
+      <Project>{b47ad9c4-ab8b-4c7f-ac4c-79ebba5acca1}</Project>
+      <Name>MoreMountains.Tools.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
+      <Project>{4073c94b-92ba-5ed6-5319-d5f4fb45194f}</Project>
+      <Name>MoreMountains.Feedbacks</Name>
+    </ProjectReference>
+    <ProjectReference Include="Lofelt.NiceVibrations.csproj">
+      <Project>{71af4d42-f059-9292-aee9-dd9c645ee036}</Project>
+      <Name>Lofelt.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="AllIn1VfxDemoScriptAssemblies.csproj">
+      <Project>{29262eac-d700-8238-a55c-3a46ddbcf8a4}</Project>
+      <Name>AllIn1VfxDemoScriptAssemblies</Name>
+    </ProjectReference>
+    <ProjectReference Include="DamageNumbersPro.csproj">
+      <Project>{57099fc7-02ac-6703-9eed-597d90d86d54}</Project>
+      <Name>DamageNumbersPro</Name>
+    </ProjectReference>
+    <ProjectReference Include="Nova.csproj">
+      <Project>{ecc6d1df-e049-dfe6-01c0-582bddfe1da0}</Project>
+      <Name>Nova</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.Authorizations.csproj">
+      <Project>{07393e57-d7cb-74b6-403c-78c77bb698b2}</Project>
+      <Name>MoreMountains.Feedbacks.Authorizations</Name>
+    </ProjectReference>
+    <ProjectReference Include="AllIn1VfxAssmebly.csproj">
+      <Project>{ab95a237-2472-288e-56b2-74a7ff93bf9c}</Project>
+      <Name>AllIn1VfxAssmebly</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.csproj">
+      <Project>{2f208f72-a592-db33-7578-7452a76a7117}</Project>
+      <Name>MoreMountains.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="AllIn1VfxTexDemoAssembly.csproj">
+      <Project>{c3e18277-8591-9114-db42-1c97366f1aaf}</Project>
+      <Name>AllIn1VfxTexDemoAssembly</Name>
     </ProjectReference>
     <ProjectReference Include="Nova.UIControls.Editor.csproj">
       <Project>{be8d116a-6cb4-3ed3-1f35-41fb3dda7d04}</Project>
       <Name>Nova.UIControls.Editor</Name>
     </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{4e7a6e5d-fd6a-fd87-223b-cd8d8f9c9858}</Project>
-      <Name>AstarPathfindingProject</Name>
-    </ProjectReference>
-    <ProjectReference Include="Lofelt.NiceVibrations.Editor.csproj">
-      <Project>{f051d3f0-8315-10de-de25-fe34464019b9}</Project>
-      <Name>Lofelt.NiceVibrations.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.NiceVibrations.csproj">
       <Project>{b6c92537-a843-a982-e25b-025b5f81a946}</Project>
       <Name>MoreMountains.Feedbacks.NiceVibrations</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
-      <Project>{d49b15a9-bbaf-58c5-c98e-d7c582a5ac41}</Project>
-      <Name>MoreMountains.Feedbacks.MMTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

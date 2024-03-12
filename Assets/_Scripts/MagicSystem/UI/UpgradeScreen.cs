@@ -10,9 +10,9 @@ public class UpgradeScreen : HotBar
 {
        public List<SpellData> _availableSpells = new List<SpellData>();
        public List<UISlot> _spellSlots = new List<UISlot>();
-    
+        
        [SerializeField] SpellManager _spellManager;
-
+        
        protected override void Start()
        {
             base.Start();
@@ -21,7 +21,6 @@ public class UpgradeScreen : HotBar
                 _slots[i].SetupUpgradeScreen(this);
             }
        }
-
        void OnEnable()
        {
            _spellManager.RemoveAndApplyUpgrades();
@@ -30,10 +29,6 @@ public class UpgradeScreen : HotBar
        {
            GameManager.Instance.ResumeGame();
        }
-      
-      
-       
-     
        void UpgradeSpell(ItemData spellUpgrade)
        {
            /*if (spellUpgrade is SpellUpgradeSO spellUpgradeSO)
@@ -148,24 +143,20 @@ public class UpgradeScreen : HotBar
         
     }
        
-       
      public void OnSlotClick(UISlot clickedSlot)
      {
          // Get the index of the slot from the _slots list.
          int slotIndex = GetItemIndex(clickedSlot);
-        // Perform a safety check.
+         // Perform a safety check.
          if (slotIndex < 0 || slotIndex >= _items.Count)
          {
              Debug.LogWarning("Clicked slot is not within the range of assigned items.");
              return;
          }
-        // Get the associated Item
+         // Get the associated Item
          ItemData itemData = _items[slotIndex];
-        // Now you have the clicked item, and you can proceed with your upgrade logic.
+         // Now you have the clicked item, and you can proceed with your upgrade logic.
          UpgradeSpell(itemData);
          //gameObject.SetActive(false);
      }
-       
-
-      
 }

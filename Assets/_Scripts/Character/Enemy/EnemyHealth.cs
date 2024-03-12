@@ -13,6 +13,7 @@ public class EnemyHealth : Health
     
     EnemyVisualEffects _visualEffects;
     AIPath _aiPath;
+    FollowerEntity _followerEntity;
     Coroutine _staggerRoutine;
     Coroutine _dotRoutine;
     SpellInstance _spellInstance;
@@ -22,7 +23,8 @@ public class EnemyHealth : Health
     protected override void Awake()
     {
         base.Awake();
-        _aiPath = GetComponent<AIPath>();
+        //_aiPath = GetComponent<AIPath>();
+        _followerEntity = GetComponent<FollowerEntity>();
         _visualEffects = GetComponent<EnemyVisualEffects>();
         _healthBarUI.Initialize(this);
        
@@ -32,14 +34,15 @@ public class EnemyHealth : Health
     protected override void Start()
     {
         base.Start();
-        _isAlive = true;
-        _aiPath.canMove = true;
+        // _isAlive = true;
+        // _aiPath.canMove = true;
     }
 
     void OnEnable()
     {
-        _isAlive = true;
-        _aiPath.canMove = true;
+        // _isAlive = true;
+        // _aiPath.canMove = true;
+       _followerEntity.enabled = true;
         _hasDoTEffect = false;
     }
     void OnDisable()
@@ -73,15 +76,19 @@ public class EnemyHealth : Health
     
     IEnumerator StaggerRoutine(float duration)
     {
-        _aiPath.canMove = false;
+        //_aiPath.canMove = false;
+        //_followerEntity.maxSpeed = 0;
         _animatorManager.StopAttackAnimation();
         _animatorManager.StopWalkingAnimation();
         yield return new WaitForSeconds(duration);
         _animatorManager.PlayWalkingAnimation();
-        _aiPath.canMove = true;
+        //_followerEntity.maxSpeed = 2;
+        
+        //_aiPath.canMove = true;
         if (!_isAlive)
         {
-            _aiPath.canMove = false;
+            //_aiPath.canMove = false;
+            //_followerEntity.maxSpeed = 0;
             yield break;
         }
     }
@@ -150,7 +157,8 @@ public class EnemyHealth : Health
         
         base.Die();
         _isAlive = false;
-        _aiPath.canMove = false;
+        //_aiPath.canMove = false;
+        _followerEntity.enabled = false;
         
         
         if (_staggerRoutine != null)
@@ -162,7 +170,8 @@ public class EnemyHealth : Health
             StopCoroutine(_dotRoutine);
         }
 
-        _aiPath.canMove = false;
+        _followerEntity.enabled = false;
+        //_aiPath.canMove = false;
         
        
         

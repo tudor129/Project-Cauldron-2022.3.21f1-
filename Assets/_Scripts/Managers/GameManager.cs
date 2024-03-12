@@ -2,6 +2,7 @@ using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     
     Transform _playerTransform;
 
+    [SerializeField] TextMeshProUGUI _numberOfEnemiesText;
     [SerializeField] float _timeScale;
     [SerializeField] int _frameRate;
     
@@ -38,7 +40,12 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = _frameRate;
         Time.timeScale = _timeScale;
     }
-    
+
+    void Update()
+    {
+        _numberOfEnemiesText.text = "Enemies: " + Enemy.ActiveEnemies.Count;
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0;

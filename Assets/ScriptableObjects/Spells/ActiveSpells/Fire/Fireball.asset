@@ -45,7 +45,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: c49c57862bc5ea34fb7cd837d92215f1, type: 3}
     SpellType: 0
     ImpactOffset: {x: 0, y: 0.1, z: 0}
-    Damage: 12
+    Damage: 100
     Speed: 8
     Lifetime: 3
     SpellRadius: 0
@@ -55,11 +55,11 @@ MonoBehaviour:
     DamageOverTimeInterval: 1
     DamageOverTimeInitialDelay: 1
     StaggerDuration: 0
-    SpawnsProjectilesSequentially: 1
+    SpawnsProjectilesSequentially: 0
     ShootBackwards: 0
-    NumberOfAttacks: 5
-    ProjectileInteval: 0.5
-    AngleStep: 45
+    NumberOfAttacks: 10
+    ProjectileInteval: 0.1
+    AngleStep: 360
     SpreadRadius: 0.2
     IsFire: 0
     IsIce: 0

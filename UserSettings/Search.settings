@@ -11,9 +11,9 @@ scopes = {
 	"last_search.310DEAF1" = "enter play mode option"
 	"OpenInspectorPreview.310DEAF1" = "0"
 	"currentGroup.310DEAF1" = "all"
-	"last_search.E8DA15E5" = "ice"
+	"last_search.E8DA15E5" = ".asmdef"
 	"OpenInspectorPreview.E8DA15E5" = "0"
-	"currentGroup.E8DA15E5" = "all"
+	"currentGroup.E8DA15E5" = "asset"
 	"picker_window_position_offset.74AD8FDB" = "701.6;472.8;488;550.4"
 	"picker_search_text.74AD8FDB" = "fire 3 "
 	"last_search.74AD8FDB" = "fire 3 "
@@ -70,6 +70,7 @@ providers = {
 objectSelectors = {
 }
 recentSearches = [
+	".asmdef"
 	"ice"
 	"f"
 	"fir"

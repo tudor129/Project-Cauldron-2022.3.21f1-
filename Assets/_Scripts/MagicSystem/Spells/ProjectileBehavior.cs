@@ -296,7 +296,7 @@ public class ProjectileBehavior : SpellBehavior
     protected virtual (int, bool) CalculateActiveSpellDamage(int hitCount, float critChance, float critMultiplier, Spell.Stats spellData)
     {
         // Subtract damage for each subsequent hit (without going below 0)
-        int damageSubtraction = 2 * (hitCount - 1);
+        int damageSubtraction = 1 * (hitCount - 1);
         int damageOutput = Math.Max(0, _currentStats.Damage - damageSubtraction);
     
         bool isCriticalHit = false;

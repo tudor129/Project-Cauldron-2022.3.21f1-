@@ -13,13 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllIn1VfxDemoScriptAssembli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.Editor", "Nova.Editor.csproj", "{89b35ec9-8a88-73bc-4709-8dd095aa0da6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProjectEditor", "AstarPathfindingProjectEditor.csproj", "{82fff029-5f91-793c-0a82-3444d6699fd8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Tools", "MoreMountains.Tools.csproj", "{2f208f72-a592-db33-7578-7452a76a7117}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Editor", "MoreMountains.Feedbacks.Editor.csproj", "{822cf50f-03d9-475e-fcf0-78be14507483}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProject", "AstarPathfindingProject.csproj", "{4e7a6e5d-fd6a-fd87-223b-cd8d8f9c9858}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.Compat", "Nova.Compat.csproj", "{1e34a88b-be3e-e553-67be-cd29cfc2730b}"
 EndProject
@@ -35,8 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Pos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.UIControls", "Nova.UIControls.csproj", "{91435f0a-748e-e96d-0a21-ae19a70bfb9a}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtoonEditor", "OtoonEditor.csproj", "{d7b82a73-3b21-911f-79fe-09e93e5591fe}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{b3eed1ce-4b0c-21c4-9165-41459bcb52ab}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.URP", "MoreMountains.Feedbacks.URP.csproj", "{bfa935bc-cbd1-a033-6fbb-3868027eeb87}"
@@ -49,13 +43,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Cin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{04659f1f-621c-ffae-a9d6-770e6df5ce93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageToolsEditor", "PackageToolsEditor.csproj", "{2f941442-f654-6f80-a8af-297aeb7bd249}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAA.Runtime", "TAA.Runtime.csproj", "{1747f795-4b30-f9ac-fb96-8cec688e3c1b}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.NiceVibrations", "MoreMountains.Feedbacks.NiceVibrations.csproj", "{b6c92537-a843-a982-e25b-025b5f81a946}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Authorizations", "MoreMountains.Feedbacks.Authorizations.csproj", "{07393e57-d7cb-74b6-403c-78c77bb698b2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OtoonShader", "OtoonShader.csproj", "{3c9571b7-3146-b9e1-5470-305c177bc997}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nova.UIControls.Editor", "Nova.UIControls.Editor.csproj", "{be8d116a-6cb4-3ed3-1f35-41fb3dda7d04}"
 EndProject
@@ -84,14 +76,10 @@ Global
 		{29262eac-d700-8238-a55c-3a46ddbcf8a4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89b35ec9-8a88-73bc-4709-8dd095aa0da6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{89b35ec9-8a88-73bc-4709-8dd095aa0da6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82fff029-5f91-793c-0a82-3444d6699fd8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82fff029-5f91-793c-0a82-3444d6699fd8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2f208f72-a592-db33-7578-7452a76a7117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2f208f72-a592-db33-7578-7452a76a7117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{822cf50f-03d9-475e-fcf0-78be14507483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{822cf50f-03d9-475e-fcf0-78be14507483}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4e7a6e5d-fd6a-fd87-223b-cd8d8f9c9858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4e7a6e5d-fd6a-fd87-223b-cd8d8f9c9858}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1e34a88b-be3e-e553-67be-cd29cfc2730b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1e34a88b-be3e-e553-67be-cd29cfc2730b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b47ad9c4-ab8b-4c7f-ac4c-79ebba5acca1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -106,8 +94,6 @@ Global
 		{27d85fc0-2d62-2976-1360-d9fea119d182}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91435f0a-748e-e96d-0a21-ae19a70bfb9a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{91435f0a-748e-e96d-0a21-ae19a70bfb9a}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{d7b82a73-3b21-911f-79fe-09e93e5591fe}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{d7b82a73-3b21-911f-79fe-09e93e5591fe}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b3eed1ce-4b0c-21c4-9165-41459bcb52ab}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b3eed1ce-4b0c-21c4-9165-41459bcb52ab}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bfa935bc-cbd1-a033-6fbb-3868027eeb87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -120,14 +106,12 @@ Global
 		{e96d7149-8c06-0346-3aac-4c67ba813ffa}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04659f1f-621c-ffae-a9d6-770e6df5ce93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04659f1f-621c-ffae-a9d6-770e6df5ce93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2f941442-f654-6f80-a8af-297aeb7bd249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2f941442-f654-6f80-a8af-297aeb7bd249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1747f795-4b30-f9ac-fb96-8cec688e3c1b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1747f795-4b30-f9ac-fb96-8cec688e3c1b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b6c92537-a843-a982-e25b-025b5f81a946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b6c92537-a843-a982-e25b-025b5f81a946}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07393e57-d7cb-74b6-403c-78c77bb698b2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{07393e57-d7cb-74b6-403c-78c77bb698b2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3c9571b7-3146-b9e1-5470-305c177bc997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3c9571b7-3146-b9e1-5470-305c177bc997}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{be8d116a-6cb4-3ed3-1f35-41fb3dda7d04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{be8d116a-6cb4-3ed3-1f35-41fb3dda7d04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{c3e18277-8591-9114-db42-1c97366f1aaf}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
