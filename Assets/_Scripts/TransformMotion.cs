@@ -155,7 +155,7 @@ public class TransformMotion : MonoBehaviour
         {
             _isOutDistance = true;
             OnCollisionDeactivateBehaviour(false);
-            ObjectPoolManager.ReturnObjectToPool(gameObject);
+            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
 
             if (Target == null)
                 _t.localPosition = _startPositionLocal + _t.localRotation*(Vector3.forward + randomOffset)*Distance;
@@ -220,7 +220,7 @@ public class TransformMotion : MonoBehaviour
                 foreach (var effect in EffectsOnCollision)
                 {
                     //var instance = Instantiate(effect, hit.point + hit.normal * CollisionOffset, new Quaternion()) as GameObject;
-                    var instance = ObjectPoolManager.SpawnObject(effect, hit.point + hit.normal * CollisionOffset, new Quaternion(), ObjectPoolManager.PoolType.GameObject);
+                    var instance = ObjectPoolManager.Instance.SpawnObject(effect, hit.point + hit.normal * CollisionOffset, new Quaternion(), ObjectPoolManager.PoolType.GameObject);
                     CollidedInstances.Add(instance);
                     if (HUE > -0.9f)
                     {
@@ -234,7 +234,7 @@ public class TransformMotion : MonoBehaviour
                     CoroutineManager.Instance.StartCoroutine(ReturnChildToPoolAfterDelay(instance, CollidedInstances, DestroyTimeDelay, ObjectPoolManager.PoolType.GameObject, 1));
                     //Destroy(instance, DestroyTimeDelay);
                 }
-                ObjectPoolManager.ReturnObjectToPool(gameObject);
+                ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
                 _currentHitCount = 0;
             }
         }
@@ -249,7 +249,7 @@ public class TransformMotion : MonoBehaviour
         if (obj != null && childIndex < obj.transform.childCount)
         {
             GameObject child = obj.transform.GetChild(childIndex).gameObject;
-            ObjectPoolManager.ReturnObjectToPool(child);
+            ObjectPoolManager.Instance.ReturnObjectToPool(child);
             Debug.Log("Return to pool has been called bibi");
         }
         else

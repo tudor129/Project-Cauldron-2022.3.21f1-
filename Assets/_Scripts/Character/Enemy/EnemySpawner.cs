@@ -157,7 +157,7 @@ public class EnemySpawner : MonoBehaviour
         Vector3 spawnPosition = GetSingleEnemySpawnPosition();
         EnemySO enemySO = _enemyDataList[0];
 
-        var enemyObject = ObjectPoolManager.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
+        var enemyObject = ObjectPoolManager.Instance.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
         var enemy = enemyObject.GetComponent<Enemy>();
         
        if (enemy != null)
@@ -174,7 +174,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 spawnPosition = wavePosition + offset;
             EnemySO enemySO = _enemyDataList[1];
-            var enemyObject = ObjectPoolManager.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
+            var enemyObject = ObjectPoolManager.Instance.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
             var enemy = enemyObject.GetComponent<Enemy>();
 
             if (enemy != null)

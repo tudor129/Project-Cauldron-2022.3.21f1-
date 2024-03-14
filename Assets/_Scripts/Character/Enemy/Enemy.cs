@@ -128,11 +128,6 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
-        if (_playerTransform == null) 
-        {
-            InitializePlayerTransform();
-            if (_playerTransform == null) return;
-        }
 
         _timeSinceLastAttack += Time.deltaTime;
 
@@ -149,10 +144,6 @@ public class Enemy : MonoBehaviour
                     HandleAttackingState(distanceToPlayer);
                     break;
             }
-        }
-        else if (!_returningToPool)
-        {
-            HandleReturnToPool();
         }
     }
 
@@ -176,44 +167,16 @@ public class Enemy : MonoBehaviour
         }
         if (EnemySpawner.Instance.GetFormation() == EnemySpawner.FormationType.Square)
         {
-            //HandleNormalMovement();
-            
             float radius = 10f;
             float offset = 2f;
             
             var normal = (transform.position - _playerTransform.position).normalized;
             var tangent = Vector3.Cross(normal, _playerTransform.up);
             
-            //_aiPath.destination = _playerTransform.position;
-            
-            //_aiPath.destination = _playerTransform.position + normal * radius + tangent * offset;
-
-            if (_followerEntity == null)
-            {
-                Debug.LogError("FollowerEntity component is null.");
-                return;
-            }
-
-            if (_playerTransform == null) 
-            {
-                Debug.LogError("PlayerTransform is null.");
-                return;
-            }
-            
-            
-            if (_followerEntity == null || _playerTransform == null)
-            {
-                Debug.LogWarning("Pathfinding components not initialized yet.");
-                return; // Skip this frame.
-            }
-            
             {
                 //_followerEntity.SetDestination(_playerTransform.position + normal * radius + tangent * offset);
                 //_aiDestinationSetter.target = _playerTransform;
-                
             }
-
-            
         }
 
         if (distanceToPlayer <= EnemyData.AttackRange)
@@ -276,12 +239,22 @@ public class Enemy : MonoBehaviour
         _animatorManager.StopAttackAnimation();
     }
 
-    void HandleReturnToPool()
+    /*void HandleReturnToPool()
     {
         _animatorManager.StopWalkingAnimation();
         _returningToPool = true;
         StartCoroutine(DelayedReturn(gameObject, 5f));
     }
+    
+    IEnumerator DelayedReturn(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        StopAllCoroutines();
+        SetPlayerTransformFromPool(GameManager.Instance.GetPlayerTransform());
+        ObjectPoolManager.ReturnEnemyObjectToPool(obj);
+        _health.Respawn();
+        _returningToPool = false;
+    }*/
 
     
     void DealDamageToPlayer()
@@ -294,15 +267,7 @@ public class Enemy : MonoBehaviour
         _playerTransform.GetComponent<Health>().TakeDamage(EnemyData.AttackDamage);
     }
     
-    IEnumerator DelayedReturn(GameObject obj, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        StopAllCoroutines();
-        SetPlayerTransformFromPool(GameManager.Instance.GetPlayerTransform());
-        ObjectPoolManager.ReturnEnemyObjectToPool(obj);
-        _health.Respawn();
-        _returningToPool = false;
-    }
+   
     void HandleNormalMovement()
     {
         if (_currentState == EnemyState.Attacking)

@@ -12,9 +12,9 @@ public class SpellImpactBehavior : SpellBehavior
 
     protected override void Start()
     {
-        
         base.Start();
-        Destroy(gameObject, _currentStats.Lifetime);
+        //Destroy(gameObject, _currentStats.Lifetime);
+        ObjectPoolManager.Instance.ReturnEnemyObjectToPool(gameObject);
     }
 
     

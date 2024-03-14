@@ -6,7 +6,10 @@ using UnityEngine;
 
 public class ObjectPoolManager : MonoBehaviour
 {
-   public static List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
+    
+   public static ObjectPoolManager Instance { get; private set; }
+   public  List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
+  
 
    GameObject _objectPoolEmptyHolder;
 
@@ -24,6 +27,16 @@ public class ObjectPoolManager : MonoBehaviour
 
    void Awake()
    {
+       if (Instance == null)
+       {
+           Instance = this;
+           DontDestroyOnLoad(gameObject);
+       }
+       else
+       {
+           Destroy(gameObject);
+       }
+       
        SetupEmpties();
    }
    
@@ -38,7 +51,7 @@ public class ObjectPoolManager : MonoBehaviour
          _enemyEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
     }
 
-   public static GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
+   public GameObject SpawnObject(GameObject objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
    {
        PooledObjectInfo pool = null;
        foreach (PooledObjectInfo p in ObjectPools)
@@ -105,8 +118,68 @@ public class ObjectPoolManager : MonoBehaviour
        }
        return spawnableObject;
    }
+   
+   public SpellImpactBehavior SpawnObject(SpellImpactBehavior objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
+   {
+       PooledObjectInfo pool = null;
+       foreach (PooledObjectInfo p in ObjectPools)
+       {
+           if (p.LookupString == objectToSpawn.name)
+           {
+               pool = p;
+               break;
+           }
+       }
+       // If the pool doesn't exist, create it
+       if (pool == null)
+       {
+           pool = new PooledObjectInfo()
+           {
+               LookupString = objectToSpawn.name
+               
+           };
+           
+              ObjectPools.Add(pool);
+       }
+       // Check if there are any inactive objects in the pool
+       GameObject spawnableObject = null;
+       foreach (GameObject obj in pool.InactiveObjects)
+       {
+           if (obj != null)
+           {
+               spawnableObject = obj;
+               break;
+           }
+       }
 
-   public static void ReturnObjectToPool(GameObject obj)
+       if (spawnableObject == null)
+       {
+           //Find the parent of the empty object
+           GameObject parentObject = SetParentObject(poolType);
+           
+           
+           // If there are no inactive objects, create a new one
+           spawnableObject = Instantiate(objectToSpawn.gameObject, spawnPosition, spawnRotation);
+           spawnableObject.name = objectToSpawn.name;
+           
+           if (parentObject != null)
+           {
+               spawnableObject.transform.SetParent(parentObject.transform);
+           }
+       }
+       else
+       {
+           // If there is an inactive object, reactivate it
+           spawnableObject.transform.position = spawnPosition;
+           spawnableObject.transform.rotation = spawnRotation;
+           pool.InactiveObjects.Remove(spawnableObject.gameObject);
+           spawnableObject.gameObject.SetActive(true);
+       }
+       
+       return spawnableObject.gameObject.GetComponent<SpellImpactBehavior>();
+   }
+
+   public void ReturnObjectToPool(GameObject obj)
    {
        GameObject parentObject = obj.transform.parent.gameObject; // Get the immediate parent object
        
@@ -131,9 +204,8 @@ public class ObjectPoolManager : MonoBehaviour
        }
    }
    
-   public static void ReturnEnemyObjectToPool(GameObject obj)
+   public void ReturnEnemyObjectToPool(GameObject obj)
    {
-
        string goName = obj.name;
        
        if (goName.Contains("(Clone)"))
@@ -150,7 +222,6 @@ public class ObjectPoolManager : MonoBehaviour
        }
        else
        {
-           
            obj.SetActive(false);
            pool.InactiveObjects.Add(obj);
        }
@@ -174,8 +245,10 @@ public class ObjectPoolManager : MonoBehaviour
    }
 }
 
+[System.Serializable]
 public class PooledObjectInfo
 {
     public string LookupString;
     public List<GameObject> InactiveObjects = new List<GameObject>();
+    public int PoolSize = 100;
 }

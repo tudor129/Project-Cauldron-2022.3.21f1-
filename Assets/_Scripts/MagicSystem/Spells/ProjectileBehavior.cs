@@ -213,7 +213,14 @@ public class ProjectileBehavior : SpellBehavior
         // Spawn hit effect on trigger
         if (spellInfo.SpellImpactPrefab != null)
         {
-            SpellImpactBehavior hitInstance = Instantiate(_currentStats.SpellImpactPrefab, impactPoint + _currentStats.ImpactOffset, Quaternion.identity);
+            //SpellImpactBehavior hitInstance = Instantiate(_currentStats.SpellImpactPrefab, impactPoint + _currentStats.ImpactOffset, Quaternion.identity);
+            SpellImpactBehavior hitInstance = ObjectPoolManager.Instance.SpawnObject(
+                _currentStats.SpellImpactPrefab, 
+                impactPoint + _currentStats.ImpactOffset, 
+                Quaternion.identity, 
+                ObjectPoolManager.PoolType.ParticleSystem);
+            
+            
             hitInstance.spell = spell;
         }
         

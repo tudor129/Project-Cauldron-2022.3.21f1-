@@ -19,7 +19,8 @@ public class EnemyHealth : Health
     SpellInstance _spellInstance;
     
     bool _hasDoTEffect;
-    
+    bool _returningToPool;
+
     protected override void Awake()
     {
         base.Awake();
@@ -191,6 +192,25 @@ public class EnemyHealth : Health
         Enemy.ActiveEnemies.Remove(enemyComponent);
         
         LootManager.Instance.DropLoot(transform, EnemyData);
+        
+        HandleReturnToPool();
+    }
+    
+    void HandleReturnToPool()
+    {
+        _animatorManager.StopWalkingAnimation();
+        _returningToPool = true;
+        StartCoroutine(DelayedReturn(gameObject, 5f));
+    }
+    
+    IEnumerator DelayedReturn(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        StopAllCoroutines();
+        
+        ObjectPoolManager.Instance.ReturnEnemyObjectToPool(obj);
+        Respawn();
+        _returningToPool = false;
     }
 
     IEnumerator DeactivateEffectsAfterDelay(float delay)

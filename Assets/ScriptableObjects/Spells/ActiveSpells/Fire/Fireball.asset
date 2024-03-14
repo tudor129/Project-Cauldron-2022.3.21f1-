@@ -57,9 +57,9 @@ MonoBehaviour:
     StaggerDuration: 0
     SpawnsProjectilesSequentially: 0
     ShootBackwards: 0
-    NumberOfAttacks: 10
+    NumberOfAttacks: 1
     ProjectileInteval: 0.1
-    AngleStep: 360
+    AngleStep: 90
     SpreadRadius: 0.2
     IsFire: 0
     IsIce: 0
