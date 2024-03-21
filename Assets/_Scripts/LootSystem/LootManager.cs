@@ -28,10 +28,16 @@ public class LootManager : MonoBehaviour
             if (randomValue < cumulativeChance)
             {
                 Quaternion rotation = Quaternion.Euler(loot._rotationOffset);
-                GameObject droppedLoot = Instantiate(
+                // GameObject droppedLoot = Instantiate(
+                //     loot._lootPrefab, 
+                //     enemyTransform.position + new Vector3(0, loot._spawnHeightOffset, 0), 
+                //     rotation);
+                
+                GameObject droppedLoot = ObjectPoolManager.Instance.SpawnObject(
                     loot._lootPrefab, 
                     enemyTransform.position + new Vector3(0, loot._spawnHeightOffset, 0), 
-                    rotation);
+                    rotation, 
+                    ObjectPoolManager.PoolType.GameObject);
 
                 
                 if (droppedLoot.name.Contains("Chest_Closed"))  

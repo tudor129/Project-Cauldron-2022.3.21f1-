@@ -138,8 +138,8 @@ public class EnemySpawner : MonoBehaviour
                 Vector3 wavePosition = GetSquareFormationSpawnPosition();
                 
                 Vector3 spawnHeight = GetSpawnHeight();
-                
-                SpawnWave(wavePosition, formation);
+
+                StartCoroutine(SpawnWaveCoroutine(wavePosition, formation));
 
                 // Wait for x seconds before spawning the next wave
                 yield return new WaitForSeconds(_formationSpawnInterval);
@@ -168,7 +168,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
     
-    void SpawnWave(Vector3 wavePosition, Vector3[] formation)
+    IEnumerator SpawnWaveCoroutine(Vector3 wavePosition, Vector3[] formation)
     {
         foreach (Vector3 offset in formation)
         {
@@ -183,6 +183,8 @@ public class EnemySpawner : MonoBehaviour
                 enemy.SetEnemyData(enemySO);
                 enemy.GetAIDestinationSetter().target = _playerTransform;
             }
+
+            yield return null;
         }
     }
     

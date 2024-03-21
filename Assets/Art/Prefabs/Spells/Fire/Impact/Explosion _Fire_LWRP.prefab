@@ -4882,13 +4882,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 1
   m_VertexStreams: 000304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -4915,7 +4917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2789583195386849073
 Transform:
   m_ObjectHideFlags: 0
@@ -8918,7 +8920,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 2789583195386849072}
     randomDistribution: 1
@@ -9911,13 +9913,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 1
   m_VertexStreams: 0003040508
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -9939,6 +9943,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ddc3053a435f74f87e7e78dddd1e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spell: {fileID: 0}
+  playerData: {fileID: 0}
+  _currentStats:
+    Name: 
+    Description: 
+    SpellPrefab: {fileID: 0}
+    SpellImpactPrefab: {fileID: 0}
+    CharacterEffect: {fileID: 0}
+    VisualEffect: {fileID: 0}
+    DetachEffect: {fileID: 0}
+    HasFlash: 0
+    HasCastEffect: 0
+    SpellAnimation: 
+    CastSound: {fileID: 0}
+    TravelingSound: {fileID: 0}
+    LoopingSound: {fileID: 0}
+    ImpactSound: {fileID: 0}
+    CastSounds: []
+    TravelingSounds: []
+    LoopingSounds: []
+    ImpactSounds: []
+    SpellType: 0
+    ImpactOffset: {x: 0, y: 0, z: 0}
+    Damage: 0
+    Speed: 0
+    ProjectileLifetime: 0
+    ImpactLifetime: 0
+    SpellRadius: 0
+    Cooldown: 0
+    DamageOverTimeDamage: 0
+    DamageOverTimeDuration: 0
+    DamageOverTimeInterval: 0
+    DamageOverTimeInitialDelay: 0
+    StaggerDuration: 0
+    SpawnsProjectilesSequentially: 0
+    ShootBackwards: 0
+    NumberOfAttacks: 0
+    ProjectileInteval: 0
+    AngleStep: 0
+    SpreadRadius: 0
+    IsFire: 0
+    IsIce: 0
+    IsLightning: 0
+    IsPoison: 0
+    IsArcane: 0
+    DoesDoT: 0
+    IsPassThrough: 0
 --- !u!1 &8949245628013835320
 GameObject:
   m_ObjectHideFlags: 0
@@ -14822,13 +14873,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}

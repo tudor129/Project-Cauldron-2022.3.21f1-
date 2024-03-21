@@ -26,7 +26,7 @@ MonoBehaviour:
     CharacterEffect: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
-    HasFlash: 1
+    HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
     CastSound: {fileID: 8300000, guid: 333b4e42bcd54af49b3efeb7a1a2d8cd, type: 3}
@@ -47,9 +47,10 @@ MonoBehaviour:
     ImpactOffset: {x: 0, y: 0.1, z: 0}
     Damage: 100
     Speed: 8
-    Lifetime: 3
+    ProjectileLifetime: 3
+    ImpactLifetime: 0.8
     SpellRadius: 0
-    Cooldown: 1.5
+    Cooldown: 1
     DamageOverTimeDamage: 3
     DamageOverTimeDuration: 10
     DamageOverTimeInterval: 1
@@ -57,7 +58,7 @@ MonoBehaviour:
     StaggerDuration: 0
     SpawnsProjectilesSequentially: 0
     ShootBackwards: 0
-    NumberOfAttacks: 1
+    NumberOfAttacks: 10
     ProjectileInteval: 0.1
     AngleStep: 90
     SpreadRadius: 0.2
@@ -91,9 +92,10 @@ MonoBehaviour:
     ImpactSounds: []
     SpellType: 0
     ImpactOffset: {x: 0, y: 0, z: 0}
-    Damage: -6
+    Damage: 0
     Speed: 0
-    Lifetime: 1
+    ProjectileLifetime: 0
+    ImpactLifetime: 0
     SpellRadius: 0
     Cooldown: 0
     DamageOverTimeDamage: 0

@@ -27,7 +27,7 @@ public class ReturnToPool : MonoBehaviour
     {
         if (gameObject.activeInHierarchy && gameObject != null)
         {
-            ObjectPoolManager.Instance.ReturnEnemyObjectToPool(gameObject);
+            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
         }
     }
     

@@ -12,10 +12,23 @@ public class Fireball : BaseActiveSpell
     protected float _currentCooldown;
     protected bool _readyForAttack = true;
     
+    
+    ProjectileBehavior _projectileBehaviorGameObject;
+    IEnumerator _despawnAfterdelay;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        //_currentStats = GetStats();
+    }
+
     protected override void Start()
     {
         base.Start();
         _currentAttackInterval = _currentStats.ProjectileInteval;
+        //_currentStats = GetStats();
+        
+        
     }
    
     protected override void Update()
@@ -50,6 +63,12 @@ public class Fireball : BaseActiveSpell
         }
     }
     
+    IEnumerator DespawnAfterDelay(float delay, GameObject gameObject)
+    {
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        ObjectPoolManager.Instance.ReturnObjectToPool(gameObject); // then call your function to return the game object to the pool
+    }
+    
     public virtual bool CanAttack()
     {
         if (_currentAttackCount > 0) return true;
@@ -79,8 +98,20 @@ public class Fireball : BaseActiveSpell
                 Vector3 direction = Quaternion.Euler(0, angleStep * i - offsetAngle, 0) * GetDirection();
                 Vector3 spawnPosition = basePosition + direction * radius; // Calculate the spawn position
                 
-                SpellBehavior prefab = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
-                prefab.spell = this;
+                //SpellBehavior prefab = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
+                
+                ProjectileBehavior prefab = ObjectPoolManager.Instance.SpawnObject(
+                    _currentStats.SpellPrefab, 
+                    spawnPosition, 
+                    Quaternion.LookRotation(direction), 
+                    ObjectPoolManager.PoolType.Projectiles);
+                
+                prefab.Initialize(this);
+                
+                StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime, prefab.gameObject));
+              
+                //prefab.spell = this;
+                
                 if (_currentStats.CastSound != null)
                 {
                     SoundFXManager.Instance.PlaySoundFXClip(_currentStats.CastSound, prefab.transform, 0.5f);
@@ -106,8 +137,21 @@ public class Fireball : BaseActiveSpell
                 Vector3 direction = Quaternion.Euler(0, angleStep * i - offsetAngle, 0) * GetDirection();
                 Vector3 spawnPosition = basePosition + direction * radius; // Calculate the spawn position
 
-                SpellBehavior prefab1 = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
-                prefab1.spell = this;
+                //ProjectileBehavior prefab1 = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
+                
+                ProjectileBehavior prefab1 = ObjectPoolManager.Instance.SpawnObject(
+                    _currentStats.SpellPrefab, 
+                    spawnPosition, 
+                    Quaternion.LookRotation(direction), 
+                    ObjectPoolManager.PoolType.Projectiles);
+                
+                prefab1.Initialize(this);
+                
+                StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime, prefab1.gameObject));
+                
+                // prefab1.spell = this;
+                // prefab1.spell.GetStats();
+                
                 if (_currentStats.CastSound != null)
                 {
                     SoundFXManager.Instance.PlaySoundFXClip(_currentStats.CastSound, prefab1.transform, 0.5f);
@@ -134,5 +178,13 @@ public class Fireball : BaseActiveSpell
                 return _player.transform.forward;
             }
         }
+        
+        
+       
+        
+        
+      
     }
+    
+    
 }

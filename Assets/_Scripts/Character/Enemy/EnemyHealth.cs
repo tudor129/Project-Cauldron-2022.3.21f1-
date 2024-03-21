@@ -208,7 +208,7 @@ public class EnemyHealth : Health
         yield return new WaitForSeconds(delay);
         StopAllCoroutines();
         
-        ObjectPoolManager.Instance.ReturnEnemyObjectToPool(obj);
+        ObjectPoolManager.Instance.ReturnObjectToPool(obj);
         Respawn();
         _returningToPool = false;
     }

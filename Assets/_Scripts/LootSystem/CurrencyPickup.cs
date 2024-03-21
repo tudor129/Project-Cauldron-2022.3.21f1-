@@ -13,6 +13,17 @@ public class CurrencyPickup : MonoBehaviour
     bool _isBeingAttracted = false;
     Transform _playerTransform;
     Player _player;
+    bool _isInitialized;
+
+
+    void OnEnable()
+    {
+        _player = FindObjectOfType<Player>();
+
+        transform.localScale = new Vector3(4, 4, 4);
+        
+        
+    }
 
     void Start()
     {
@@ -21,12 +32,32 @@ public class CurrencyPickup : MonoBehaviour
         magnetCollider.radius = _magnetRadius;
         magnetCollider.isTrigger = true;
         
+        //AttractToPlayer();
+        
+    }
+    
+    public void Initialize()
+    {
+        if (_isInitialized) return;  // Prevent re-initialization
+
+        
+      
+        _isInitialized = true;
+
+        
+
+        // Perform any operations previously in Awake or Start that depend on initialization here
+        PostInitialization();
     }
 
-    void OnEnable()
+    void PostInitialization()
     {
-        _player = FindObjectOfType<Player>();
+        //StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime));
     }
+
+   
+    
+    
 
     void Update()
     {
@@ -81,12 +112,17 @@ public class CurrencyPickup : MonoBehaviour
         transform.DOKill();
         if(transform.parent != null) // check if there is a parent object
         {
-            Destroy(transform.parent.gameObject);
+            //Destroy(transform.parent.gameObject);
+            Debug.Log("Return parent obj");
+            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+            
         }
         else
         {
+            Debug.Log("Return obj");
             // Destroy the current object if there's no parent
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
         }
         _isBeingAttracted = false;
     }

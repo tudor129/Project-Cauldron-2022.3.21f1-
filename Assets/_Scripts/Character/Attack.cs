@@ -29,7 +29,7 @@ public class Attack : MonoBehaviour
     
     public void PerformAttack()
     {
-        var particleSystem = ObjectPoolManager.Instance.SpawnObject(_attackEffectPrefab, _objectHolder.transform.position, transform.rotation, ObjectPoolManager.PoolType.ParticleSystem);
+        var particleSystem = ObjectPoolManager.Instance.SpawnObject(_attackEffectPrefab, _objectHolder.transform.position, transform.rotation, ObjectPoolManager.PoolType.ImpactHits);
         
     }
 }

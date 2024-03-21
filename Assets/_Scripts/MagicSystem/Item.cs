@@ -15,8 +15,8 @@ public abstract class Item : MonoBehaviour
    {
       MaxLevel = data.MaxLevel;
 
-      // We have to find a better way to reference the player inventory
-      // in future, as this is inefficient.
+      // We have to find a better way to reference the player SpellManager
+      // in the future, as this is inefficient.
       _spellManager = FindObjectOfType<SpellManager>();
       _playerStats = FindObjectOfType<PlayerStats>();
       _player = FindObjectOfType<Player>();

@@ -43,8 +43,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Cin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{04659f1f-621c-ffae-a9d6-770e6df5ce93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAA.Runtime", "TAA.Runtime.csproj", "{1747f795-4b30-f9ac-fb96-8cec688e3c1b}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.NiceVibrations", "MoreMountains.Feedbacks.NiceVibrations.csproj", "{b6c92537-a843-a982-e25b-025b5f81a946}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoreMountains.Feedbacks.Authorizations", "MoreMountains.Feedbacks.Authorizations.csproj", "{07393e57-d7cb-74b6-403c-78c77bb698b2}"
@@ -106,8 +104,6 @@ Global
 		{e96d7149-8c06-0346-3aac-4c67ba813ffa}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04659f1f-621c-ffae-a9d6-770e6df5ce93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04659f1f-621c-ffae-a9d6-770e6df5ce93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1747f795-4b30-f9ac-fb96-8cec688e3c1b}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1747f795-4b30-f9ac-fb96-8cec688e3c1b}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b6c92537-a843-a982-e25b-025b5f81a946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b6c92537-a843-a982-e25b-025b5f81a946}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07393e57-d7cb-74b6-403c-78c77bb698b2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

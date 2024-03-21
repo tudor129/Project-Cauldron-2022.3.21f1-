@@ -41,7 +41,8 @@ MonoBehaviour:
     ImpactOffset: {x: 0, y: 0.1, z: 0}
     Damage: 10
     Speed: 8
-    Lifetime: 3
+    ProjectileLifetime: 3
+    ImpactLifetime: 0.8
     SpellRadius: 0
     Cooldown: 2
     DamageOverTimeDamage: 0
@@ -85,7 +86,8 @@ MonoBehaviour:
     ImpactOffset: {x: 0, y: 0, z: 0}
     Damage: 4
     Speed: 0
-    Lifetime: 0
+    ProjectileLifetime: 0
+    ImpactLifetime: 0
     SpellRadius: 0
     Cooldown: -1.5
     DamageOverTimeDamage: 0

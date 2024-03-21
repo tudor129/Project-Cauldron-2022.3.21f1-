@@ -10,15 +10,30 @@ public class SpellBehavior : MonoBehaviour
     
     
     
-    protected Spell.Stats _currentStats;
+    
+    
+    public Spell.Stats _currentStats;
     
     protected virtual void Awake()
     {
         _player = GameManager.Instance.player;
+        
+      
+        //Debug.Log("Current stats for ImpactLifetime in awake: " + _currentStats.SpellPrefab.name);
+        // _currentStats = spell.GetStats();
+        // Debug.Log("Current stats for ImpactLifetime in awake: " + _currentStats.SpellPrefab.name);
+        
     }
 
     protected virtual void Start()
     {
-        _currentStats = spell.GetStats();
+        // if (!_isInitialized)
+        // {
+        //     _currentStats = spell.GetStats();
+        // }
+        
+       
     }
+    
+   
 }

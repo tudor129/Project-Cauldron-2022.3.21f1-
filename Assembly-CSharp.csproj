@@ -26,7 +26,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\Bin\Debug\Assembly-CSharp\</OutputPath>
-    <DefineConstants>UNITY_2022_3_21;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <DefineConstants>UNITY_2022_3_21;UNITY_2022_3;UNITY_2022;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_2020_1_OR_NEWER;UNITY_2020_2_OR_NEWER;UNITY_2020_3_OR_NEWER;UNITY_2021_1_OR_NEWER;UNITY_2021_2_OR_NEWER;UNITY_2021_3_OR_NEWER;UNITY_2022_1_OR_NEWER;UNITY_2022_2_OR_NEWER;UNITY_2022_3_OR_NEWER;PLATFORM_ARCH_64;UNITY_64;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_VIRTUALTEXTURING;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_EDITOR_GAME_SERVICES;ENABLE_UNITY_GAME_SERVICES_ANALYTICS_SUPPORT;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_GENERATE_NATIVE_PLUGINS_FOR_ASSEMBLIES_API;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_MANAGED_UNITYTLS;INCLUDE_DYNAMIC_GI;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_VIDEO;ENABLE_ACCELERATOR_CLIENT_DEBUGGING;ENABLE_NAVIGATION_PACKAGE_DEBUG_VISUALIZATION;ENABLE_NAVIGATION_HEIGHTMESH_RUNTIME_SUPPORT;ENABLE_NAVIGATION_UI_REQUIRES_PACKAGE;PLATFORM_STANDALONE;TEXTCORE_1_0_OR_NEWER;PLATFORM_STANDALONE_WIN;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_NVIDIA;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_OUT_OF_PROCESS_CRASH_HANDLER;ENABLE_CLUSTER_SYNC;ENABLE_CLUSTERINPUT;PLATFORM_UPDATES_TIME_OUTSIDE_OF_PLAYER_LOOP;GFXDEVICE_WAITFOREVENT_MESSAGEPUMP;PLATFORM_INITIALIZES_MEMORY_MANAGER_EXPLICITLY;ENABLE_MONO;NET_STANDARD_2_0;NET_STANDARD;NET_STANDARD_2_1;NETSTANDARD;NETSTANDARD2_1;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_INPUT_SYSTEM;ENABLE_LEGACY_INPUT_MANAGER;TEXTCORE_FONT_ENGINE_1_5_OR_NEWER;MOREMOUNTAINS_NICEVIBRATIONS_INSTALLED;ODIN_INSPECTOR;ODIN_INSPECTOR_3;ODIN_INSPECTOR_3_1;DOTWEEN;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169,0649</NoWarn>
@@ -61,7 +61,6 @@
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Utils\UI\Dragging\IDragContainer.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\IK\Bases\FIK_Base.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\Core\IAction.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\VolumetricLightedSEGI_FAR_B.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\UI\Inventories\InventoryDragItem.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Animating Help\FootAnalyze.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Procedural\FMuscles.cs" />
@@ -105,13 +104,12 @@
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Math Helpers\Helpers\FColorMethods.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\DamageUpgradeDecorator.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\VolumetricLightedSEGI.cs" />
     <Compile Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Scripts\Hovl_Laser.cs" />
     <Compile Include="Assets\HIGHLANDS - Stylized Environment\Scripts\LightCulling.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\_Scripts\Character\Player\PlayerActionsManager.cs" />
-    <Compile Include="Assets\_Scripts\ProceduralTerrain\TerrainTile.cs" />
     <Compile Include="Assets\Art\Spells Pack\Demo\Scripts\CreateProjectile.cs" />
+    <Compile Include="Assets\_Scripts\ProceduralTerrain\TerrainTile.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Passive\ChainLightningSpell.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Inventories\PickupSpawner.cs" />
     <Compile Include="Assets\_Assets(DeleteAfterUse)\HONETi\fantasy_gui_4\scripts\SliderManager.cs" />
@@ -154,7 +152,6 @@
     <Compile Include="Assets\_Assets(DeleteAfterUse)\HONETi\fantasy_gui_4\scripts\ResizePanel.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\UI\Inventories\InventoryDropTarget.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Item.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\LUMINA_FAR.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\UI\Inventories\IItemHolder.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Utils\UI\Dragging\DragItem.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Saving\SaveableEntity.cs" />
@@ -166,7 +163,6 @@
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\Core\FollowCamera.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\SceneManagement\SavingWrapper.cs" />
     <Compile Include="Assets\_Scripts\ProceduralTerrain\WorldScrolling.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\LUMINAPreset.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Passive\BaseAutoCastSpell.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\IK\Bases\FIK_IKProcessor.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\ISpellUpgrade.cs" />
@@ -182,7 +178,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Active\MagicFlame\MagicFlameLogic.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\DoTDamageUpgradeDecoratorLevel2.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\LUMINA_FAR_A.cs" />
     <Compile Include="Assets\_Assets(DeleteAfterUse)\HONETi\fantasy_gui_4\scripts\LoadingSimulation.cs" />
     <Compile Include="Assets\Data\InputSystem\PlayerInputActions.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\SpellManager.cs" />
@@ -212,7 +207,6 @@
     <Compile Include="Assets\_Scripts\LootSystem\RandomLoot.cs" />
     <Compile Include="Assets\_Scripts\RunoverPickup.cs" />
     <Compile Include="Assets\_Scripts\Character\Player\UI\XpBarUI.cs" />
-    <Compile Include="Assets\ARTnGAME\Common Tools\ScreenSpaceReflectionsURP\Runtime\LimSSR.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Utils\UI\Tooltips\TooltipSpawner.cs" />
     <Compile Include="Assets\HIGHLANDS - Stylized Environment\Scripts\WindSettings.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\UI\Inventories\InventoryUI.cs" />
@@ -222,7 +216,6 @@
     <Compile Include="Assets\_Scripts\InventorySystem\ItemData.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Math Helpers\Animating\FAnimatorMethods.cs" />
     <Compile Include="Assets\_Scripts\Character\Player\PlayerStat.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\DepthNormalsLUMINAFeature.cs" />
     <Compile Include="Assets\_Scripts\UI\ThemeSO.cs" />
     <Compile Include="Assets\_Scripts\ProceduralTerrain\Tile.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\Core\ActionScheduler.cs" />
@@ -240,7 +233,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\_Scripts\SpawnCameraOnClick.cs" />
-    <Compile Include="Assets\ARTnGAME\Common Tools\MobileSSPR\Scene\ExampleSceneScript_MobileSSPR.cs" />
     <Compile Include="Assets\_Scripts\CraftingSystem\CraftingSystem.cs" />
     <Compile Include="Assets\FImpossible Creations\Shared Tools\Editor Tools\FEditor_Handles.cs" />
     <Compile Include="Assets\_Scripts\SelectedObject.cs" />
@@ -271,7 +263,6 @@
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Active\CastingEffect.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\UI\ShowHideUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\FreeCameraLUMINA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\_Scripts\Character\Enemy\SeparationForceJob.cs" />
     <Compile Include="Assets\_Scripts\UI\Style.cs" />
@@ -279,12 +270,9 @@
     <Compile Include="Assets\_Scripts\MagicSystem\Abilities\Dash\DashEffect.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Active\IceProjectileSpell.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\URP Volumetric Shafts\Helper Scripts\ProceduralNoiseGILUMINA.cs" />
     <Compile Include="Assets\FImpossible Creations\Shared Tools\GUI Helpers\FGUI_Handles.cs" />
     <Compile Include="Assets\_Scripts\UI\CustomUITextSO.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Math Helpers\Math\FEasing.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\SEGI_SRP\SEGI_SRP.cs" />
-    <Compile Include="Assets\ARTnGAME\Common Tools\MobileSSPR\ReusableCore\MobileSSPRRendererFeature.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\Control\PlayerController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -293,9 +281,7 @@
     <Compile Include="Assets\_Scripts\MagicSystem\SpellFactory.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\_Scripts\DayNightLighting.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\VolumetricLightedSEGI_FAR_A.cs" />
     <Compile Include="Assets\_Scripts\UI\View.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\rotateLightSM.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\_Assets(DeleteAfterUse)\HONETi\fantasy_gui_4\scripts\BallMask.cs" />
     <Compile Include="Assets\_Scripts\Character\Enemy\EnemySpawner.cs" />
@@ -312,12 +298,10 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\_Scripts\Character\Enemy\EnemyManager.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\UI\Inventories\ActionSlotUI.cs" />
-    <Compile Include="Assets\ARTnGAME\Temporal AA\TEMPORAL 2\TemporalAAFeature.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Inventories\Inventory.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Math Helpers\Math\FTransformMethods.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Procedural\UniRotateBone.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\IK\Limb\FimpIK_Limb.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\URP Volumetric Shafts\Helper Scripts\PerlinGILUMINA.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Saving\ISaveable.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Math Helpers\Helpers\FStringMethods.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\Control\ClickablePickup.cs" />
@@ -325,25 +309,20 @@
     <Compile Include="Assets\_Scripts\UI\ViewSO.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\ScriptableObjects\SpellStatUpgradeData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\VolumetricLightedSEGI_FAR.cs" />
     <Compile Include="Assets\_Scripts\InventorySystem\HotBar.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Passive\LightningStruckEffect.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\IK\Arm\FimpIK_Arm.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\RunTimeLUMINA.cs" />
     <Compile Include="Assets\_Scripts\LootSystem\CurrencyManager.cs" />
     <Compile Include="Assets\_Scripts\Managers\InputHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\FImpossible Creations\Shared Tools\Editor Tools\Property Attributes\FPD_SuffixAttribute.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\RunTimeLUMINA_FAR.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\LUMINA_FAR_B.cs" />
     <Compile Include="Assets\_Scripts\Character\CharacterAnimatorManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Active\BaseActiveSpell.cs" />
     <Compile Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Scripts\HS_HittedObject.cs" />
     <Compile Include="Assets\_Scripts\ResetActionFlag.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Level Design\Generators Shared\FGenerators\FGeneratorsGizmosDrawer.cs" />
-    <Compile Include="Assets\ARTnGAME\Common Tools\DepthNormals\DepthNormalsByLayerLUMINAFeature.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\ScriptableObjects\SpellData.cs" />
     <Compile Include="Assets\_Scripts\Character\Enemy\Enemy.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Saving\SerializableVector3.cs" />
@@ -352,16 +331,15 @@
     <Compile Include="Assets\FImpossible Creations\Shared Tools\Editor Tools\Property Attributes\FPD_HeaderAttribute.cs" />
     <Compile Include="Assets\_Scripts\UI\DamageNumbers\DamageNumberLogic.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Active\Fire\WildfireProjectileSpell.cs" />
-    <Compile Include="Assets\ARTnGAME\Temporal AA\TEMPORAL 2\TemporalAACamera.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\SpellImpactBehavior.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Inventories\ActionItemSo.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\DoTDamageUpgradeDecoratorLevel1.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\Scripts\Core\DestroyAfterEffect.cs" />
+    <Compile Include="Assets\_Scripts\SetCoinRotation.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\Math Helpers\Math\FVectorMethods.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Level Design\Generators Shared\Helpers\MinMax.cs" />
     <Compile Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Scripts\Hovl_LaserDemo.cs" />
     <Compile Include="Assets\_Assets(DeleteAfterUse)\HONETi\fantasy_gui_4\scripts\VideoPlayer.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\LUMINA.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Passive\LightningStrikeSpell.cs" />
     <Compile Include="Assets\_Scripts\Character\Enemy\EnemyVisualEffects.cs" />
     <Compile Include="Assets\_Scripts\LookAtCamera.cs" />
@@ -374,7 +352,6 @@
     <Compile Include="Assets\_Assets(DeleteAfterUse)\HONETi\fantasy_gui_4\scripts\ChildGameObjects.cs" />
     <Compile Include="Assets\_Scripts\TransparentObject.cs" />
     <Compile Include="Assets\FImpossible Creations\Plugins - Shared\IK\Arm\FimpIK_Arm.Prepare.cs" />
-    <Compile Include="Assets\ARTnGAME\Lumina\Scripts\LUMINA_DEMO.cs" />
     <Compile Include="Assets\_Scripts\Character\Attack.cs" />
     <Compile Include="Assets\_Scripts\Character\Player\UI\EnemyHealthBarUI.cs" />
     <Compile Include="Assets\_Scripts\InventorySystemGameDev.tv\GameDev.tv Assets\Scripts\Inventories\EquipableItemSo.cs" />
@@ -384,102 +361,70 @@
     <Compile Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Scripts\HS_FrontSpawner.cs" />
     <Compile Include="Assets\_Scripts\InteractionRaycaster.cs" />
     <Compile Include="Assets\FImpossible Creations\Shared Tools\GUI Helpers\FGUI_Finders.cs" />
-    <Compile Include="Assets\ARTnGAME\Common Tools\ScreenSpaceReflectionsURP\Runtime\DepthPyramid.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\_Scripts\Character\Enemy\DynamicEnemyCulling.cs" />
     <Compile Include="Assets\_Scripts\MagicSystem\Spells\Active\Fire\FireCastingEffect.cs" />
     <Compile Include="Assets\_Scripts\TransparentObjectsController.cs" />
     <Compile Include="Assets\HIGHLANDS - Stylized Environment\Scripts\PhysicsObject.cs" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITraceScene_FAR_A.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITransferInts.compute" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITransferInts_C.compute" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeScene_C.shader" />
     <None Include="Assets\TerrainSampleAssets\ThirdPartyNotices.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI_FAR_B.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITransferInts_FAR.compute" />
     <None Include="Assets\Nova\Shaders\Resources\NovaDropShadowUnlit.shader" />
-    <None Include="Assets\ARTnGAME\Common Tools\ScreenSpaceReflectionsURP\LICENSE.txt" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\URP Volumetric Shafts\Shader\Resources\RadialBlur.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaTextBlockStandardSpecularTransparent.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Nova\Shaders\Generated\UIBlock2D.g.cginc" />
     <None Include="Assets\Nova\Shaders\Resources\NovaDropShadowStandardSpecularTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI.cginc" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Creature Animset\Animation List - Creature Animset.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIRenderSunDepth_C.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DBlinnPhongTransparent.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaTextBlockBlinnPhongTransparent.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\AAA Projectiles Vol 1\Prefabs\Readme.txt" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock2DStandardSpecularTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI_FAR_A.shader" />
-    <None Include="Assets\ARTnGAME\Common Tools\ScreenSpaceReflectionsURP\Shaders\HiZ_shader.compute" />
-    <None Include="Assets\ARTnGAME\Lumina\LUMINA README FIRST.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Crowd Animset\Animation List - Crowd Animset.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\1Handed Melee Weapon Animset\Animation List - 1 Handed Melee Weapon Animset.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Oswald-Bold - OFL.txt" />
-    <None Include="Assets\ARTnGAME\Common Tools\ScreenSpaceReflectionsURP\Shaders\ssr_shader.shader" />
     <None Include="Assets\Nova\Shaders\DropShadow.cginc" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\URP Volumetric Shafts\Shader\Resources\GradientNoise.hlsl" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Lit_CenterGlow.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PolygonNature\Shaders\SyntyStudios_LOD.shader" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Anton OFL.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\SmoothSmoke.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\RPG VFX Bundle\Prefabs\HDRP and URP(LWRP).txt" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIBlocker.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Demos\Assets\classroom CC0\ReadMe.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\DissolveNoise.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\Nova\Shaders\NovaPostV2F.cginc" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI_C.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Wizard Animset\Animation List - Wizard Animset.txt" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DStandardTransparent.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock2DLambertTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\URP Volumetric Shafts\LICENSE.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\letsmakecoolart\Potion_Props_Pack\Art\Documentation.txt" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DStandardSpecularOpaque.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeScene_FAR.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Add_Fresnel.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeSceneVERTL.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaTextBlockUnlit.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Ice.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaTextBlockStandardTransparent.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Distortion.shader" />
-    <None Include="Assets\ARTnGAME\Temporal AA\Shader\Resources\TAA.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DLambertOpaque.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Blend_TwoSides.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Electricity.shader" />
     <None Include="Assets\Nova\Shaders\NovaDataStructures.cginc" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIMipFilter_FAR.compute" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock2DUnlit.shader" />
     <None Include="Assets\Feel\readme.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Blend_CenterGlow.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Blend_Normals.shader" />
-    <None Include="Assets\ARTnGAME\Common Tools\MobileSSPR\ReusableCore\Resources\MobileSSPRComputeShader.compute" />
-    <None Include="Assets\ARTnGAME\Common Tools\MobileSSPR\ReusableCore\MobileSSPRInclude.hlsl" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\URP Volumetric Shafts\Shader\Resources\UnlitColor.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\Render Pipelines support\Documentation.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\AOE Magic spells Vol.1\Prefabs\Readme.txt" />
     <None Include="Assets\HIGHLANDS - Stylized Environment\Shaders\Highlands_Foliage.shader" />
     <None Include="Assets\Feel\license.txt" />
     <None Include="Assets\Nova\Shaders\Nova.cginc" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DUnlit.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeSceneVERT.shader" />
-    <None Include="Assets\ARTnGAME\Temporal AA\TEMPORAL 2\Resources\TemporalAAShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI_FAR.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\LightGlow.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock2DBlinnPhongTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Temporal AA\TEMPORAL 2\LICENSE.txt" />
     <None Include="Assets\Nova\Shaders\NovaPreV2F.cginc" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DBlinnPhongOpaque.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Demos\Assets\FPS Unity Assets\license.txt" />
     <None Include="Assets\Nova\Shaders\TextBlock.cginc" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Lightning.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
@@ -489,18 +434,13 @@
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\Magic circles\Prefabs\Loop version\How to use.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\Nova\Shaders\NovaTMPProperties.cginc" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIRenderSunDepth.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PolygonNature\Shaders\SyntyStudios_Vines.shader" />
-    <None Include="Assets\ARTnGAME\Temporal AA\LICENSE.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Blend_LinePath.shader" />
     <None Include="Assets\Nova\Shaders\Generated\TextBlock.g.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Basic Locomotion Animset\Animation List - Basic Locomotion Animset.txt" />
     <None Include="Assets\Nova\Shaders\Resources\NovaDropShadowLambertTransparent.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PolygonNature\Shaders\SyntyStudios_Water.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeScene_FAR_B.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI.shader" />
-    <None Include="Assets\ARTnGAME\Common Tools\MobileSSPR\ReusableCore\MobileSSPRExampleShader.shader" />
     <None Include="Assets\Nova\Shaders\UIBlock3D.cginc" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\BlendDistort.shader" />
     <None Include="Assets\Nova\Shaders\UIBlock2D.cginc" />
@@ -508,43 +448,27 @@
     <None Include="Assets\Art\Spells Pack\Documentation\Documentation.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\AddTrail.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PolygonNature\Shaders\SyntyStudios_Trees.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIClear_C.compute" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PolygonNature\Shaders\VS_indirect.cginc" />
-    <None Include="Assets\ARTnGAME\Common Tools\WelcomeScreen\LICENSE.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Fire.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DStandardSpecularTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeSceneL.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeScene_FAR_A.shader" />
     <None Include="Assets\Nova\Shaders\Generated\DropShadow.g.cginc" />
     <None Include="Assets\HIGHLANDS - Stylized Environment\Shaders\Highlands_Surface.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIClear.compute" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITraceSceneVERT.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITraceScene_FAR.shader" />
     <None Include="Assets\Nova\Shaders\Generated\NovaDataTypes.g.cginc" />
-    <None Include="Assets\ARTnGAME\Common Tools\MobileSSPR\LICENSE.txt" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITraceScene_FAR_B.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DLambertTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITraceScene.shader" />
     <None Include="Assets\Nova\Shaders\Resources\NovaDropShadowBlinnPhongTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI_SRP.shader" />
     <None Include="Assets\Nova\Shaders\Generated\UIBlock3D.g.cginc" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\2Handed Melee Weapon Animset\Animation List - 2 Handed Melee Weapon Animset.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\Hovl Studio\HSFiles\Shaders\Add_CenterGlow.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIMipFilter_C.compute" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Campfire Animset\Animation List - Campfire Animset.txt" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PolygonNature\Shaders\SyntyStudios_Moss.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIClear_FAR.compute" />
     <None Include="Assets\Assets\PolygonHorrorMansion\Materials\Shaders\SyntyStudios_Grunge.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock3DStandardOpaque.shader" />
-    <None Include="Assets\ARTnGAME\Common Tools\ScreenSpaceReflectionsURP\Shaders\NormalSample.hlsl" />
     <None Include="Assets\Nova\Shaders\Resources\NovaTextBlockLambertTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGI_C.cginc" />
     <None Include="Assets\Nova\Shaders\Resources\NovaUIBlock2DStandardTransparent.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGITraceScene_C.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Dual Swords Animset\Animation List - Dual Swords Animset.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PolygonNature\Shaders\SyntyStudios_SkyGradient.shader" />
@@ -553,11 +477,8 @@
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Bow &amp; Arrow Animset\Animation List - Bow&amp;Arrow Animset.txt" />
     <None Include="Assets\TerrainSampleAssets\ShaderGraphs\CustomFunctions\CustomLighting.hlsl" />
     <None Include="Assets\_Assets(DeleteAfterUse)\PROTOFACTOR\Ultimate Animation Collection\Animations\Sword&amp;Shield Animset\Animation List - Sword &amp; Shield Animset.txt" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIMipFilter.compute" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne.json" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\Resources\SEGIVoxelizeScene.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-    <None Include="Assets\ARTnGAME\Lumina\Scripts\SEGI\LICENSE.txt" />
     <None Include="Assets\FImpossible Creations\Directories Description.txt" />
     <None Include="Assets\TextMesh Pro\Examples &amp; Extras\Fonts\Bangers - OFL.txt" />
     <Reference Include="UnityEngine">
@@ -1226,6 +1147,15 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Runtime">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="DrawingEditor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\DrawingEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
@@ -1235,14 +1165,38 @@
     <Reference Include="Unity.ScriptableBuildPipeline">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Entities">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="DrawingPackageToolsEditor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\DrawingPackageToolsEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Entities.Build">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Build.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Drawing">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Drawing.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Config.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Config.Runtime.dll</HintPath>
+    <Reference Include="Unity.Entities.Hybrid">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualEffectGraph.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll</HintPath>
@@ -1268,6 +1222,9 @@
     <Reference Include="Unity.Deformations">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Deformations.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Collections.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="PPv2URPConverters">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
     </Reference>
@@ -1277,104 +1234,17 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Extensions.Hybrid">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Burst">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Serialization.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Serialization.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InputSystem.ForUI">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Transforms">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Transforms.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Serialization">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Scenes.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Scenes.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Entities.UI">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Entities.Editor.Properties">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Editor.Properties.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Searcher.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Scenes">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Scenes.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualEffectGraph.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Entities">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="DrawingPackageToolsEditor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\DrawingPackageToolsEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Entities.Hybrid">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Hybrid.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualEffectGraph.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualEffectGraph.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Mathematics.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Collections.Editor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Collections.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="AstarPathfindingProjectEditor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\AstarPathfindingProjectEditor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Profiling.Core">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Profiling.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Extensions.Hybrid">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Extensions.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
@@ -1385,8 +1255,14 @@
     <Reference Include="Unity.TerrainTools.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.TerrainTools.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Runtime">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -1400,6 +1276,12 @@
     <Reference Include="Unity.ShaderGraph.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
@@ -1409,8 +1291,17 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Transforms.Hybrid">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Transforms.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Serialization.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Serialization.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
@@ -1418,26 +1309,56 @@
     <Reference Include="Unity.InputSystem">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Transforms">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Transforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Serialization">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Scenes.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Scenes.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem.ForUI">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.InputSystem.ForUI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Entities.UI">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.UI.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Editor.Properties">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Editor.Properties.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Universal.Shaders">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Searcher.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Searcher.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Mathematics.Extensions">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Mathematics.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="DrawingEditor">
-      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\DrawingEditor.dll</HintPath>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Scenes">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Scenes.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities.Editor">
       <HintPath>C:\Users\pirsa\wkspaces\Project Cauldron\Library\ScriptAssemblies\Unity.Entities.Editor.dll</HintPath>
@@ -1455,21 +1376,61 @@
       <Project>{822cf50f-03d9-475e-fcf0-78be14507483}</Project>
       <Name>MoreMountains.Feedbacks.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
+      <Project>{b47ad9c4-ab8b-4c7f-ac4c-79ebba5acca1}</Project>
+      <Name>MoreMountains.Tools.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.PostProcessing.csproj">
       <Project>{27d85fc0-2d62-2976-1360-d9fea119d182}</Project>
       <Name>MoreMountains.Feedbacks.PostProcessing</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
+      <Project>{4073c94b-92ba-5ed6-5319-d5f4fb45194f}</Project>
+      <Name>MoreMountains.Feedbacks</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.URP.csproj">
       <Project>{bfa935bc-cbd1-a033-6fbb-3868027eeb87}</Project>
       <Name>MoreMountains.Feedbacks.URP</Name>
     </ProjectReference>
+    <ProjectReference Include="Lofelt.NiceVibrations.csproj">
+      <Project>{71af4d42-f059-9292-aee9-dd9c645ee036}</Project>
+      <Name>Lofelt.NiceVibrations</Name>
+    </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.TextMeshPro.csproj">
       <Project>{8ce609cc-0afe-3571-a856-ddd36d100540}</Project>
       <Name>MoreMountains.Feedbacks.TextMeshPro</Name>
     </ProjectReference>
+    <ProjectReference Include="AllIn1VfxDemoScriptAssemblies.csproj">
+      <Project>{29262eac-d700-8238-a55c-3a46ddbcf8a4}</Project>
+      <Name>AllIn1VfxDemoScriptAssemblies</Name>
+    </ProjectReference>
+    <ProjectReference Include="DamageNumbersPro.csproj">
+      <Project>{57099fc7-02ac-6703-9eed-597d90d86d54}</Project>
+      <Name>DamageNumbersPro</Name>
+    </ProjectReference>
     <ProjectReference Include="Nova.UIControls.csproj">
       <Project>{91435f0a-748e-e96d-0a21-ae19a70bfb9a}</Project>
       <Name>Nova.UIControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="Nova.csproj">
+      <Project>{ecc6d1df-e049-dfe6-01c0-582bddfe1da0}</Project>
+      <Name>Nova</Name>
+    </ProjectReference>
+    <ProjectReference Include="AllIn1VfxAssmebly.csproj">
+      <Project>{ab95a237-2472-288e-56b2-74a7ff93bf9c}</Project>
+      <Name>AllIn1VfxAssmebly</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.Authorizations.csproj">
+      <Project>{07393e57-d7cb-74b6-403c-78c77bb698b2}</Project>
+      <Name>MoreMountains.Feedbacks.Authorizations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Tools.csproj">
+      <Project>{2f208f72-a592-db33-7578-7452a76a7117}</Project>
+      <Name>MoreMountains.Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="AllIn1VfxTexDemoAssembly.csproj">
+      <Project>{c3e18277-8591-9114-db42-1c97366f1aaf}</Project>
+      <Name>AllIn1VfxTexDemoAssembly</Name>
     </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.Cinemachine.csproj">
       <Project>{e96d7149-8c06-0346-3aac-4c67ba813ffa}</Project>
@@ -1487,65 +1448,21 @@
       <Project>{2a33c7fc-bd24-f0ec-12c2-ec8e5fb6ed2b}</Project>
       <Name>MoreMountains.Feedbacks.HDRP</Name>
     </ProjectReference>
-    <ProjectReference Include="Lofelt.NiceVibrations.Editor.csproj">
-      <Project>{f051d3f0-8315-10de-de25-fe34464019b9}</Project>
-      <Name>Lofelt.NiceVibrations.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
-      <Project>{d49b15a9-bbaf-58c5-c98e-d7c582a5ac41}</Project>
-      <Name>MoreMountains.Feedbacks.MMTools</Name>
-    </ProjectReference>
-    <ProjectReference Include="TAA.Runtime.csproj">
-      <Project>{1747f795-4b30-f9ac-fb96-8cec688e3c1b}</Project>
-      <Name>TAA.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.Editor.csproj">
-      <Project>{b47ad9c4-ab8b-4c7f-ac4c-79ebba5acca1}</Project>
-      <Name>MoreMountains.Tools.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.csproj">
-      <Project>{4073c94b-92ba-5ed6-5319-d5f4fb45194f}</Project>
-      <Name>MoreMountains.Feedbacks</Name>
-    </ProjectReference>
-    <ProjectReference Include="Lofelt.NiceVibrations.csproj">
-      <Project>{71af4d42-f059-9292-aee9-dd9c645ee036}</Project>
-      <Name>Lofelt.NiceVibrations</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1VfxDemoScriptAssemblies.csproj">
-      <Project>{29262eac-d700-8238-a55c-3a46ddbcf8a4}</Project>
-      <Name>AllIn1VfxDemoScriptAssemblies</Name>
-    </ProjectReference>
-    <ProjectReference Include="DamageNumbersPro.csproj">
-      <Project>{57099fc7-02ac-6703-9eed-597d90d86d54}</Project>
-      <Name>DamageNumbersPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="Nova.csproj">
-      <Project>{ecc6d1df-e049-dfe6-01c0-582bddfe1da0}</Project>
-      <Name>Nova</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Feedbacks.Authorizations.csproj">
-      <Project>{07393e57-d7cb-74b6-403c-78c77bb698b2}</Project>
-      <Name>MoreMountains.Feedbacks.Authorizations</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1VfxAssmebly.csproj">
-      <Project>{ab95a237-2472-288e-56b2-74a7ff93bf9c}</Project>
-      <Name>AllIn1VfxAssmebly</Name>
-    </ProjectReference>
-    <ProjectReference Include="MoreMountains.Tools.csproj">
-      <Project>{2f208f72-a592-db33-7578-7452a76a7117}</Project>
-      <Name>MoreMountains.Tools</Name>
-    </ProjectReference>
-    <ProjectReference Include="AllIn1VfxTexDemoAssembly.csproj">
-      <Project>{c3e18277-8591-9114-db42-1c97366f1aaf}</Project>
-      <Name>AllIn1VfxTexDemoAssembly</Name>
-    </ProjectReference>
     <ProjectReference Include="Nova.UIControls.Editor.csproj">
       <Project>{be8d116a-6cb4-3ed3-1f35-41fb3dda7d04}</Project>
       <Name>Nova.UIControls.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="Lofelt.NiceVibrations.Editor.csproj">
+      <Project>{f051d3f0-8315-10de-de25-fe34464019b9}</Project>
+      <Name>Lofelt.NiceVibrations.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="MoreMountains.Feedbacks.NiceVibrations.csproj">
       <Project>{b6c92537-a843-a982-e25b-025b5f81a946}</Project>
       <Name>MoreMountains.Feedbacks.NiceVibrations</Name>
+    </ProjectReference>
+    <ProjectReference Include="MoreMountains.Feedbacks.MMTools.csproj">
+      <Project>{d49b15a9-bbaf-58c5-c98e-d7c582a5ac41}</Project>
+      <Name>MoreMountains.Feedbacks.MMTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

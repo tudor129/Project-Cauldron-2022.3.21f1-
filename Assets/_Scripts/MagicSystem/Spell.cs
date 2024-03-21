@@ -16,7 +16,7 @@ public abstract class Spell : Item, ISpell
         public string Description;
         
         [Header("Visuals")]
-        public SpellBehavior SpellPrefab;
+        public ProjectileBehavior SpellPrefab;
         public SpellImpactBehavior SpellImpactPrefab;
         public GameObject CharacterEffect;
         public VisualEffect VisualEffect;
@@ -50,7 +50,8 @@ public abstract class Spell : Item, ISpell
         public Vector3 ImpactOffset;
         public int Damage;
         public float Speed;
-        public float Lifetime;
+        public float ProjectileLifetime;
+        public float ImpactLifetime;
         public float SpellRadius;
         public float Cooldown;
         public int DamageOverTimeDamage;
@@ -102,7 +103,8 @@ public abstract class Spell : Item, ISpell
             result.SpellType = s2.SpellType;
             result.Damage = s1.Damage + s2.Damage;
             result.Speed = s1.Speed + s2.Speed;
-            result.Lifetime = s1.Lifetime + s2.Lifetime;
+            result.ProjectileLifetime = s1.ProjectileLifetime + s2.ProjectileLifetime;
+            result.ImpactLifetime = s1.ImpactLifetime + s2.ImpactLifetime;
             result.SpellRadius = s1.SpellRadius + s2.SpellRadius;
             result.Cooldown = s1.Cooldown + s2.Cooldown;
             result.DamageOverTimeDamage = s1.DamageOverTimeDamage + s2.DamageOverTimeDamage;

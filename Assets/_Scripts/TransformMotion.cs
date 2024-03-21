@@ -155,7 +155,7 @@ public class TransformMotion : MonoBehaviour
         {
             _isOutDistance = true;
             OnCollisionDeactivateBehaviour(false);
-            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+            ObjectPoolManager.Instance.ReturnParentObjectToPool(gameObject);
 
             if (Target == null)
                 _t.localPosition = _startPositionLocal + _t.localRotation*(Vector3.forward + randomOffset)*Distance;
@@ -234,7 +234,7 @@ public class TransformMotion : MonoBehaviour
                     CoroutineManager.Instance.StartCoroutine(ReturnChildToPoolAfterDelay(instance, CollidedInstances, DestroyTimeDelay, ObjectPoolManager.PoolType.GameObject, 1));
                     //Destroy(instance, DestroyTimeDelay);
                 }
-                ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+                ObjectPoolManager.Instance.ReturnParentObjectToPool(gameObject);
                 _currentHitCount = 0;
             }
         }
@@ -249,7 +249,7 @@ public class TransformMotion : MonoBehaviour
         if (obj != null && childIndex < obj.transform.childCount)
         {
             GameObject child = obj.transform.GetChild(childIndex).gameObject;
-            ObjectPoolManager.Instance.ReturnObjectToPool(child);
+            ObjectPoolManager.Instance.ReturnParentObjectToPool(child);
             Debug.Log("Return to pool has been called bibi");
         }
         else

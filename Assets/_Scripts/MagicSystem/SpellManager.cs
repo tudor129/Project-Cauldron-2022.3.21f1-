@@ -187,21 +187,21 @@ public class SpellManager : MonoBehaviour, ICast
 
         // Otherwise create the weapon in the slot.
         // Get the type of the weapon we want to spawn.
-        Type weaponType = Type.GetType(data.Behaviour);
+        Type spellType = Type.GetType(data.Behaviour);
 
-        if (weaponType != null)
+        if (spellType != null)
         {
             // Spawn the weapon GameObject.
             GameObject go = new GameObject(data.BaseStats.Name + " Controller");
-            Spell spawnedWeapon = (Spell)go.AddComponent(weaponType);
-            spawnedWeapon.Initialise(data);
-            spawnedWeapon.InitializeData(data);
-            spawnedWeapon.transform.SetParent(transform); //Set the weapon to be a child of the player
-            spawnedWeapon.transform.localPosition = Vector2.zero;
-            spawnedWeapon.OnEquip();
+            Spell spawnedSpell = (Spell)go.AddComponent(spellType);
+            spawnedSpell.Initialise(data);
+            spawnedSpell.InitializeData(data);
+            spawnedSpell.transform.SetParent(transform); //Set the weapon to be a child of the player
+            spawnedSpell.transform.localPosition = Vector2.zero;
+            spawnedSpell.OnEquip();
 
             // Assign the weapon to the slot.
-            _spellSlots[slotNum].Assign(spawnedWeapon);
+            _spellSlots[slotNum].Assign(spawnedSpell);
 
             // // Close the level up UI if it is on.
             // // This will be added later

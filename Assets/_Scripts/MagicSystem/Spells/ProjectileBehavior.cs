@@ -18,10 +18,16 @@ public class ProjectileBehavior : SpellBehavior
     Vector3 _spawnPosition;
     Quaternion _spawnRotation;
     
-
+    bool _isInitialized = false;
+    
     protected override void Awake()
     {
         base.Awake();
+    }
+    
+    void OnEnable()
+    {
+        _attackablesInRadius.Clear();
     }
 
     protected override void Start()
@@ -37,15 +43,6 @@ public class ProjectileBehavior : SpellBehavior
         _rigidbody.isKinematic = true;
         _rigidbody.drag = 0.2f;
 
-        
-
-        //_spawnPosition = GameManager.Instance._playerCastPoint.transform.position;
-        //_spawnRotation = transform.rotation;
-        //transform.forward = _player.transform.forward;
-        
-        
-        
-        
         if (_currentStats.HasFlash)
         {
             HandleFlashEffect();
@@ -55,11 +52,40 @@ public class ProjectileBehavior : SpellBehavior
         {
             SoundFXManager.Instance.PlaySoundFXClip(_currentStats.TravelingSound, transform, 0.2f);
         }
+        //StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime));
         
-        
-        Destroy(gameObject, _currentStats.Lifetime);
+        //Destroy(gameObject, _currentStats.ProjectileLifetime);
     }
+    
+    public void Initialize(Spell spell)
+    {
+        if (_isInitialized) return;  // Prevent re-initialization
+
+        
+        this.spell = spell;
+        _currentStats = spell.GetStats();
+        _isInitialized = true;
+
+        
+
+        // Perform any operations previously in Awake or Start that depend on initialization here
+        PostInitialization();
+    }
+
+    void PostInitialization()
+    {
+        //StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime));
+    }
+
    
+
+    IEnumerator DespawnAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        Debug.Log("In DespawnAfterDelay ProjectileLifetime is: " + _currentStats.ProjectileLifetime);
+        ObjectPoolManager.Instance.ReturnObjectToPool(gameObject); // then call your function to return the game object to the pool
+    }
+
 
     protected virtual void FixedUpdate()
     {
@@ -75,7 +101,6 @@ public class ProjectileBehavior : SpellBehavior
         {
             return;
         }
-        Debug.Log("Triggered");
 
         Vector3 impactPoint = HandleImpactPoint(other);
         
@@ -93,7 +118,8 @@ public class ProjectileBehavior : SpellBehavior
 
         if (!_currentStats.IsPassThrough)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
+            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
         }
         
         _attackablesInRadius.Clear();
@@ -213,12 +239,11 @@ public class ProjectileBehavior : SpellBehavior
         // Spawn hit effect on trigger
         if (spellInfo.SpellImpactPrefab != null)
         {
-            //SpellImpactBehavior hitInstance = Instantiate(_currentStats.SpellImpactPrefab, impactPoint + _currentStats.ImpactOffset, Quaternion.identity);
             SpellImpactBehavior hitInstance = ObjectPoolManager.Instance.SpawnObject(
                 _currentStats.SpellImpactPrefab, 
                 impactPoint + _currentStats.ImpactOffset, 
                 Quaternion.identity, 
-                ObjectPoolManager.PoolType.ParticleSystem);
+                ObjectPoolManager.PoolType.ImpactHits);
             
             
             hitInstance.spell = spell;
@@ -269,8 +294,10 @@ public class ProjectileBehavior : SpellBehavior
         {
             if (detachedPrefab != null)
             {
-                detachedPrefab.transform.parent = null;
-                Destroy(detachedPrefab, 1);
+                Debug.Log("Detached prefab is not null");
+                //detachedPrefab.transform.parent = null;
+                //Destroy(detachedPrefab, 1);
+                //StartCoroutine(DespawnAfterDelay())
             }
         }
     }
@@ -289,7 +316,7 @@ public class ProjectileBehavior : SpellBehavior
             var flashPs = flashInstance.GetComponent<ParticleSystem>();
             if (flashPs != null)
             {
-                Destroy(flashInstance, flashPs.main.duration);
+                //Destroy(flashInstance, flashPs.main.duration);
             }
             else
             {
@@ -297,7 +324,7 @@ public class ProjectileBehavior : SpellBehavior
                 //Destroy(flashInstance, flashPsParts.main.duration);
             }
         }
-        Destroy(gameObject, _currentStats.Lifetime);
+        //Destroy(gameObject, _currentStats.ProjectileLifetime);
     }
 
     protected virtual (int, bool) CalculateActiveSpellDamage(int hitCount, float critChance, float critMultiplier, Spell.Stats spellData)

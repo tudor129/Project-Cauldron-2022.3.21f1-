@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using System;
 using UnityEngine.Serialization;
 
@@ -13,10 +15,19 @@ public class FloatEffect : MonoBehaviour
 
     Vector3 _startPos = Vector3.up;
     Collider _collider;
+    Tween  _rotationTween;
 
     void Awake()
     {
         _collider = GetComponent<Collider>();
+        DOTween.Init();
+    }
+
+    void OnEnable()
+    {
+        DOTween.Init();
+        StartFloating();
+        StartRotating();
     }
 
     void Start()
@@ -36,26 +47,18 @@ public class FloatEffect : MonoBehaviour
             });
         });
     }
+    
     void StartRotating()
     {
-        if (_collider != null)
+        // Ensure only one rotation tween is active at a time
+        if (_rotationTween != null && _rotationTween.IsActive())
         {
-            // Create an empty GameObject and set its position to the center of your loot object
-            GameObject rotationCenter = new GameObject("Rotation Center");
-            if (rotationCenter != null)
-            {
-                rotationCenter.transform.position = _collider.bounds.center; 
-                
-            }
-
-            // Make your loot object a child of the empty GameObject
-            transform.parent = rotationCenter.transform;
-
-            // Apply the rotation tween to the parent GameObject
-            rotationCenter.transform.DORotate(new Vector3(0f, 360f, 0f), _rotationDuration, RotateMode.FastBeyond360)
-                .SetEase(Ease.Linear)
-                .SetLoops(-1, LoopType.Incremental);
+            _rotationTween.Kill();
         }
 
+        // Apply rotation directly to the object
+        _rotationTween = transform.DORotate(new Vector3(360f, 0f, 360f), _rotationDuration, RotateMode.LocalAxisAdd)
+            .SetEase(Ease.Linear)
+            .SetLoops(-1, LoopType.Restart);
     }
 }
