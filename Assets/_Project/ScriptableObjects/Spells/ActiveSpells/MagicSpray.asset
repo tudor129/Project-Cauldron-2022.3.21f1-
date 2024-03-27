@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34a120ca205d714387a05fb8880df7d, type: 3}
+  m_Name: MagicSpray
+  m_EditorClassIdentifier: 
+  ItemName: 
+  Sprite: {fileID: 0}
+  SpellProjectileFX: {fileID: 3812801700057581096, guid: c30ccd0390cc64540909dc37cbe96faa,
+    type: 3}
+  SpellCastFX: {fileID: 0}
+  VisualEffect: {fileID: 2645879856077265790, guid: e93ad41a6d723c34986ed3bf644d38ff,
+    type: 3}
+  SpellType: 0
+  IsFire: 0
+  IsIce: 0
+  IsLightning: 0
+  IsPoison: 0
+  IsArcane: 0
+  IsMagicSpray: 1
+  DamageOutput: 45
+  BaseDamage: 30
+  ManaCost: 5
+  Lifetime: 2
+  Speed: 13
+  SpellRadius: 0.5
+  PushForce: 20
+  MaxHitCount: 10
+  HasFlash: 0
+  HasCastEffect: 0
+  SpellAnimation: 

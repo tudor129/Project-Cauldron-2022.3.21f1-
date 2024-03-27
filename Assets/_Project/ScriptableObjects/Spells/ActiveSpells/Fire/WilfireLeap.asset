@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b192568ddc9024d8e7bef431c71794, type: 3}
+  m_Name: WilfireLeap
+  m_EditorClassIdentifier: 
+  ItemName: Wilfire Leap Level 1
+  Sprite: {fileID: 0}
+  SpellProjectileFX: {fileID: 3425104808009859069, guid: 87d764baa9334764880dd76b13dbbc7a,
+    type: 3}
+  SpellCastEffect: {fileID: 8392067954629846502, guid: e4bee7d5f17289b4887bb1b871bd54cb,
+    type: 3}
+  VisualEffect: {fileID: 0}
+  CharacterEffect: {fileID: 60191207144646908, guid: d76e76472d8969e429e129b789652931,
+    type: 3}
+  SpellType: 1
+  IsPassThrough: 1
+  IsChainLightning: 0
+  IsWildfireLeap: 0
+  DoesDoT: 0
+  IsFire: 1
+  IsIce: 0
+  IsLightning: 0
+  IsPoison: 0
+  IsArcane: 0
+  IsMagicSpray: 0
+  DamageOutput: 30
+  BaseDamage: 30
+  BaseSpeed: 15
+  BaseLifetime: 2
+  BaseSpellRadius: 0.5
+  BaseCooldown: 1
+  BaseDamageOverTimeDamage: 5
+  BaseDamageOverTimeDuration: 5
+  BaseDamageOverTimeInterval: 1
+  BaseDamageOverTimeInitialDelay: 1
+  BaseStaggerDuration: 0.3
+  BaseMaxHitCount: 10
+  HasFlash: 0
+  HasCastEffect: 1
+  SpellAnimation: 
+  LeapCount: 8
+  LeapRange: 20
+  LeapSpeed: 0.1

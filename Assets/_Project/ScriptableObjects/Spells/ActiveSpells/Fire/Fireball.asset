@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34a120ca205d714387a05fb8880df7d, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  ItemName: Fireball
+  MaxLevel: 5
+  icon: {fileID: 21300000, guid: b741ad7a3ae80eb4da32eb250abc68ed, type: 3}
+  Behaviour: Fireball
+  BaseStats:
+    Name: Fireball
+    Description: Casts a ball of fire upon the enemies.
+    SpellPrefab: {fileID: 1298154281070230439, guid: 98f2028b74c10a149aa55a71ac40cab8,
+      type: 3}
+    SpellImpactPrefab: {fileID: 5150604219476161118, guid: 72c05ae926a66ce4fb948cce6721bc75,
+      type: 3}
+    CharacterEffect: {fileID: 0}
+    VisualEffect: {fileID: 0}
+    DetachEffect: {fileID: 0}
+    HasFlash: 0
+    HasCastEffect: 0
+    SpellAnimation: 
+    CastSound: {fileID: 8300000, guid: 333b4e42bcd54af49b3efeb7a1a2d8cd, type: 3}
+    TravelingSound: {fileID: 8300000, guid: a469d9c5a504de846b1d98cd8f384891, type: 3}
+    LoopingSound: {fileID: 0}
+    ImpactSound: {fileID: 8300000, guid: c49c57862bc5ea34fb7cd837d92215f1, type: 3}
+    CastSounds:
+    - {fileID: 8300000, guid: 333b4e42bcd54af49b3efeb7a1a2d8cd, type: 3}
+    - {fileID: 8300000, guid: 4a970864ebe248c4cb9eed697c69c5b3, type: 3}
+    - {fileID: 8300000, guid: dd3f78b679b44574990ff812828dd71b, type: 3}
+    - {fileID: 8300000, guid: ced89e6708b6cf14ca1ae14022eab90a, type: 3}
+    TravelingSounds:
+    - {fileID: 8300000, guid: a469d9c5a504de846b1d98cd8f384891, type: 3}
+    LoopingSounds: []
+    ImpactSounds:
+    - {fileID: 8300000, guid: c49c57862bc5ea34fb7cd837d92215f1, type: 3}
+    SpellType: 0
+    ImpactOffset: {x: 0, y: 0.1, z: 0}
+    Damage: 100
+    Speed: 8
+    ProjectileLifetime: 3
+    ImpactLifetime: 0.8
+    SpellRadius: 0
+    Cooldown: 1
+    DamageOverTimeDamage: 3
+    DamageOverTimeDuration: 10
+    DamageOverTimeInterval: 1
+    DamageOverTimeInitialDelay: 1
+    StaggerDuration: 0
+    SpawnsProjectilesSequentially: 0
+    ShootBackwards: 0
+    NumberOfAttacks: 10
+    ProjectileInteval: 0.1
+    AngleStep: 90
+    SpreadRadius: 0.2
+    IsFire: 0
+    IsIce: 0
+    IsLightning: 0
+    IsPoison: 0
+    IsArcane: 0
+    DoesDoT: 0
+    IsPassThrough: 1
+  LinearGrowth:
+  - Name: Fireball+
+    Description: Less damage more attack speed.
+    SpellPrefab: {fileID: 5084588850135020342, guid: 672697895c93f1440815a2be743861b9,
+      type: 3}
+    SpellImpactPrefab: {fileID: 3065769495050585820, guid: 1138ea6628f66ca438d29a7316e4b15a,
+      type: 3}
+    CharacterEffect: {fileID: 0}
+    VisualEffect: {fileID: 0}
+    DetachEffect: {fileID: 0}
+    HasFlash: 0
+    HasCastEffect: 0
+    SpellAnimation: 
+    CastSound: {fileID: 0}
+    TravelingSound: {fileID: 0}
+    LoopingSound: {fileID: 0}
+    ImpactSound: {fileID: 0}
+    CastSounds: []
+    TravelingSounds: []
+    LoopingSounds: []
+    ImpactSounds: []
+    SpellType: 0
+    ImpactOffset: {x: 0, y: 0, z: 0}
+    Damage: 0
+    Speed: 0
+    ProjectileLifetime: 0
+    ImpactLifetime: 0
+    SpellRadius: 0
+    Cooldown: 0
+    DamageOverTimeDamage: 0
+    DamageOverTimeDuration: 0
+    DamageOverTimeInterval: 0
+    DamageOverTimeInitialDelay: 0
+    StaggerDuration: 0
+    SpawnsProjectilesSequentially: 0
+    ShootBackwards: 0
+    NumberOfAttacks: 0
+    ProjectileInteval: 0
+    AngleStep: 0
+    SpreadRadius: 0
+    IsFire: 0
+    IsIce: 0
+    IsLightning: 0
+    IsPoison: 0
+    IsArcane: 0
+    DoesDoT: 1
+    IsPassThrough: 1
+  RandomGrowth: []

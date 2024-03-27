@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20935ca4dd7671940b72415f1e6c9977, type: 3}
+  m_Name: Death Potion
+  m_EditorClassIdentifier: 
+  _itemID: 0037d4eb-bcc5-4dd4-a59f-99e0b05c07fc
+  _displayName: Firebrand Elixir
+  _description: This potion allows its user to traverse difficult emotional landscapes
+    with resilience, much like a dreamwalker journeying through the various planes
+    of dreams.
+  _icon: {fileID: 21300000, guid: 9bb83456b1a339a4087d07e69c22c1d0, type: 3}
+  _pickup: {fileID: 8007818631817253259, guid: 09dcf6aa9a71f174cac9a559b9783e51, type: 3}
+  _stackable: 0
+  DropBehavior: 0
+  _requiredMaterials:
+  - requiredIngredient: {fileID: 11400000, guid: b420b7ad64af3e1438b75adfcbdb49b4,
+      type: 2}
+    quantity: 1
+  - requiredIngredient: {fileID: 11400000, guid: 5c2a706685a85044daff2e0e63827a00,
+      type: 2}
+    quantity: 1
+  _craftingDuration: 0
+  _potionColor: {r: 0.1792453, g: 0.11882421, b: 0.108899966, a: 1}
+  _craftTimeOfDay: 2
+  _xpReward: 10

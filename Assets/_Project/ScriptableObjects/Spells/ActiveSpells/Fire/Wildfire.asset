@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34a120ca205d714387a05fb8880df7d, type: 3}
+  m_Name: Wildfire
+  m_EditorClassIdentifier: 
+  ItemName: Wildfire Level 1
+  MaxLevel: 5
+  icon: {fileID: 21300000, guid: 0f116d7cd2879e7468998585ea6c2656, type: 3}
+  Behaviour: Fireball
+  BaseStats:
+    Name: Wildfire
+    Description: gfdgfdgf
+    SpellPrefab: {fileID: -6519225658657746390, guid: c824479b712b86f439b23433c3f0390f,
+      type: 3}
+    SpellImpactPrefab: {fileID: 5927447397490083722, guid: d93d088d0b4f42140aa9b802a8e79243,
+      type: 3}
+    CharacterEffect: {fileID: 0}
+    VisualEffect: {fileID: 0}
+    DetachEffect: {fileID: 0}
+    HasFlash: 0
+    HasCastEffect: 1
+    SpellAnimation: 
+    CastSound: {fileID: 0}
+    TravelingSound: {fileID: 0}
+    LoopingSound: {fileID: 0}
+    ImpactSound: {fileID: 0}
+    CastSounds: []
+    TravelingSounds: []
+    LoopingSounds: []
+    ImpactSounds: []
+    SpellType: 0
+    ImpactOffset: {x: 0, y: 0.1, z: 0}
+    Damage: 10
+    Speed: 8
+    ProjectileLifetime: 3
+    ImpactLifetime: 0.8
+    SpellRadius: 0
+    Cooldown: 2
+    DamageOverTimeDamage: 0
+    DamageOverTimeDuration: 0
+    DamageOverTimeInterval: 0
+    DamageOverTimeInitialDelay: 0
+    StaggerDuration: 0
+    SpawnsProjectilesSequentially: 0
+    ShootBackwards: 1
+    NumberOfAttacks: 8
+    ProjectileInteval: 0.2
+    AngleStep: -180
+    SpreadRadius: 0.5
+    IsFire: 0
+    IsIce: 0
+    IsLightning: 0
+    IsPoison: 0
+    IsArcane: 0
+    DoesDoT: 0
+    IsPassThrough: 0
+  LinearGrowth:
+  - Name: Level 2
+    Description: Damage is upgraded by a percentage.
+    SpellPrefab: {fileID: 0}
+    SpellImpactPrefab: {fileID: 0}
+    CharacterEffect: {fileID: 0}
+    VisualEffect: {fileID: 0}
+    DetachEffect: {fileID: 0}
+    HasFlash: 0
+    HasCastEffect: 0
+    SpellAnimation: 
+    CastSound: {fileID: 0}
+    TravelingSound: {fileID: 0}
+    LoopingSound: {fileID: 0}
+    ImpactSound: {fileID: 0}
+    CastSounds: []
+    TravelingSounds: []
+    LoopingSounds: []
+    ImpactSounds: []
+    SpellType: 0
+    ImpactOffset: {x: 0, y: 0, z: 0}
+    Damage: 4
+    Speed: 0
+    ProjectileLifetime: 0
+    ImpactLifetime: 0
+    SpellRadius: 0
+    Cooldown: -1.5
+    DamageOverTimeDamage: 0
+    DamageOverTimeDuration: 0
+    DamageOverTimeInterval: 0
+    DamageOverTimeInitialDelay: 0
+    StaggerDuration: 0
+    SpawnsProjectilesSequentially: 0
+    ShootBackwards: 0
+    NumberOfAttacks: 1
+    ProjectileInteval: 0
+    AngleStep: 0
+    SpreadRadius: 0
+    IsFire: 0
+    IsIce: 0
+    IsLightning: 0
+    IsPoison: 0
+    IsArcane: 0
+    DoesDoT: 0
+    IsPassThrough: 0
+  RandomGrowth: []
