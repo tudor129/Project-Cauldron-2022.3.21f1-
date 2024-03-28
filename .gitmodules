@@ -1,0 +1,3 @@
+[submodule "Project-Cauldron-Private-Submodule"]
+	path = Project-Cauldron-Private-Submodule
+	url = https://github.com/tudor129/Project-Cauldron-Private-Submodule.git

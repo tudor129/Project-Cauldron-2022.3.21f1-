@@ -1,0 +1,1 @@
+For this project dependencies: Damage Numbers Pro ver 4.31

@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         _numberOfEnemiesText.text = "Enemies: " + Enemy.ActiveEnemies.Count;
+        
     }
 
     public void PauseGame()
