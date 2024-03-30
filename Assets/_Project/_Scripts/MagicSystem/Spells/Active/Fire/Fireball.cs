@@ -178,13 +178,5 @@ public class Fireball : BaseActiveSpell
                 return _player.transform.forward;
             }
         }
-        
-        
-       
-        
-        
-      
     }
-    
-    
 }
