@@ -197,14 +197,14 @@ public class SpellManager : MonoBehaviour, ICast
 
             // Assign the weapon to the slot.
             _spellSlots[slotNum].Assign(spawnedSpell);
-
+            
             // // Close the level up UI if it is on.
             // // This will be added later
             // if (GameManager.instance != null && GameManager.instance.choosingUpgrade)
             //     GameManager.instance.EndLevelUp();
             
             _levelUpScreen.gameObject.SetActive(false);
-
+            
             return slotNum;
         }
         else

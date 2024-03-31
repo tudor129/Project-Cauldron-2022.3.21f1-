@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpellImpactBehavior : SpellBehavior
+public class BaseSpellImpactBehavior : BaseSpellBehavior
 {
 
     protected override void Awake()

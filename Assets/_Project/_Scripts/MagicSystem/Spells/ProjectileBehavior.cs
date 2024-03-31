@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileBehavior : SpellBehavior
+public class ProjectileBehavior : BaseSpellBehavior
 {
     [SerializeField] protected GameObject flash;
     [SerializeField] protected GameObject[] Detached;
@@ -237,10 +237,10 @@ public class ProjectileBehavior : SpellBehavior
     {
         Spell.Stats spellInfo = spell.GetStats();
         // Spawn hit effect on trigger
-        if (spellInfo.SpellImpactPrefab != null)
+        if (spellInfo.baseSpellImpactPrefab != null)
         {
-            SpellImpactBehavior hitInstance = ObjectPoolManager.Instance.SpawnObject(
-                _currentStats.SpellImpactPrefab, 
+            BaseSpellImpactBehavior hitInstance = ObjectPoolManager.Instance.SpawnObject(
+                _currentStats.baseSpellImpactPrefab, 
                 impactPoint + _currentStats.ImpactOffset, 
                 Quaternion.identity, 
                 ObjectPoolManager.PoolType.ImpactHits);

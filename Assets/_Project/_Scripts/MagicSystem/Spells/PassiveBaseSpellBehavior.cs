@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-public class PassiveSpellBehavior : SpellBehavior
+public class PassiveBaseSpellBehavior : BaseSpellBehavior
 {
     public LightningStrikeData lightningStrikeData;
     

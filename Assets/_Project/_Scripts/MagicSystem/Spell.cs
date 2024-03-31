@@ -1,4 +1,5 @@
 using MoreMountains.Feedbacks;
+using NovaSamples.UIControls;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,9 +16,10 @@ public abstract class Spell : Item, ISpell
         public string Name;
         public string Description;
         
-        [Header("Visuals")]
-        public ProjectileBehavior SpellPrefab;
-        public SpellImpactBehavior SpellImpactPrefab;
+        [FormerlySerializedAs("SpellPrefab")] [Header("Visuals")]
+        public ProjectileBehavior ProjectilePrefab;
+        public SpellBehavior SpellPrefab;
+        [FormerlySerializedAs("SpellImpactPrefab")] public BaseSpellImpactBehavior baseSpellImpactPrefab;
         public GameObject CharacterEffect;
         public VisualEffect VisualEffect;
         public ParticleSystem DetachEffect;
@@ -69,6 +71,12 @@ public abstract class Spell : Item, ISpell
         public float AngleStep;
         [Tooltip("The radius of the spread, in meters. Used to spread projectile location from the player. If NumberOfAttacks is 1, this value will be ignored.")]
         public float SpreadRadius;
+        [Tooltip("The time between each check for enemies in range. Used for spells that need to find a target.")]
+        public float EnemyCheckTimer;
+        [Tooltip("The time the spell will wander around before finding a target. Used for spells that need to find a target.")]
+        public float WanderTimer;
+        [Tooltip("The radius around the player where the spell will look for enemies.")]
+        public float WanderRadius;
         
         [Header("Affinity")]
         public bool IsFire;
@@ -85,8 +93,9 @@ public abstract class Spell : Item, ISpell
             Stats result = new Stats();
             result.Name = s2.Name ?? s1.Name;
             result.Description = s2.Description ?? s1.Description;
+            result.ProjectilePrefab = s2.ProjectilePrefab ?? s1.ProjectilePrefab;
             result.SpellPrefab = s2.SpellPrefab ?? s1.SpellPrefab;
-            result.SpellImpactPrefab = s2.SpellImpactPrefab ?? s1.SpellImpactPrefab;
+            result.baseSpellImpactPrefab = s2.baseSpellImpactPrefab ?? s1.baseSpellImpactPrefab;
             result.CharacterEffect = s2.CharacterEffect ?? s1.CharacterEffect;
             result.VisualEffect = s2.VisualEffect ?? s1.VisualEffect;
             result.HasFlash = s2.HasFlash || s1.HasFlash;
@@ -223,7 +232,7 @@ public abstract class Spell : Item, ISpell
         CurrentLevel++;
         _currentStats += spellData.GetLevelData(CurrentLevel);
         Debug.Log("Leveling up" + name + " to level " + CurrentLevel);
-        Debug.Log("New stats: " + _currentStats.SpellPrefab.name);
+        Debug.Log("New stats: " + _currentStats.ProjectilePrefab.name);
         return true;
     }
 

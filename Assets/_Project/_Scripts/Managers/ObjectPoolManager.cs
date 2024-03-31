@@ -185,7 +185,7 @@ public class ObjectPoolManager : MonoBehaviour
        return spawnableObject.gameObject.GetComponent<ProjectileBehavior>();
    }
    
-   public SpellImpactBehavior SpawnObject(SpellImpactBehavior objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
+   public BaseSpellImpactBehavior SpawnObject(BaseSpellImpactBehavior objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
    {
        
        PooledObjectInfo pool = null;
@@ -243,7 +243,7 @@ public class ObjectPoolManager : MonoBehaviour
            spawnableObject.gameObject.SetActive(true);
        }
        
-       return spawnableObject.gameObject.GetComponent<SpellImpactBehavior>();
+       return spawnableObject.gameObject.GetComponent<BaseSpellImpactBehavior>();
    }
 
    public void ReturnParentObjectToPool(GameObject obj)

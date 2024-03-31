@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 // All projectile spells will inherit from BaseProjectileSpell
-public class Fireball : BaseActiveSpell
+public class Fireball : Spell
 {
     int _currentAttackCount;
     float _currentAttackInterval;
@@ -26,9 +26,6 @@ public class Fireball : BaseActiveSpell
     {
         base.Start();
         _currentAttackInterval = _currentStats.ProjectileInteval;
-        //_currentStats = GetStats();
-        
-        
     }
    
     protected override void Update()
@@ -77,7 +74,7 @@ public class Fireball : BaseActiveSpell
     
     protected virtual bool Attack(int attackCount = 1)
     {
-        if (!_currentStats.SpellPrefab || !CanAttack()) 
+        if (!_currentStats.ProjectilePrefab || !CanAttack()) 
         {
             Debug.LogWarning($"Projectile prefab has not been set for {name} or cannot attack.");
             _currentCooldown = _currentStats.Cooldown;
@@ -101,7 +98,7 @@ public class Fireball : BaseActiveSpell
                 //SpellBehavior prefab = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
                 
                 ProjectileBehavior prefab = ObjectPoolManager.Instance.SpawnObject(
-                    _currentStats.SpellPrefab, 
+                    _currentStats.ProjectilePrefab, 
                     spawnPosition, 
                     Quaternion.LookRotation(direction), 
                     ObjectPoolManager.PoolType.Projectiles);
@@ -140,7 +137,7 @@ public class Fireball : BaseActiveSpell
                 //ProjectileBehavior prefab1 = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
                 
                 ProjectileBehavior prefab1 = ObjectPoolManager.Instance.SpawnObject(
-                    _currentStats.SpellPrefab, 
+                    _currentStats.ProjectilePrefab, 
                     spawnPosition, 
                     Quaternion.LookRotation(direction), 
                     ObjectPoolManager.PoolType.Projectiles);

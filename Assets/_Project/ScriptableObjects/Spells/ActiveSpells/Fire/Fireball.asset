@@ -19,9 +19,10 @@ MonoBehaviour:
   BaseStats:
     Name: Fireball
     Description: Casts a ball of fire upon the enemies.
-    SpellPrefab: {fileID: 1298154281070230439, guid: 98f2028b74c10a149aa55a71ac40cab8,
+    ProjectilePrefab: {fileID: 1298154281070230439, guid: 98f2028b74c10a149aa55a71ac40cab8,
       type: 3}
-    SpellImpactPrefab: {fileID: 5150604219476161118, guid: 72c05ae926a66ce4fb948cce6721bc75,
+    SpellPrefab: {fileID: 0}
+    baseSpellImpactPrefab: {fileID: 5150604219476161118, guid: 72c05ae926a66ce4fb948cce6721bc75,
       type: 3}
     CharacterEffect: {fileID: 0}
     VisualEffect: {fileID: 0}
@@ -62,6 +63,9 @@ MonoBehaviour:
     ProjectileInteval: 0.1
     AngleStep: 90
     SpreadRadius: 0.2
+    EnemyCheckTimer: 0
+    WanderTimer: 0
+    WanderRadius: 0
     IsFire: 0
     IsIce: 0
     IsLightning: 0
@@ -72,9 +76,10 @@ MonoBehaviour:
   LinearGrowth:
   - Name: Fireball+
     Description: Less damage more attack speed.
-    SpellPrefab: {fileID: 5084588850135020342, guid: 672697895c93f1440815a2be743861b9,
+    ProjectilePrefab: {fileID: 5084588850135020342, guid: 672697895c93f1440815a2be743861b9,
       type: 3}
-    SpellImpactPrefab: {fileID: 3065769495050585820, guid: 1138ea6628f66ca438d29a7316e4b15a,
+    SpellPrefab: {fileID: 0}
+    baseSpellImpactPrefab: {fileID: 3065769495050585820, guid: 1138ea6628f66ca438d29a7316e4b15a,
       type: 3}
     CharacterEffect: {fileID: 0}
     VisualEffect: {fileID: 0}
@@ -109,6 +114,9 @@ MonoBehaviour:
     ProjectileInteval: 0
     AngleStep: 0
     SpreadRadius: 0
+    EnemyCheckTimer: 0
+    WanderTimer: 0
+    WanderRadius: 0
     IsFire: 0
     IsIce: 0
     IsLightning: 0

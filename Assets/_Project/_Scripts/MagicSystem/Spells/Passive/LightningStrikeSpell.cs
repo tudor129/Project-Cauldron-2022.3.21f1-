@@ -27,7 +27,7 @@ public class LightningStrikeSpell : BaseAutoCastSpell
     protected virtual bool Attack(int attackCount = 1)
     {
         // If no projectile prefab is assigned, leave a warning message.
-        if (!_currentStats.SpellPrefab)
+        if (!_currentStats.ProjectilePrefab)
         {
             Debug.LogWarning(string.Format("Projectile prefab has not been set for {0}", name));
             _currentCooldown = _currentStats.Cooldown;
@@ -40,7 +40,7 @@ public class LightningStrikeSpell : BaseAutoCastSpell
        
 
         // And spawn a copy of the projectile.
-        SpellBehavior prefab = Instantiate(_currentStats.SpellPrefab, _player.transform.position + Vector3.up, Quaternion.identity);
+        BaseSpellBehavior prefab = Instantiate(_currentStats.ProjectilePrefab, _player.transform.position + Vector3.up, Quaternion.identity);
         
         prefab.spell = this;
         
