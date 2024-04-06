@@ -51,7 +51,6 @@ public class PlayerHealth : Health
     void OnPlayerLevelUp(EventArgs args)
     {
         int maxHealth = _playerStat.GetMaxHealth();
-        Debug.Log("Player's max health is now: " + maxHealth);
     }
     
     public void SetPlayerStatForHealth(PlayerData playerStat)

@@ -82,7 +82,7 @@ public class ProjectileBehavior : BaseSpellBehavior
     IEnumerator DespawnAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay); // wait for 'delay' seconds
-        Debug.Log("In DespawnAfterDelay ProjectileLifetime is: " + _currentStats.ProjectileLifetime);
+        Debug.Log("In DespawnAfterDelay ProjectileLifetime is: " + _currentStats.Lifetime);
         ObjectPoolManager.Instance.ReturnObjectToPool(gameObject); // then call your function to return the game object to the pool
     }
 
@@ -331,7 +331,7 @@ public class ProjectileBehavior : BaseSpellBehavior
     {
         // Subtract damage for each subsequent hit (without going below 0)
         int damageSubtraction = 1 * (hitCount - 1);
-        int damageOutput = Math.Max(0, _currentStats.Damage - damageSubtraction);
+        int damageOutput = Math.Max(0, _currentStats.Damage);
     
         bool isCriticalHit = false;
 
@@ -339,7 +339,7 @@ public class ProjectileBehavior : BaseSpellBehavior
         float roll = UnityEngine.Random.value; // Get a random value between 0.0 and 1.0
         if (roll <= critChance) // If the random value is less than or equal to the crit chance, a critical hit occurs
         {
-            damageOutput = (int)(damageOutput * critMultiplier); // Multiply the damage by the critical hit multiplier
+            damageOutput = (int)(damageOutput); // Multiply the damage by the critical hit multiplier
             isCriticalHit = true;
         }
         return (damageOutput, isCriticalHit);

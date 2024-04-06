@@ -29,7 +29,7 @@ public class SpellInstance
         Spell = spellData;
         Damage = spellData.BaseStats.Damage;
         Speed = spellData.BaseStats.Speed;
-        Lifetime = spellData.BaseStats.ProjectileLifetime;
+        Lifetime = spellData.BaseStats.Lifetime;
         SpellRadius = spellData.BaseStats.SpellRadius;
         Cooldown = spellData.BaseStats.Cooldown;  
         DamageOverTimeDamage = spellData.BaseStats.DamageOverTimeDamage;

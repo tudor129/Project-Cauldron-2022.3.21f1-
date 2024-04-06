@@ -9,7 +9,6 @@ public class Fireball : Spell
 {
     int _currentAttackCount;
     float _currentAttackInterval;
-    protected float _currentCooldown;
     protected bool _readyForAttack = true;
     
     
@@ -66,13 +65,13 @@ public class Fireball : Spell
         ObjectPoolManager.Instance.ReturnObjectToPool(gameObject); // then call your function to return the game object to the pool
     }
     
-    public virtual bool CanAttack()
+    public override bool CanAttack()
     {
         if (_currentAttackCount > 0) return true;
         return _currentCooldown <= 0;
     }
     
-    protected virtual bool Attack(int attackCount = 1)
+    protected override bool Attack(int attackCount = 1)
     {
         if (!_currentStats.ProjectilePrefab || !CanAttack()) 
         {
@@ -105,9 +104,8 @@ public class Fireball : Spell
                 
                 prefab.Initialize(this);
                 
-                StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime, prefab.gameObject));
+                StartCoroutine(DespawnAfterDelay(_currentStats.Lifetime, prefab.gameObject));
               
-                //prefab.spell = this;
                 
                 if (_currentStats.CastSound != null)
                 {
@@ -144,7 +142,7 @@ public class Fireball : Spell
                 
                 prefab1.Initialize(this);
                 
-                StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime, prefab1.gameObject));
+                StartCoroutine(DespawnAfterDelay(_currentStats.Lifetime, prefab1.gameObject));
                 
                 // prefab1.spell = this;
                 // prefab1.spell.GetStats();

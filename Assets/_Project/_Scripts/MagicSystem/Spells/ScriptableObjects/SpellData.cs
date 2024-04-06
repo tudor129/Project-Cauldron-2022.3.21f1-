@@ -14,6 +14,7 @@ public class SpellData : ItemData
     public Spell.Stats BaseStats;
     public Spell.Stats[] LinearGrowth;
     public Spell.Stats[] RandomGrowth;
+    public Spell.Stats[] AffinityGrowth;
     
     // Gives us the stat growth / description of the next level.
     public Spell.Stats GetLevelData(int level)
@@ -25,11 +26,29 @@ public class SpellData : ItemData
         // Otherwise, pick one of the stats from the random growth array.
         if (RandomGrowth.Length > 0)
             return RandomGrowth[Random.Range(0, RandomGrowth.Length)];
+        
+        // Otherwise, pick one of the stats from the affinity growth array.
+       
 
         // Return an empty value and a warning.
         Debug.LogWarning(string.Format("Weapon doesn't have its level up stats configured for Level {0}!",level));
         return new Spell.Stats();
     }
+    
+    public Spell.Stats GetAffinityData(int level)
+    {
+        // Pick the stats from the next level.
+        if (level - 2 < AffinityGrowth.Length)
+            return AffinityGrowth[level - 2];
+
+        // Return an empty value and a warning.
+        Debug.LogWarning(string.Format("Weapon doesn't have its level up stats configured for Level {0}!",level));
+        return new Spell.Stats();
+    }
+    
+   
+    
+   
 
   
 }

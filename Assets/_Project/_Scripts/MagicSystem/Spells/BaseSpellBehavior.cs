@@ -7,6 +7,7 @@ public class BaseSpellBehavior : MonoBehaviour
     
     protected Player _player;
     protected ParticleSystem _part;
+    protected BoxCollider _collider;
     
     public Spell.Stats _currentStats;
     

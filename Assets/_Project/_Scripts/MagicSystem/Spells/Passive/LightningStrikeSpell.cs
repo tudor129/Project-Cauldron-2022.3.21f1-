@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class LightningStrikeSpell : BaseAutoCastSpell
+public class LightningStrikeSpell : Spell
 {
     
     
@@ -19,12 +19,12 @@ public class LightningStrikeSpell : BaseAutoCastSpell
        
     }
     
-    public virtual bool CanAttack()
+    public override bool CanAttack()
     {
         return _currentCooldown <= 0;
     }
     
-    protected virtual bool Attack(int attackCount = 1)
+    protected override bool Attack(int attackCount = 1)
     {
         // If no projectile prefab is assigned, leave a warning message.
         if (!_currentStats.ProjectilePrefab)

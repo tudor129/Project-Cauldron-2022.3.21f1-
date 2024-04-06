@@ -50,7 +50,8 @@ public class SpellManager : MonoBehaviour, ICast
             return item == null;
         }
     }
-    
+    private Dictionary<Spell.Stats.SpellType, int> _spellTypeUpgrades = new Dictionary<Spell.Stats.SpellType, int>();
+    public List<Spell> _activeSpells = new List<Spell>();
     public List<Slot> _spellSlots = new List<Slot>();
     public List<Slot> _potionSlots = new List<Slot>();
     
@@ -180,22 +181,29 @@ public class SpellManager : MonoBehaviour, ICast
         // If there is no empty slot, exit.
         if (slotNum < 0) return slotNum;
 
-        // Otherwise create the weapon in the slot.
-        // Get the type of the weapon we want to spawn.
+        // Otherwise create the spell in the slot.
+        // Get the type of the spell we want to spawn.
         Type spellType = Type.GetType(data.Behaviour);
 
         if (spellType != null)
         {
-            // Spawn the weapon GameObject.
+            // Spawn the spell GameObject.
             GameObject go = new GameObject(data.BaseStats.Name + " Controller");
             Spell spawnedSpell = (Spell)go.AddComponent(spellType);
+            _activeSpells.Add(spawnedSpell);
             spawnedSpell.Initialise(data);
             spawnedSpell.InitializeData(data);
-            spawnedSpell.transform.SetParent(transform); //Set the weapon to be a child of the player
+            spawnedSpell.transform.SetParent(transform); //Set the spell to be a child of the player
             spawnedSpell.transform.localPosition = Vector2.zero;
             spawnedSpell.OnEquip();
+            
+            if (_spellTypeUpgrades.TryGetValue(data.BaseStats.Type, out int upgradeLevel))
+            {
+                // Assuming you have an ApplyTypeUpgrade method in your Spell class that applies the upgrade based on level.
+                spawnedSpell.ApplyTypeUpgrade(upgradeLevel); // Apply upgrades directly to the new spell
+            }
 
-            // Assign the weapon to the slot.
+            // Assign the spell to the slot.
             _spellSlots[slotNum].Assign(spawnedSpell);
             
             // // Close the level up UI if it is on.
@@ -203,6 +211,7 @@ public class SpellManager : MonoBehaviour, ICast
             // if (GameManager.instance != null && GameManager.instance.choosingUpgrade)
             //     GameManager.instance.EndLevelUp();
             
+          
             _levelUpScreen.gameObject.SetActive(false);
             
             return slotNum;
@@ -217,6 +226,35 @@ public class SpellManager : MonoBehaviour, ICast
 
         return -1;
     }
+    
+    public void UpgradeSpellType(Spell.Stats.SpellType spellType, int upgradeLevel)
+    {
+        
+        // Check if the spell type has already been upgraded and update the level
+        if (_spellTypeUpgrades.ContainsKey(spellType))
+        {
+            _spellTypeUpgrades[spellType] += upgradeLevel;
+        }
+        else
+        {
+            _spellTypeUpgrades[spellType] = upgradeLevel;
+        }
+
+        // Apply the upgrade to all active spells of that type
+        foreach (Spell spell in _activeSpells)
+        {
+            if (spell.spellData.BaseStats.Type == spellType)
+            {
+                // Here we should apply the upgrade. This might involve increasing stats, 
+                // adding new effects, or whatever the upgrade entails.
+                spell.ApplyTypeUpgrade(upgradeLevel); // You'll need to implement this method based on what the upgrade does
+                Debug.Log($"Upgrading {spell.name} for {spellType} type by {upgradeLevel} levels.");
+                // Example: spell.LevelUpSpecific(upgradeLevel); // You would need to implement LevelUpSpecific
+            }
+        }
+    }
+    
+  
     
     public int Add(PotionData data)
     {
@@ -235,15 +273,15 @@ public class SpellManager : MonoBehaviour, ICast
         // If there is no empty slot, exit.
         if (slotNum < 0) return slotNum;
 
-        // Otherwise create the passive in the slot.
-        // Get the type of the passive we want to spawn.
+        // Otherwise create the potion in the slot.
+        // Get the type of the potion we want to spawn.
         GameObject go = new GameObject(data.baseStats.name + " Potion");
         Potion p = go.AddComponent<Potion>();
         p.Initialise(data);
         p.transform.SetParent(transform); //Set the weapon to be a child of the player
         p.transform.localPosition = Vector2.zero;
 
-        // Assign the passive to the slot.
+        // Assign the potion to the slot.
         _potionSlots[slotNum].Assign(p);
 
         // if (GameManager.instance != null && GameManager.instance.choosingUpgrade)
@@ -309,23 +347,25 @@ public class SpellManager : MonoBehaviour, ICast
         player.RecalculateStats();*/
     }
     
+   
+    
     void ApplyUpgradeOptions()
     {
         // Make a duplicate of the available spell / potion upgrade lists
         // so we can iterate through them in the function.
-        List<SpellData> availableWeaponUpgrades = new List<SpellData>(_availableSpells);
+        List<SpellData> availableSpellUpgrades = new List<SpellData>(_availableSpells);
         List<PotionData> availablePassiveItemUpgrades = new List<PotionData>(_availablePotions);
 
         // Iterate through each slot in the upgrade UI.
         foreach (UpgradeUI upgradeOption in _upgradeUIOptions)
         {
             // If there are no more avaiable upgrades, then we abort.
-            if (availableWeaponUpgrades.Count == 0 && availablePassiveItemUpgrades.Count == 0)
+            if (availableSpellUpgrades.Count == 0 && availablePassiveItemUpgrades.Count == 0)
                 return;
 
             // Determine whether this upgrade should be for passive or active spells.
             int upgradeType;
-            if (availableWeaponUpgrades.Count == 0)
+            if (availableSpellUpgrades.Count == 0)
             {
                 upgradeType = 2;
             }
@@ -344,8 +384,8 @@ public class SpellManager : MonoBehaviour, ICast
             {
                 
                 // Pick a spell upgrade, then remove it so that we don't get it twice.
-                SpellData chosenSpellUpgrade = availableWeaponUpgrades[UnityEngine.Random.Range(0, availableWeaponUpgrades.Count)];
-                availableWeaponUpgrades.Remove(chosenSpellUpgrade);
+                SpellData chosenSpellUpgrade = availableSpellUpgrades[UnityEngine.Random.Range(0, availableSpellUpgrades.Count)];
+                availableSpellUpgrades.Remove(chosenSpellUpgrade);
 
                 // Ensure that the selected weapon data is valid.
                 if (chosenSpellUpgrade != null)

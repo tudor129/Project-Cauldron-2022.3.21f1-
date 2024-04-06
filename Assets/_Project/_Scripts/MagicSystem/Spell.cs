@@ -16,6 +16,19 @@ public abstract class Spell : Item, ISpell
         public string Name;
         public string Description;
         
+        public bool IsAffinityUpgrade;
+        
+        public SpellType Type;
+        public enum SpellType
+        {
+            Fire,
+            Ice,
+            Lightning,
+            Poison,
+            Arcane,
+            // add more as needed
+        }
+        
         [FormerlySerializedAs("SpellPrefab")] [Header("Visuals")]
         public ProjectileBehavior ProjectilePrefab;
         public SpellBehavior SpellPrefab;
@@ -39,20 +52,17 @@ public abstract class Spell : Item, ISpell
         public AudioClip[] LoopingSounds;
         public AudioClip[] ImpactSounds;
         
-        
-        [Header("Spell Type")]
-        public TypeOfSpell SpellType;
-        public enum TypeOfSpell
-        {
-            AutoCast,
-            ManualCast,
-        }
+       
         [Header("Values")]
         [Tooltip("The offset from the impact point where the SpellImpactPrefab will be instantiated. Use this to avoid z-fighting.")]
         public Vector3 ImpactOffset;
         public int Damage;
         public float Speed;
-        public float ProjectileLifetime;
+        [Tooltip("The time in seconds the object will live before being destroyed.")]
+        [FormerlySerializedAs("ProjectileLifetime")] public float Lifetime;
+        [Tooltip("The time in seconds the decal will live before being destroyed.")]
+        public float DecalLifetime;
+        [Tooltip("The time in seconds the impact will live before being destroyed.")]
         public float ImpactLifetime;
         public float SpellRadius;
         public float Cooldown;
@@ -77,6 +87,7 @@ public abstract class Spell : Item, ISpell
         public float WanderTimer;
         [Tooltip("The radius around the player where the spell will look for enemies.")]
         public float WanderRadius;
+        
         
         [Header("Affinity")]
         public bool IsFire;
@@ -109,10 +120,9 @@ public abstract class Spell : Item, ISpell
             result.TravelingSounds = s2.TravelingSounds ?? s1.TravelingSounds;
             result.LoopingSounds = s2.LoopingSounds ?? s1.LoopingSounds;
             result.ImpactSounds = s2.ImpactSounds ?? s1.ImpactSounds;
-            result.SpellType = s2.SpellType;
             result.Damage = s1.Damage + s2.Damage;
             result.Speed = s1.Speed + s2.Speed;
-            result.ProjectileLifetime = s1.ProjectileLifetime + s2.ProjectileLifetime;
+            result.Lifetime = s1.Lifetime + s2.Lifetime;
             result.ImpactLifetime = s1.ImpactLifetime + s2.ImpactLifetime;
             result.SpellRadius = s1.SpellRadius + s2.SpellRadius;
             result.Cooldown = s1.Cooldown + s2.Cooldown;
@@ -139,30 +149,12 @@ public abstract class Spell : Item, ISpell
             return result;
         }
     }
-    
+    [FormerlySerializedAs("SpellSO")] public SpellData spellData;
   
     protected Stats _currentStats;
-    
-    
-    
-    
-    [FormerlySerializedAs("SpellSO")] public SpellData spellData;
-    
-    protected PlayerData PlayerData;
-  
-    protected SphereCollider _sphereCollider;
-    protected Rigidbody _rigidbody;
-    protected Vector3 _spawnPosition;
-    protected Quaternion _spawnRotation;
-    
-    protected ParticleSystem _part;
-    protected List<ParticleCollisionEvent> _collisionEvents = new List<ParticleCollisionEvent>();
-    protected ParticleSystem _ps;
-
     protected int _hitCount;
+    protected float _currentCooldown;
     readonly int _value;
-    
-    
 
     protected virtual void Awake()
     {
@@ -195,6 +187,16 @@ public abstract class Spell : Item, ISpell
         }
         return (damage, isCrit);
     }
+    
+    protected virtual bool Attack(int attackCount = 1)
+    {
+        return true;
+    }
+    
+    public virtual bool CanAttack()
+    {
+        return _currentCooldown <= 0;
+    }
 
     public void InitializeData(SpellData data)
     {
@@ -212,7 +214,7 @@ public abstract class Spell : Item, ISpell
         _currentStats = spellData.BaseStats;
         
         _player = GameManager.Instance.player;
-        PlayerData = GameManager.Instance._playerStat;
+        //PlayerData = GameManager.Instance._playerStat;
         
     }
     
@@ -223,7 +225,6 @@ public abstract class Spell : Item, ISpell
     
     public virtual bool LevelUp()
     {
-        
         if (!CanLevelUp())
         {
             Debug.LogWarning(string.Format("Cannot level up {0} to Level {1}, max level of {2} already reached.", name, CurrentLevel, spellData.MaxLevel));
@@ -235,7 +236,12 @@ public abstract class Spell : Item, ISpell
         Debug.Log("New stats: " + _currentStats.ProjectilePrefab.name);
         return true;
     }
-
+    
+    public void ApplyTypeUpgrade(int upgradeLevel)
+    {
+        CurrentLevel++;
+        _currentStats += spellData.GetAffinityData(CurrentLevel);
+    }
     
     public virtual Stats GetStats()
     {

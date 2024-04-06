@@ -19,9 +19,12 @@ MonoBehaviour:
   BaseStats:
     Name: Arcane Bolt
     Description: Shoots a bolt of arcane energy onto the enemies.
-    SpellPrefab: {fileID: 394692689692053473, guid: 0dcec9332a57aeb419df0f2e3d48df2f,
+    IsAffinityUpgrade: 0
+    Type: 4
+    ProjectilePrefab: {fileID: 394692689692053473, guid: 0dcec9332a57aeb419df0f2e3d48df2f,
       type: 3}
-    SpellImpactPrefab: {fileID: -3821761342221304089, guid: 6917c8ff75e3f2c44ad44d8df072e2dd,
+    SpellPrefab: {fileID: 0}
+    baseSpellImpactPrefab: {fileID: -3821761342221304089, guid: 6917c8ff75e3f2c44ad44d8df072e2dd,
       type: 3}
     CharacterEffect: {fileID: 0}
     VisualEffect: {fileID: 0}
@@ -37,11 +40,11 @@ MonoBehaviour:
     TravelingSounds: []
     LoopingSounds: []
     ImpactSounds: []
-    SpellType: 0
     ImpactOffset: {x: 0, y: 0.1, z: 0}
     Damage: 120
     Speed: 20
-    ProjectileLifetime: 5
+    Lifetime: 5
+    DecalLifetime: 0
     ImpactLifetime: 0.8
     SpellRadius: 0
     Cooldown: 0.7
@@ -56,6 +59,9 @@ MonoBehaviour:
     ProjectileInteval: 0.2
     AngleStep: 90
     SpreadRadius: 0.5
+    EnemyCheckTimer: 0
+    WanderTimer: 0
+    WanderRadius: 0
     IsFire: 0
     IsIce: 0
     IsLightning: 0
@@ -65,3 +71,4 @@ MonoBehaviour:
     IsPassThrough: 0
   LinearGrowth: []
   RandomGrowth: []
+  AffinityGrowth: []

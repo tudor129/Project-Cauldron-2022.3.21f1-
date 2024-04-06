@@ -19,6 +19,8 @@ MonoBehaviour:
   BaseStats:
     Name: Fireball
     Description: Casts a ball of fire upon the enemies.
+    IsAffinityUpgrade: 0
+    Type: 0
     ProjectilePrefab: {fileID: 1298154281070230439, guid: 98f2028b74c10a149aa55a71ac40cab8,
       type: 3}
     SpellPrefab: {fileID: 0}
@@ -44,11 +46,11 @@ MonoBehaviour:
     LoopingSounds: []
     ImpactSounds:
     - {fileID: 8300000, guid: c49c57862bc5ea34fb7cd837d92215f1, type: 3}
-    SpellType: 0
     ImpactOffset: {x: 0, y: 0.1, z: 0}
     Damage: 100
     Speed: 8
-    ProjectileLifetime: 3
+    Lifetime: 3
+    DecalLifetime: 0
     ImpactLifetime: 0.8
     SpellRadius: 0
     Cooldown: 1
@@ -76,6 +78,8 @@ MonoBehaviour:
   LinearGrowth:
   - Name: Fireball+
     Description: Less damage more attack speed.
+    IsAffinityUpgrade: 0
+    Type: 0
     ProjectilePrefab: {fileID: 5084588850135020342, guid: 672697895c93f1440815a2be743861b9,
       type: 3}
     SpellPrefab: {fileID: 0}
@@ -95,11 +99,11 @@ MonoBehaviour:
     TravelingSounds: []
     LoopingSounds: []
     ImpactSounds: []
-    SpellType: 0
     ImpactOffset: {x: 0, y: 0, z: 0}
     Damage: 0
     Speed: 0
-    ProjectileLifetime: 0
+    Lifetime: 0
+    DecalLifetime: 0
     ImpactLifetime: 0
     SpellRadius: 0
     Cooldown: 0
@@ -125,3 +129,54 @@ MonoBehaviour:
     DoesDoT: 1
     IsPassThrough: 1
   RandomGrowth: []
+  AffinityGrowth:
+  - Name: 
+    Description: 
+    IsAffinityUpgrade: 0
+    Type: 0
+    ProjectilePrefab: {fileID: 0}
+    SpellPrefab: {fileID: 0}
+    baseSpellImpactPrefab: {fileID: 0}
+    CharacterEffect: {fileID: 0}
+    VisualEffect: {fileID: 0}
+    DetachEffect: {fileID: 0}
+    HasFlash: 0
+    HasCastEffect: 0
+    SpellAnimation: 
+    CastSound: {fileID: 0}
+    TravelingSound: {fileID: 0}
+    LoopingSound: {fileID: 0}
+    ImpactSound: {fileID: 0}
+    CastSounds: []
+    TravelingSounds: []
+    LoopingSounds: []
+    ImpactSounds: []
+    ImpactOffset: {x: 0, y: 0, z: 0}
+    Damage: 5000
+    Speed: 0
+    Lifetime: 0
+    DecalLifetime: 0
+    ImpactLifetime: 0
+    SpellRadius: 0
+    Cooldown: 0
+    DamageOverTimeDamage: 0
+    DamageOverTimeDuration: 0
+    DamageOverTimeInterval: 0
+    DamageOverTimeInitialDelay: 0
+    StaggerDuration: 0
+    SpawnsProjectilesSequentially: 0
+    ShootBackwards: 0
+    NumberOfAttacks: 0
+    ProjectileInteval: 0
+    AngleStep: 0
+    SpreadRadius: 0
+    EnemyCheckTimer: 0
+    WanderTimer: 0
+    WanderRadius: 0
+    IsFire: 0
+    IsIce: 0
+    IsLightning: 0
+    IsPoison: 0
+    IsArcane: 0
+    DoesDoT: 0
+    IsPassThrough: 0

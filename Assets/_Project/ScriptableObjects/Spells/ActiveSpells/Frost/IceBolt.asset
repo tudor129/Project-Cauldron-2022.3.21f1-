@@ -19,9 +19,12 @@ MonoBehaviour:
   BaseStats:
     Name: Ice Bolt
     Description: Shoots a bolt of ice onto the enemies.
-    SpellPrefab: {fileID: 2573782209867439286, guid: c3c8ab1a700768c48a6d0e1079183e5a,
+    IsAffinityUpgrade: 0
+    Type: 1
+    ProjectilePrefab: {fileID: 2573782209867439286, guid: c3c8ab1a700768c48a6d0e1079183e5a,
       type: 3}
-    SpellImpactPrefab: {fileID: 1325489720628664292, guid: 09293f3ca582a1e4b8438d520cddecf9,
+    SpellPrefab: {fileID: 0}
+    baseSpellImpactPrefab: {fileID: 1325489720628664292, guid: 09293f3ca582a1e4b8438d520cddecf9,
       type: 3}
     CharacterEffect: {fileID: 0}
     VisualEffect: {fileID: 0}
@@ -37,11 +40,11 @@ MonoBehaviour:
     TravelingSounds: []
     LoopingSounds: []
     ImpactSounds: []
-    SpellType: 0
     ImpactOffset: {x: 0, y: 1, z: 0}
     Damage: 15
     Speed: 10
-    ProjectileLifetime: 4
+    Lifetime: 4
+    DecalLifetime: 0
     ImpactLifetime: 0.8
     SpellRadius: 0
     Cooldown: 3
@@ -56,6 +59,9 @@ MonoBehaviour:
     ProjectileInteval: 0.3
     AngleStep: 80
     SpreadRadius: 0.5
+    EnemyCheckTimer: 0
+    WanderTimer: 0
+    WanderRadius: 0
     IsFire: 0
     IsIce: 0
     IsLightning: 0
@@ -66,8 +72,11 @@ MonoBehaviour:
   LinearGrowth:
   - Name: Level 2
     Description: More speed.
+    IsAffinityUpgrade: 0
+    Type: 0
+    ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
-    SpellImpactPrefab: {fileID: 0}
+    baseSpellImpactPrefab: {fileID: 0}
     CharacterEffect: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
@@ -82,11 +91,11 @@ MonoBehaviour:
     TravelingSounds: []
     LoopingSounds: []
     ImpactSounds: []
-    SpellType: 0
     ImpactOffset: {x: 0, y: 0, z: 0}
     Damage: 0
     Speed: 5
-    ProjectileLifetime: 0
+    Lifetime: 0
+    DecalLifetime: 0
     ImpactLifetime: 0
     SpellRadius: 0
     Cooldown: 0
@@ -101,6 +110,9 @@ MonoBehaviour:
     ProjectileInteval: 0
     AngleStep: 0
     SpreadRadius: 0
+    EnemyCheckTimer: 0
+    WanderTimer: 0
+    WanderRadius: 0
     IsFire: 0
     IsIce: 0
     IsLightning: 0
@@ -109,3 +121,4 @@ MonoBehaviour:
     DoesDoT: 0
     IsPassThrough: 0
   RandomGrowth: []
+  AffinityGrowth: []
