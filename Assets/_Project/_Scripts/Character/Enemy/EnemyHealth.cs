@@ -125,6 +125,8 @@ public class EnemyHealth : Health
         }
         
         _hasDoTEffect = false;
+        
+        transform.Find("Spell_Light_6_LWRP").gameObject.SetActive(false);
 
         // Handle the end of the DoT effect here, vfx, sfx, etc.
     }

@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     protected bool _returningToPool;
     protected Rigidbody _rigidbody;
     protected EnemyHealth _enemyHealth;
+    [SerializeField] protected GameObject _statusEffectPrefab;
     
     bool _isAttackAnimationPlaying = false;
     public bool IsPushed;
@@ -70,6 +71,10 @@ public class Enemy : MonoBehaviour
    
     protected void OnEnable()
     {
+        if (_statusEffectPrefab != null)
+        {
+            _statusEffectPrefab.SetActive(false);
+        }
         _followerEntity = GetComponent<FollowerEntity>();
         _aiDestinationSetter.target = _playerTransform;
         if(!ActiveEnemies.Contains(this))

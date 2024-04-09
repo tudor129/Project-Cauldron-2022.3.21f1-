@@ -7,14 +7,11 @@ public class SpellBehavior : BaseSpellBehavior
     float _timer;
     float _enemyCheckCounter;
     bool _isInitialized;
-    
-    Vector3 _originalColliderSize;
-    Vector3 _originalColliderCenter;
-    Vector3 _lastPosition;
-    Vector3 _movement;
 
-    public float speed = 5f;
-     Vector3 _randomDirection;
+
+    public bool _hasMovement;
+    public float speed = 3f;
+    Vector3 _randomDirection;
 
     protected override void Awake()
     {
@@ -29,34 +26,11 @@ public class SpellBehavior : BaseSpellBehavior
     {
         UpdateParticleSystemValues(_part, _currentStats.Lifetime);
         
-        _originalColliderSize = _collider.size;
-        _originalColliderCenter = _collider.center;
-        
-        _lastPosition = transform.position;
-
         _randomDirection = Random.insideUnitSphere;
         
     }
     
-    public void Initialize(Spell spell)
-    {
-        if (_isInitialized) return;  // Prevent re-initialization
-
-        
-        this.spell = spell;
-        _currentStats = spell.GetStats();
-        _isInitialized = true;
-
-        
-
-        // Perform any operations previously in Awake or Start that depend on initialization here
-        PostInitialization();
-    }
-
-    void PostInitialization()
-    {
-        
-    }
+   
     
     void UpdateParticleSystemValues(ParticleSystem particleSystem, float newValue)
     {
@@ -73,117 +47,20 @@ public class SpellBehavior : BaseSpellBehavior
 
     protected void Update()
     {
-        _randomDirection.y = 0f;
-        _randomDirection = _randomDirection.normalized;
-        transform.position += _randomDirection * speed * Time.deltaTime;
-        
-        _movement = transform.position - _lastPosition;
-        
-        
-        if (_movement.x > 0 && _movement.z > 0)
+        if (_hasMovement)
         {
-            transform.rotation = Quaternion.Euler(0, 45, 0);
-            
-            _collider.size += new Vector3(0, (_movement.y), Mathf.Abs(_movement.z));
-        
-            _collider.center -= new Vector3(0, _movement.y, _movement.z / 2);
-            
-            _movement = Vector3.zero;
-        }
-        else if (_movement.x < 0 && _movement.z > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, -45, 0);
-            
-            _collider.size += new Vector3(0, (_movement.y), Mathf.Abs(_movement.z));
-        
-            _collider.center -= new Vector3(0, _movement.y, _movement.z / 2);
-            
-            _movement = Vector3.zero;
-        }
-        else if (_movement.z < 0 && _movement.x > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, -45, 0);
-            
-            _collider.size += new Vector3(0, (_movement.y), Mathf.Abs(_movement.z));
-        
-            _collider.center -= new Vector3(0, _movement.y, _movement.z / 2);
-            
-            _movement = Vector3.zero;
-        }
-        else if (_movement.z < 0 && _movement.x < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 45, 0);
-            
-            _collider.size += new Vector3(0, (_movement.y), Mathf.Abs(_movement.z));
-        
-            _collider.center -= new Vector3(0, _movement.y, _movement.z / 2);
-            
-            _movement = Vector3.zero;
-        }
-        else if (_movement.x > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            
-            _collider.size += new Vector3(Mathf.Abs(_movement.x), (_movement.y), Mathf.Abs(0));
-            
-            _collider.center += new Vector3(-_movement.x / 2, _movement.y, -_movement.z / 2);
-            
-            _movement = Vector3.zero;
-        }
-        else if (_movement.x < 0)
-        {
-             transform.rotation = Quaternion.Euler(0, 0, 0);
-            
-            _collider.size += new Vector3(Mathf.Abs(_movement.x), (_movement.y), Mathf.Abs(0));
-        
-            _collider.center -= new Vector3(_movement.x / 2, _movement.y, _movement.z / 2);
-            
-            _movement = Vector3.zero;
-        }
-        else if (_movement.z > 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            
-            _collider.size += new Vector3(Mathf.Abs(_movement.x), (_movement.y), Mathf.Abs(_movement.z));
-        
-            // Update collider center - Add half the movement to the center to keep it centered around the object's path
-            _collider.center += new Vector3(-_movement.x / 2, _movement.y, -_movement.z / 2);
-            
-            _movement = Vector3.zero;
-        }
-        else if (_movement.z < 0)
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            
-            _collider.size += new Vector3(Mathf.Abs(_movement.x), (_movement.y), Mathf.Abs(_movement.z));
-        
-            _collider.center -= new Vector3(_movement.x / 2, _movement.y, _movement.z / 2);
-            
-            _movement = Vector3.zero;
+            _randomDirection.y = 0f;
+            _randomDirection = _randomDirection.normalized;
+            transform.position += _randomDirection * speed * Time.deltaTime;
         }
         
-        else if (_movement == Vector3.zero)
-        {
-            _collider.size = _originalColliderSize;
-            _collider.center = _originalColliderCenter;
-        }
-       
         
-        _lastPosition = transform.position;
+      
     }
 
     void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            // Get the enemy's health component.
-            Health enemyHealth = other.GetComponent<Health>();
-            // If the enemy has a health component, deal damage.
-            if (enemyHealth != null)
-            {
-                enemyHealth.TakeDamage(10);
-            }
-        }
+       Debug.Log("Particle collided with: " + other.name);
     }
 
     Vector3 FindNearestEnemyPosition()

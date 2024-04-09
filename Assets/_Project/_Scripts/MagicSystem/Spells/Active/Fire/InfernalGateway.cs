@@ -1,6 +1,8 @@
+using MoreMountains.Tools;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public class InfernalGateway : Spell
 {
@@ -43,9 +45,8 @@ public class InfernalGateway : Spell
         SpellBehavior prefab = Instantiate(_currentStats.SpellPrefab, _player.transform.position + _currentStats.ImpactOffset, Quaternion.identity);
         
         prefab.Initialize(this);
-
       
-        Transform FindDeepChild(Transform parent, string name)
+        /*Transform FindDeepChild(Transform parent, string name)
         {
             foreach (Transform child in parent)
             {
@@ -57,16 +58,20 @@ public class InfernalGateway : Spell
                     return found;
             }
             return null;
-        }
+        }*/
         
-        Transform lava = FindDeepChild(prefab.transform, "Lava");
-        Transform rain = FindDeepChild(prefab.transform, "Rain");
+        // Transform lava = FindDeepChild(prefab.transform, "Lava");
+        // Transform rain = FindDeepChild(prefab.transform, "Rain");
+        
+        Transform lava = prefab.transform.FindDeepChild("Lava");
+        Transform rain = prefab.transform.FindDeepChild("Rain");
         
         
         // This actually sets the radius of the lava pool. Set it to 1 for the minimum size. Don't set higher than 4.
         rain.transform.localScale = new Vector3(_currentStats.SpellRadius, _currentStats.SpellRadius, _currentStats.SpellRadius);
         
         lava.SetParent(null);
+        rain.GetComponent<RainBehavior>().Initialize(this);
         
         Destroy(prefab.gameObject, _currentStats.Lifetime);
         Destroy(lava.gameObject, _currentStats.DecalLifetime);

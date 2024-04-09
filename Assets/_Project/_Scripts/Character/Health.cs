@@ -54,6 +54,7 @@ public class Health : MonoBehaviour, IAttackable
     }
     public virtual void TakeDamage(int amount)
     {
+        Debug.Log("Taking damage: " + amount);
         _currentHealth -= amount;
         if (_animatorManager != null)
         {

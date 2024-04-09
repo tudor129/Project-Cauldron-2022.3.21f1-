@@ -10,7 +10,8 @@ public class BaseSpellBehavior : MonoBehaviour
     protected BoxCollider _collider;
     
     public Spell.Stats _currentStats;
-    
+    bool _isInitialized;
+
     protected virtual void Awake()
     {
         _player = GameManager.Instance.player;
@@ -28,5 +29,25 @@ public class BaseSpellBehavior : MonoBehaviour
         // {
         //     _currentStats = spell.GetStats();
         // }
+    }
+    
+    public void Initialize(Spell spell)
+    {
+        if (_isInitialized) return;  // Prevent re-initialization
+
+        
+        this.spell = spell;
+        _currentStats = spell.GetStats();
+        _isInitialized = true;
+
+        
+
+        // Perform any operations previously in Awake or Start that depend on initialization here
+        PostInitialization();
+    }
+
+    void PostInitialization()
+    {
+        
     }
 }

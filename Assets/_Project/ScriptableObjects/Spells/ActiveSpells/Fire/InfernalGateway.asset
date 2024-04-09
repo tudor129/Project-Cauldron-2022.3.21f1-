@@ -42,17 +42,17 @@ MonoBehaviour:
     LoopingSounds: []
     ImpactSounds: []
     ImpactOffset: {x: 0, y: 10, z: 0}
-    Damage: 0
+    Damage: 100
     Speed: 0
     Lifetime: 5
     DecalLifetime: 15
     ImpactLifetime: 0
     SpellRadius: 2
     Cooldown: 5
-    DamageOverTimeDamage: 0
-    DamageOverTimeDuration: 0
-    DamageOverTimeInterval: 0
-    DamageOverTimeInitialDelay: 0
+    DamageOverTimeDamage: 30
+    DamageOverTimeDuration: 5
+    DamageOverTimeInterval: 1.5
+    DamageOverTimeInitialDelay: 1
     StaggerDuration: 0
     SpawnsProjectilesSequentially: 0
     ShootBackwards: 0
@@ -63,7 +63,7 @@ MonoBehaviour:
     EnemyCheckTimer: 5
     WanderTimer: 8
     WanderRadius: 20
-    IsFire: 0
+    IsFire: 1
     IsIce: 0
     IsLightning: 0
     IsPoison: 0

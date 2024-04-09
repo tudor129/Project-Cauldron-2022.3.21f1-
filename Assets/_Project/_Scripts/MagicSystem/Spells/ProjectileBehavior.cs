@@ -106,6 +106,11 @@ public class ProjectileBehavior : BaseSpellBehavior
         
 
         HandleDealDamage(_currentStats);
+
+        // if (_currentStats.IsFire)
+        // {
+        //     other.transform.Find("Spell_Light_6_LWRP").gameObject.SetActive(true);
+        // }
         
         //HandleProjectileImpactEffect(impactPoint);
         

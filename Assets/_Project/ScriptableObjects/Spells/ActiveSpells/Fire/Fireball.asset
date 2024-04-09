@@ -68,7 +68,7 @@ MonoBehaviour:
     EnemyCheckTimer: 0
     WanderTimer: 0
     WanderRadius: 0
-    IsFire: 0
+    IsFire: 1
     IsIce: 0
     IsLightning: 0
     IsPoison: 0
