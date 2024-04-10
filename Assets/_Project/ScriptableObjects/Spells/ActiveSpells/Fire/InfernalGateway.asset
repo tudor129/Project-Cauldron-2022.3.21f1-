@@ -27,7 +27,9 @@ MonoBehaviour:
     SpellPrefab: {fileID: 8489908559077653322, guid: 81c8da0d304732f418ea5e7b20c686a8,
       type: 3}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 6019125255276684438, guid: 5030bfe47ae7c964aad82b8b63646678,
+      type: 3}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -45,7 +47,7 @@ MonoBehaviour:
     Damage: 100
     Speed: 0
     Lifetime: 5
-    DecalLifetime: 15
+    DecalLifetime: 10
     ImpactLifetime: 0
     SpellRadius: 2
     Cooldown: 5
@@ -78,7 +80,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -128,7 +131,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -178,7 +182,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -228,7 +233,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -278,7 +284,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -330,7 +337,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -380,7 +388,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -430,7 +439,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -480,7 +490,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -530,7 +541,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0

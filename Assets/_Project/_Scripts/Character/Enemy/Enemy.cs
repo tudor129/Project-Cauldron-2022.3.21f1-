@@ -94,7 +94,6 @@ public class Enemy : MonoBehaviour
 
     protected virtual void Start()
     {
-        
         _playerTransform = GameManager.Instance.GetPlayerTransform();
         if (_playerTransform == null)
         {
@@ -103,8 +102,6 @@ public class Enemy : MonoBehaviour
         //_rigidbody.isKinematic = false;
 
         //StartCoroutine(InitializePathfinding());
-        
-        
     }
     
     public void SetEnemyData(EnemySO enemyData)
@@ -163,7 +160,6 @@ public class Enemy : MonoBehaviour
 
     void HandleWalkingState(float distanceToPlayer)
     {
-        
         _isAttackAnimationPlaying = false;
         _animatorManager.PlayWalkingAnimation();
         if (EnemySpawner.Instance.GetFormation() == EnemySpawner.FormationType.Fibonacci)
@@ -191,7 +187,7 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    private IEnumerator InitializePathfinding()
+    IEnumerator InitializePathfinding()
     {
         // Wait until the end of the frame to ensure all Start methods are called.
         yield return new WaitForEndOfFrame();

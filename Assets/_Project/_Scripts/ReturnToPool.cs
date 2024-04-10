@@ -23,7 +23,7 @@ public class ReturnToPool : MonoBehaviour
         ReturnGameObjectToPool(); // then call your function to return the game object to the pool
     }
 
-    public void ReturnGameObjectToPool()
+    void ReturnGameObjectToPool()
     {
         if (gameObject.activeInHierarchy && gameObject != null)
         {

@@ -25,7 +25,7 @@ public class CoroutineManager : MonoBehaviour
     {
         StartCoroutine(RunManagedCoroutine(coroutine, onComplete));
     }
-
+    
     IEnumerator RunManagedCoroutine(IEnumerator coroutine, System.Action onComplete = null)
     {
         yield return StartCoroutine(coroutine);

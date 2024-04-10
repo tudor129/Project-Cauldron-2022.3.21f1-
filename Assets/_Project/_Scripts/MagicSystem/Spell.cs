@@ -33,7 +33,8 @@ public abstract class Spell : Item, ISpell
         public ProjectileBehavior ProjectilePrefab;
         public SpellBehavior SpellPrefab;
         [FormerlySerializedAs("SpellImpactPrefab")] public BaseSpellImpactBehavior baseSpellImpactPrefab;
-        public GameObject CharacterEffect;
+        public GameObject CharacterEffectPrefab;
+        public GameObject StatusEffectPrefab;
         public VisualEffect VisualEffect;
         public ParticleSystem DetachEffect;
         public bool HasFlash;
@@ -107,7 +108,8 @@ public abstract class Spell : Item, ISpell
             result.ProjectilePrefab = s2.ProjectilePrefab ?? s1.ProjectilePrefab;
             result.SpellPrefab = s2.SpellPrefab ?? s1.SpellPrefab;
             result.baseSpellImpactPrefab = s2.baseSpellImpactPrefab ?? s1.baseSpellImpactPrefab;
-            result.CharacterEffect = s2.CharacterEffect ?? s1.CharacterEffect;
+            result.CharacterEffectPrefab = s2.CharacterEffectPrefab ?? s1.CharacterEffectPrefab;
+            result.StatusEffectPrefab = s2.StatusEffectPrefab ?? s1.StatusEffectPrefab;
             result.VisualEffect = s2.VisualEffect ?? s1.VisualEffect;
             result.HasFlash = s2.HasFlash || s1.HasFlash;
             result.HasCastEffect = s2.HasCastEffect || s1.HasCastEffect;

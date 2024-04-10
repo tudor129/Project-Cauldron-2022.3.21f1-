@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class LavaBehavior : BaseSpellBehavior
 {
-    
     SphereCollider _sphereCollider;
 
     protected override void Awake()
@@ -28,10 +27,28 @@ public class LavaBehavior : BaseSpellBehavior
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            bool effectExists = other.gameObject.transform.Find(_currentStats.StatusEffectPrefab.name);
+            if (effectExists)
+            {
+                return;
+            }
             other.GetComponent<EnemyHealth>().ApplyDoTEffect(_currentStats);
-            other.transform.Find("Spell_Light_6_LWRP").gameObject.SetActive(true);
+            GameObject lavaObject = ObjectPoolManager.Instance.SpawnStatusEffect(
+                _currentStats.StatusEffectPrefab,
+                 other.gameObject,
+                other.transform.position + new Vector3(0, 0.1f, 0),
+                Quaternion.identity,
+                ObjectPoolManager.PoolType.StatusEffects);
+            
+            CoroutineManager.Instance.StartManagedCoroutine(ReturnToPoolAfterDelay(_currentStats.DamageOverTimeDuration, lavaObject));
         }
     }
-
-
+    
+    IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
+    {
+        Debug.Log("Coroutine started for " + objectToReturn.name);
+        yield return new WaitForSeconds(delay);
+        Debug.Log("Returning " + objectToReturn.name + " to pool.");
+        ObjectPoolManager.Instance.ReturnStatusEffectToPool(objectToReturn);
+    }
 }

@@ -17,27 +17,35 @@ public class RainBehavior : BaseSpellBehavior
     {
         _particleSystem = GetComponent<ParticleSystem>();
     }
-    
+
+    protected override void Start()
+    {
+        base.Start();
+        _collisionCount = 0;
+    }
+
     void OnParticleCollision(GameObject other)
     {
         int numCollisionEvents = ParticlePhysicsExtensions.GetCollisionEvents(this._particleSystem, other, _collisionEvents);
 
-        Debug.Log("Number of collision events: " + numCollisionEvents);
         if (other.CompareTag("Ground"))
         {
-
             for (int i = 0; i < numCollisionEvents; i++)
             {
                 if (_collisionCount % 2 == 0) // Check if the counter is even
                 {
                     Vector3 hitPosition = _collisionEvents[i].intersection;
 
-                    GameObject lavaObject = Instantiate(_lavaPrefab, hitPosition, Quaternion.identity);
+                    BaseSpellBehavior lavaObject = ObjectPoolManager.Instance.SpawnObject<BaseSpellBehavior>(
+                        _lavaPrefab,
+                        hitPosition,
+                        Quaternion.identity,
+                        ObjectPoolManager.PoolType.Decals);
                     
                     // This is called from LavaBehavior, not it's parent class
                     lavaObject.GetComponent<LavaBehavior>().Initialize(this, _currentStats);
-                    
-                    Destroy(lavaObject, 10f);
+   
+                    CoroutineManager.Instance.StartManagedCoroutine(ReturnToPoolAfterDelay(_currentStats.DecalLifetime, lavaObject.gameObject));
                 }
                 _collisionCount++;
             }
@@ -46,24 +54,27 @@ public class RainBehavior : BaseSpellBehavior
         {
             HandleDealDamage(_currentStats, other);
 
-            if (_currentStats.IsFire)
-            {
-                other.transform.Find("Spell_Light_6_LWRP").gameObject.SetActive(true);
-            }
-            
-            GameObject lavaObject = Instantiate(_lavaPrefab, other.transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+            BaseSpellBehavior lavaObject = ObjectPoolManager.Instance.SpawnObject<BaseSpellBehavior>(
+                _lavaPrefab,
+                other.transform.position + new Vector3(0, 0.1f, 0),
+                Quaternion.identity,
+                ObjectPoolManager.PoolType.Decals);
             
             lavaObject.GetComponent<LavaBehavior>().Initialize(this, _currentStats);
-            //lavaObject.GetComponent<LavaBehavior>().Initialize();
             
-            Destroy(lavaObject, 10f);
-            
+            CoroutineManager.Instance.StartManagedCoroutine(ReturnToPoolAfterDelay(_currentStats.DecalLifetime, lavaObject.gameObject));
         }
         else if (other.CompareTag("Player"))
         {
             Debug.Log("Rain collided with player.");
         }
         
+    }
+    
+    IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
+    {
+        yield return new WaitForSeconds(delay);
+        ObjectPoolManager.Instance.ReturnObjectToPool(objectToReturn);
     }
     
     void HandleDealDamage(Spell.Stats spellData, GameObject other)

@@ -37,20 +37,20 @@ public class EnemyVisualEffects : MonoBehaviour
             
 
             bool effectExists = false;
-            if (spellInfo.CharacterEffect != null)
+            if (spellInfo.CharacterEffectPrefab != null)
             {
                 foreach (Transform child in transform)
                 {
-                    if (child.name == spellInfo.CharacterEffect.name + "(Clone)") //  the instantiated object has to have "(Clone)" in its name
+                    if (child.name == spellInfo.CharacterEffectPrefab.name + "(Clone)") //  the instantiated object has to have "(Clone)" in its name
                     {
                         effectExists = true;
                         break;
                     }
                 }
             }
-            if (!effectExists && spellInfo.CharacterEffect != null && spellInfo.DoesDoT)
+            if (!effectExists && spellInfo.CharacterEffectPrefab != null && spellInfo.DoesDoT)
             {
-                GameObject fireEffect = Instantiate(spellInfo.CharacterEffect, transform.position, transform.rotation);
+                GameObject fireEffect = Instantiate(spellInfo.CharacterEffectPrefab, transform.position, transform.rotation);
                 fireEffect.transform.SetParent(transform);
                 VisualEffect visualEffect = fireEffect.GetComponent<VisualEffect>();
 
