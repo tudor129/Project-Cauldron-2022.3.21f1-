@@ -12,6 +12,7 @@ public class AbilityData : ItemData
     public GameObject AbilityStartEffect;
     public VisualEffect VisualEffectGraph;
     public Material AbilityMaterial;
+    public GameObject FirePrefab;
     
     [Header("Ability Type")]
     public TypeOfAbility AbilityType;
@@ -40,6 +41,7 @@ public class AbilityData : ItemData
     public float TrailVisibleTime = 0.5f;
     [Tooltip("Keep this value at 0.025f for best effect")]
     public float TrailRefreshRate = 0.05f;
+    public float ElementTrailRefreshRate = 0.05f;
     
     [Header("Trail Shader Stats")]
     public string ShaderVarRef = "_Alpha";

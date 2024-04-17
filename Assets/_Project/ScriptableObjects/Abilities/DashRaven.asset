@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: DashRaven
   m_EditorClassIdentifier: 
   ItemName: 
-  Sprite: {fileID: 0}
+  MaxLevel: 0
+  icon: {fileID: 0}
   AbilityEffectsPrefab: {fileID: 2097394692535596202, guid: 184556f74baa4dd4fbc931c8152aa599,
     type: 3}
   AbilityStartEffect: {fileID: 3337970243176998911, guid: 2bb9f5442d8f0974482da0b88a52fcb0,
     type: 3}
   VisualEffectGraph: {fileID: 0}
   AbilityMaterial: {fileID: 2100000, guid: 4c493869917d21f4887b1b144d4f3571, type: 2}
+  FirePrefab: {fileID: 0}
   AbilityType: 0
-  IsFireDash: 0
+  IsFireDash: 1
   IsIceDash: 0
   IsLightningDash: 0
   IsPoisonDash: 0
@@ -37,3 +39,7 @@ MonoBehaviour:
   Duration: 0.25
   IFramesTime: 0.5
   TrailVisibleTime: 0.35
+  TrailRefreshRate: 0.05
+  ShaderVarRef: _Alpha
+  ShaderVarRate: 0.1
+  ShaderVarRefreshRate: 0.05

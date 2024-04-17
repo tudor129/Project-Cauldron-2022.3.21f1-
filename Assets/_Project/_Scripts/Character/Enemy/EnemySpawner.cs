@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     Vector3[][] _formations;
     float _formationSpacing = 2f; // the distance between enemies in a formation
-    int _maxEnemies = 75;
+    int _maxEnemies = 200;
     float _timer;
     
     public enum FormationType

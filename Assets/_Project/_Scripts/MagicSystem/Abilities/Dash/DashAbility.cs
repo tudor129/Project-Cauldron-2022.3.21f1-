@@ -9,10 +9,14 @@ public class DashAbility : MonoBehaviour
 {
     [FormerlySerializedAs("AbilitySO")] [FormerlySerializedAs("Ability")] public AbilityData abilityData;
     
+    [SerializeField] GameObject _firePrefab;
+    
     Player _player;
     PlayerLocomotionManager _playerLocomotionManager; 
     CharacterController _characterController;
     PlayerAnimatorManager _animatorManager;
+    
+    int _numberOfCharges = 10;
     
     void Awake()
     {
@@ -75,17 +79,21 @@ public class DashAbility : MonoBehaviour
                 _playerLocomotionManager._dashDirection = _playerLocomotionManager._moveDir;
                 
                 Quaternion rollRotation = Quaternion.LookRotation(_playerLocomotionManager._dashDirection);
-                _player.transform.rotation = rollRotation;
+                // To rotate player towards the direction of the dash
+                //_player.transform.rotation = rollRotation;
                 
                 StartCoroutine(Dash());
                 
-                Instantiate(abilityData.AbilityEffectsPrefab, transform.position + Vector3.up, Quaternion.identity);
-                Instantiate(abilityData.AbilityStartEffect, transform.position + Vector3.up, Quaternion.identity);
+                GameObject dashObject = Instantiate(abilityData.AbilityEffectsPrefab, transform.position + Vector3.up, Quaternion.identity);
+                GameObject dashStartObject = Instantiate(abilityData.AbilityStartEffect, transform.position + Vector3.up, Quaternion.identity);
                 MeshTrail meshTrail = gameObject.AddComponent<MeshTrail>();
                 meshTrail.abilityData = abilityData;
+
+               
                 
                 CooldownManager.Instance.StartCooldown(chargeToUse, abilityData.Cooldown);
                 _player._isPerformingAction = false;
+                Destroy(dashStartObject, abilityData.Duration + 1f);
             }
         }
     }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class DeathDetector : MonoBehaviour
 {
     GameObject _deadEnemy;
-    // This method is called when another Collider enters this object's trigger Collider
     void OnTriggerEnter(Collider other)
     {
         Health enemyHealth = other.GetComponent<Health>();
@@ -17,7 +16,6 @@ public class DeathDetector : MonoBehaviour
        
     }
 
-    // This method is called when another Collider exits this object's trigger Collider
     void OnTriggerExit(Collider other)
     {
         Health enemyHealth = other.GetComponent<Health>();

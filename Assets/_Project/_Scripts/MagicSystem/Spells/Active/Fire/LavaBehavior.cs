@@ -46,9 +46,7 @@ public class LavaBehavior : BaseSpellBehavior
     
     IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
     {
-        Debug.Log("Coroutine started for " + objectToReturn.name);
         yield return new WaitForSeconds(delay);
-        Debug.Log("Returning " + objectToReturn.name + " to pool.");
         ObjectPoolManager.Instance.ReturnStatusEffectToPool(objectToReturn);
     }
 }

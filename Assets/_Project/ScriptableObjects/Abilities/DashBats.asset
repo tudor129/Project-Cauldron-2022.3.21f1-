@@ -13,15 +13,18 @@ MonoBehaviour:
   m_Name: DashBats
   m_EditorClassIdentifier: 
   ItemName: Dash
-  Sprite: {fileID: 0}
+  MaxLevel: 0
+  icon: {fileID: 0}
   AbilityEffectsPrefab: {fileID: 8205143398145679001, guid: cd515baf17131fc40ac104a79cbeec80,
     type: 3}
   AbilityStartEffect: {fileID: 3337970243176998911, guid: 2bb9f5442d8f0974482da0b88a52fcb0,
     type: 3}
   VisualEffectGraph: {fileID: 0}
   AbilityMaterial: {fileID: 2100000, guid: 6b7ab710f89bea54785074fb9de0c14f, type: 2}
+  FirePrefab: {fileID: 6542621245694955812, guid: 56a81a0cabda30348a4c304c42af8824,
+    type: 3}
   AbilityType: 0
-  IsFireDash: 0
+  IsFireDash: 1
   IsIceDash: 0
   IsLightningDash: 0
   IsPoisonDash: 0
@@ -31,13 +34,14 @@ MonoBehaviour:
   Speed: 20
   AbilityRadius: 0
   PushForce: 0
-  Cooldown: 2.7
+  Cooldown: 0.2
   NumberOfCharges: 2
   Range: 4
   Duration: 0.25
   IFramesTime: 0.5
   TrailVisibleTime: 0.25
   TrailRefreshRate: 0.025
+  ElementTrailRefreshRate: 0.04
   ShaderVarRef: _Alpha
   ShaderVarRate: 0.1
   ShaderVarRefreshRate: 0.05

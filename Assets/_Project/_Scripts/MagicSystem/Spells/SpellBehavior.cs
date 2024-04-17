@@ -1,17 +1,21 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Analytics;
 using Random = UnityEngine.Random;
 public class SpellBehavior : BaseSpellBehavior
 {
     float _timer;
     float _enemyCheckCounter;
-    bool _isInitialized;
 
 
     public bool _hasMovement;
     public float speed = 3f;
     Vector3 _randomDirection;
+    
+    SphereCollider _sphereCollider;
+    
 
     protected override void Awake()
     {

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.TestTools;
 public class BaseSpellBehavior : MonoBehaviour
 {
     public Spell spell;
@@ -15,20 +16,11 @@ public class BaseSpellBehavior : MonoBehaviour
     protected virtual void Awake()
     {
         _player = GameManager.Instance.player;
-        
-      
-        //Debug.Log("Current stats for ImpactLifetime in awake: " + _currentStats.SpellPrefab.name);
-        // _currentStats = spell.GetStats();
-        // Debug.Log("Current stats for ImpactLifetime in awake: " + _currentStats.SpellPrefab.name);
-        
     }
 
     protected virtual void Start()
     {
-        // if (!_isInitialized)
-        // {
-        //     _currentStats = spell.GetStats();
-        // }
+   
     }
     
     public void Initialize(Spell spell)

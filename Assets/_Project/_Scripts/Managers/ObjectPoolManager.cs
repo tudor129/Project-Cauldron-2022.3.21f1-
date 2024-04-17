@@ -260,7 +260,11 @@ public class ObjectPoolManager : MonoBehaviour
            spawnableObject.SetActive(true);
        }
        
-       spawnableObject.transform.SetParent(parent.transform);
+       if (parent != null)
+       {
+           spawnableObject.transform.SetParent(parent.transform);
+       }
+       //spawnableObject.transform.SetParent(parent.transform);
        
        return spawnableObject;
    }
