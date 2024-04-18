@@ -26,7 +26,8 @@ MonoBehaviour:
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 1325489720628664292, guid: 09293f3ca582a1e4b8438d520cddecf9,
       type: 3}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0
@@ -77,7 +78,8 @@ MonoBehaviour:
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
     baseSpellImpactPrefab: {fileID: 0}
-    CharacterEffect: {fileID: 0}
+    CharacterEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     HasFlash: 0

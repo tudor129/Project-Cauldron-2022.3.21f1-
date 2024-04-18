@@ -254,6 +254,12 @@ public abstract class Spell : Item, ISpell
     {
         return gameObject;
     }
+    
+    protected IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
+    {
+        yield return new WaitForSeconds(delay);
+        ObjectPoolManager.Instance.ReturnObjectToPool(objectToReturn);
+    }
 
 
 }

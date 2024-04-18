@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.TestTools;
 public class BaseSpellBehavior : MonoBehaviour
@@ -41,5 +42,11 @@ public class BaseSpellBehavior : MonoBehaviour
     void PostInitialization()
     {
         
+    }
+    
+    protected IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
+    {
+        yield return new WaitForSeconds(delay);
+        ObjectPoolManager.Instance.ReturnObjectToPool(objectToReturn);
     }
 }

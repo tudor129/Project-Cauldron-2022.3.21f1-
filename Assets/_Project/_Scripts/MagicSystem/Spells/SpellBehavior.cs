@@ -6,13 +6,13 @@ using UnityEngine.Analytics;
 using Random = UnityEngine.Random;
 public class SpellBehavior : BaseSpellBehavior
 {
-    float _timer;
-    float _enemyCheckCounter;
+    protected float _timer;
+    protected float _enemyCheckCounter;
 
 
     public bool _hasMovement;
     public float speed = 3f;
-    Vector3 _randomDirection;
+    protected Vector3 _randomDirection;
     
     SphereCollider _sphereCollider;
     
@@ -49,7 +49,7 @@ public class SpellBehavior : BaseSpellBehavior
         particleSystem.Play();
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (_hasMovement)
         {

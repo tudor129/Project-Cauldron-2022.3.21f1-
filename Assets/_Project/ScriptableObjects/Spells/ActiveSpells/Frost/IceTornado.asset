@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f34a120ca205d714387a05fb8880df7d, type: 3}
-  m_Name: ArcaneBolt
+  m_Name: IceTornado
   m_EditorClassIdentifier: 
-  ItemName: ArcaneProjectileSpell
+  ItemName: 
   MaxLevel: 0
-  icon: {fileID: 21300000, guid: f671d968aa0e16d4590091426f46ac79, type: 3}
-  Behaviour: Fireball
+  icon: {fileID: 21300000, guid: 0f116d7cd2879e7468998585ea6c2656, type: 3}
+  Behaviour: IceTornado
   BaseStats:
-    Name: Arcane Bolt
-    Description: Shoots a bolt of arcane energy onto the enemies.
+    Name: Ice Tornado
+    Description: "Unleashes a spiraling tornado of biting cold and ice, drawing in
+      and freezing enemies caught in it\u2019s path, dealing damage and reducing
+      movement speed. "
     IsAffinityUpgrade: 0
-    Type: 4
-    ProjectilePrefab: {fileID: 394692689692053473, guid: 0dcec9332a57aeb419df0f2e3d48df2f,
+    Type: 1
+    ProjectilePrefab: {fileID: 0}
+    SpellPrefab: {fileID: 2978100695284096194, guid: 69976e46ef59dc94fbfbbb42a868e77a,
       type: 3}
-    SpellPrefab: {fileID: 0}
-    baseSpellImpactPrefab: {fileID: -3821761342221304089, guid: 6917c8ff75e3f2c44ad44d8df072e2dd,
-      type: 3}
+    baseSpellImpactPrefab: {fileID: 0}
     CharacterEffectPrefab: {fileID: 0}
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
@@ -41,30 +42,30 @@ MonoBehaviour:
     TravelingSounds: []
     LoopingSounds: []
     ImpactSounds: []
-    ImpactOffset: {x: 0, y: 0.1, z: 0}
-    Damage: 120
-    Speed: 20
-    Lifetime: 5
-    DecalLifetime: 0
-    ImpactLifetime: 0.8
-    SpellRadius: 0
-    Cooldown: 0.7
-    DamageOverTimeDamage: 0
-    DamageOverTimeDuration: 0
-    DamageOverTimeInterval: 0
-    DamageOverTimeInitialDelay: 0
+    ImpactOffset: {x: 0, y: 0, z: 0}
+    Damage: 100
+    Speed: 0
+    Lifetime: 10
+    DecalLifetime: 10
+    ImpactLifetime: 0
+    SpellRadius: 2
+    Cooldown: 2
+    DamageOverTimeDamage: 30
+    DamageOverTimeDuration: 5
+    DamageOverTimeInterval: 1.5
+    DamageOverTimeInitialDelay: 1
     StaggerDuration: 0
-    SpawnsProjectilesSequentially: 0
+    SpawnsProjectilesSequentially: 1
     ShootBackwards: 0
-    NumberOfAttacks: 9
-    ProjectileInteval: 0.2
-    AngleStep: 90
-    SpreadRadius: 0.5
-    EnemyCheckTimer: 0
-    WanderTimer: 0
-    WanderRadius: 0
+    NumberOfAttacks: 3
+    ProjectileInteval: 0
+    AngleStep: 0
+    SpreadRadius: 0
+    EnemyCheckTimer: 5
+    WanderTimer: 8
+    WanderRadius: 20
     IsFire: 0
-    IsIce: 0
+    IsIce: 1
     IsLightning: 0
     IsPoison: 0
     IsArcane: 0
