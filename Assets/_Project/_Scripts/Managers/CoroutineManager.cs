@@ -22,10 +22,10 @@ public class CoroutineManager : MonoBehaviour
         }
     }
     
-    public void StartManagedCoroutine(GameObject owner, IEnumerator coroutine, System.Action onComplete = null) 
+    public void StartManagedCoroutine(IEnumerator coroutine, System.Action onComplete = null) 
     {
         //StartCoroutine(RunManagedCoroutine(coroutine, onComplete));
-        Coroutine newCoroutine = null;
+        /*Coroutine newCoroutine = null;
         newCoroutine = StartCoroutine(RunManagedCoroutine(coroutine, () =>
         {
             onComplete?.Invoke();
@@ -45,7 +45,7 @@ public class CoroutineManager : MonoBehaviour
         {
             _activeCoroutines[owner] = new List<Coroutine>();
         }
-        _activeCoroutines[owner].Add(newCoroutine);
+        _activeCoroutines[owner].Add(newCoroutine);*/
     }
     
     IEnumerator RunManagedCoroutine(IEnumerator coroutine, System.Action onComplete = null)
