@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,13 +13,13 @@ public class ProjectileBehavior : BaseSpellBehavior
     protected GameObject _flashInstance;
     protected int _hitCount;
     
-    
+    MMF_Player _feedback;
     SphereCollider _sphereCollider;
     Rigidbody _rigidbody;
     Vector3 _spawnPosition;
     Quaternion _spawnRotation;
     
-    bool _isInitialized = false;
+    //bool _isInitialized = false;
     
     protected override void Awake()
     {
@@ -28,6 +29,12 @@ public class ProjectileBehavior : BaseSpellBehavior
     void OnEnable()
     {
         _attackablesInRadius.Clear();
+        _hitCount = 0;
+    }
+
+    void OnDisable()
+    {
+        _hitCount = 0;
     }
 
     protected override void Start()
@@ -55,14 +62,19 @@ public class ProjectileBehavior : BaseSpellBehavior
         //StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime));
         
         //Destroy(gameObject, _currentStats.ProjectileLifetime);
+        _hitCount = 0;
+        //_feedback = FindObjectOfType<MMF_Player>();
     }
     
-    public void Initialize(Spell spell)
+    
+    
+    public void Initialize(Spell spell, MMF_Player feedback)
     {
         if (_isInitialized) return;  // Prevent re-initialization
 
         
         this.spell = spell;
+        _feedback = feedback;
         _currentStats = spell.GetStats();
         _isInitialized = true;
 
@@ -101,16 +113,13 @@ public class ProjectileBehavior : BaseSpellBehavior
         {
             return;
         }
+        
 
         Vector3 impactPoint = HandleImpactPoint(other);
         
 
         HandleDealDamage(_currentStats);
 
-        // if (_currentStats.IsFire)
-        // {
-        //     other.transform.Find("Spell_Light_6_LWRP").gameObject.SetActive(true);
-        // }
         
         //HandleProjectileImpactEffect(impactPoint);
         
@@ -118,14 +127,22 @@ public class ProjectileBehavior : BaseSpellBehavior
         {
             SoundFXManager.Instance.PlaySoundFXClip(_currentStats.ImpactSound, transform, 0.1f);
         }
-
-        HandleProjectileTrailRemoval();
-
+        
         if (!_currentStats.IsPassThrough)
         {
             //Destroy(gameObject);
-            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+            if (_hitCount >= _currentStats.NumberOfPierces)
+            {
+                _feedback.PlayFeedbacks();
+                //ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+                StartCoroutine(ReturnToPoolAfterDelay(0.1f, gameObject));
+            }
+            
         }
+
+        HandleProjectileTrailRemoval();
+
+       
         
         _attackablesInRadius.Clear();
     }
@@ -200,6 +217,10 @@ public class ProjectileBehavior : BaseSpellBehavior
             if (attackable != null && attackable.IsActive())
             {
                 _hitCount++;
+                if (_hitCount >= 3)
+                {
+                    
+                }
                 (int damage, bool isCritical) = CalculateActiveSpellDamage(_hitCount, 0.1f, 3, spellData);
                 attackable.TakeDamage(damage, isCritical, spellData);
                 
@@ -302,7 +323,7 @@ public class ProjectileBehavior : BaseSpellBehavior
                 Debug.Log("Detached prefab is not null");
                 //detachedPrefab.transform.parent = null;
                 //Destroy(detachedPrefab, 1);
-                //StartCoroutine(DespawnAfterDelay())
+                // StartCoroutine(DespawnAfterDelay())
             }
         }
     }

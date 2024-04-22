@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using UnityEngine.Serialization;
 // All projectile spells will inherit from BaseProjectileSpell
 public class Fireball : Spell
 {
+    
+    Camera _mainCamera;
     int _currentAttackCount;
     float _currentAttackInterval;
     protected bool _readyForAttack = true;
@@ -14,17 +17,22 @@ public class Fireball : Spell
     
     ProjectileBehavior _projectileBehaviorGameObject;
     IEnumerator _despawnAfterdelay;
+    MMF_Player _feedback;
+    
+    float _currentCooldown;
 
     protected override void Awake()
     {
         base.Awake();
         //_currentStats = GetStats();
+        
     }
 
     protected override void Start()
     {
         base.Start();
         _currentAttackInterval = _currentStats.ProjectileInteval;
+        _feedback = GetComponentInChildren<MMF_Player>();
     }
    
     protected override void Update()
@@ -78,7 +86,11 @@ public class Fireball : Spell
             Debug.LogWarning($"Projectile prefab has not been set for {name} or cannot attack.");
             _currentCooldown = _currentStats.Cooldown;
             return false;
+            
+            
         }
+        
+        //_feedback.PlayFeedbacks();
 
         if (_currentStats.SpawnsProjectilesSequentially)
         {
@@ -102,9 +114,16 @@ public class Fireball : Spell
                     Quaternion.LookRotation(direction), 
                     ObjectPoolManager.PoolType.Projectiles);
                 
-                prefab.Initialize(this);
+                prefab.Initialize(this, _feedback);
+
+
+                // Remember to fix this
+                if (!_currentStats.IsPassThrough)
+                {
+                    Debug.Log("Fireball is not pass through");
+                    StartCoroutine(DespawnAfterDelay(_currentStats.Lifetime, prefab.gameObject));
+                }
                 
-                StartCoroutine(DespawnAfterDelay(_currentStats.Lifetime, prefab.gameObject));
               
                 
                 if (_currentStats.CastSound != null)
@@ -140,7 +159,7 @@ public class Fireball : Spell
                     Quaternion.LookRotation(direction), 
                     ObjectPoolManager.PoolType.Projectiles);
                 
-                prefab1.Initialize(this);
+                prefab1.Initialize(this, _feedback);
                 
                 StartCoroutine(DespawnAfterDelay(_currentStats.Lifetime, prefab1.gameObject));
                 

@@ -32,6 +32,8 @@ MonoBehaviour:
       type: 3}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 6605681727087754740, guid: f57db4f8a6a90884185364063247f9ac,
+      type: 3}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -84,6 +86,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -135,6 +138,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -186,6 +190,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -237,6 +242,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -288,6 +294,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -341,6 +348,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -392,6 +400,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -443,6 +452,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -494,6 +504,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -545,6 +556,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 

@@ -24,12 +24,12 @@ public class IceTornadoBehavior : SpellBehavior
     {
         if (_hasMovement)
         {
-            _randomDirection.y = 0f;
-            _randomDirection = _randomDirection.normalized;
-            transform.position += _randomDirection * speed * Time.deltaTime;
-            transform.rotation = Quaternion.Euler(-90, 0, 0);
+            // _randomDirection.y = 0f;
+            // _randomDirection = _randomDirection.normalized;
+            // transform.position += _randomDirection * speed * Time.deltaTime;
+            // transform.rotation = Quaternion.Euler(-90, 0, 0);
             
-            /*// Update the timer
+            // Update the timer
             timeSinceLastChange += Time.deltaTime;
 
             // When it's time to change direction, set a new target direction
@@ -47,7 +47,7 @@ public class IceTornadoBehavior : SpellBehavior
             transform.position += _randomDirection * speed * Time.deltaTime;
 
             // Correct the rotation of the tornado
-            transform.rotation = Quaternion.LookRotation(_randomDirection) * Quaternion.Euler(-90, 0, 0);*/
+            transform.rotation = Quaternion.LookRotation(_randomDirection) * Quaternion.Euler(-90, 0, 0);
            
         }
     }

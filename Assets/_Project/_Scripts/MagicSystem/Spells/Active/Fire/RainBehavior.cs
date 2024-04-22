@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +7,8 @@ using Utilities;
 
 public class RainBehavior : BaseSpellBehavior
 {
+    [SerializeField] MMF_Player _feedback;
+    
     [SerializeField] GameObject _lavaPrefab;
     
     List<ParticleCollisionEvent> _collisionEvents = new List<ParticleCollisionEvent>();
@@ -16,12 +19,18 @@ public class RainBehavior : BaseSpellBehavior
     protected override void Awake()
     {
         _particleSystem = GetComponent<ParticleSystem>();
+        //_feedback = FindObjectOfType<MMF_Player>();
     }
 
     protected override void Start()
     {
         base.Start();
         _collisionCount = 0;
+    }
+    
+    public void Initialize(MMF_Player feedback)
+    {
+        _feedback = feedback;
     }
 
     void OnParticleCollision(GameObject other)
@@ -63,6 +72,9 @@ public class RainBehavior : BaseSpellBehavior
             lavaObject.GetComponent<LavaBehavior>().Initialize(this, _currentStats);
             
             CoroutineManager.Instance.StartManagedCoroutine(ReturnToPoolAfterDelay(_currentStats.DecalLifetime, lavaObject.gameObject));
+
+            //MMF_Player feedback = Instantiate(_currentStats.Feedback, other.transform.position, Quaternion.identity);
+            _feedback.PlayFeedbacks();
         }
         else if (other.CompareTag("Player"))
         {

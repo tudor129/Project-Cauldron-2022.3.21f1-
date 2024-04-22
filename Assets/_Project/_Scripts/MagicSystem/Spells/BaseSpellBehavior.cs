@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class BaseSpellBehavior : MonoBehaviour
     protected BoxCollider _collider;
     
     public Spell.Stats _currentStats;
-    bool _isInitialized;
+    protected bool _isInitialized;
 
     protected virtual void Awake()
     {

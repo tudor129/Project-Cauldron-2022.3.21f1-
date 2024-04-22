@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,6 +7,8 @@ using Utilities;
 
 public class InfernalGateway : Spell
 {
+    MMF_Player _feedback;
+    
     protected override void Awake()
     {
         base.Awake();
@@ -16,6 +19,11 @@ public class InfernalGateway : Spell
         base.Start();
 
         // spellBehavior = Instantiate(_currentStats.SpellPrefab, _player.transform.position + new Vector3(0, 10, 0), Quaternion.identity);
+        
+        // GameObject feedBackObject = Instantiate(_currentStats.Feedback.gameObject, _player.transform.position, Quaternion.identity);
+        // feedBackObject.transform.SetParent(_player.transform);
+
+        _feedback = GetComponentInChildren<MMF_Player>();
     }
     
     protected override void Update()
@@ -46,22 +54,6 @@ public class InfernalGateway : Spell
         
         prefab.Initialize(this);
       
-        /*Transform FindDeepChild(Transform parent, string name)
-        {
-            foreach (Transform child in parent)
-            {
-                if (child.name == name)
-                    return child;
-
-                Transform found = FindDeepChild(child, name);
-                if (found != null)
-                    return found;
-            }
-            return null;
-        }*/
-        
-        // Transform lava = FindDeepChild(prefab.transform, "Lava");
-        // Transform rain = FindDeepChild(prefab.transform, "Rain");
         
         Transform lava = prefab.transform.FindDeepChild("Lava");
         Transform rain = prefab.transform.FindDeepChild("Rain");
@@ -72,6 +64,10 @@ public class InfernalGateway : Spell
         
         lava.SetParent(null);
         rain.GetComponent<RainBehavior>().Initialize(this);
+        
+        RainBehavior rainBehavior = rain.GetComponent<RainBehavior>();
+        
+        rainBehavior.Initialize(_feedback);
         
         Destroy(prefab.gameObject, _currentStats.Lifetime);
         Destroy(lava.gameObject, _currentStats.DecalLifetime);

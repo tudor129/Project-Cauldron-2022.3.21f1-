@@ -1,3 +1,4 @@
+using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,8 @@ using UnityEngine.Serialization;
 
 public class DashAbility : MonoBehaviour
 {
+    [SerializeField] MMF_Player _feedback;
+    
     [FormerlySerializedAs("AbilitySO")] [FormerlySerializedAs("Ability")] public AbilityData abilityData;
     
     [SerializeField] GameObject _firePrefab;
@@ -24,7 +27,6 @@ public class DashAbility : MonoBehaviour
         _player = GetComponent<Player>();
         _characterController = GetComponent<CharacterController>();
         _animatorManager = GetComponent<PlayerAnimatorManager>();
-        
     }
     void Start()
     {
@@ -89,7 +91,7 @@ public class DashAbility : MonoBehaviour
                 MeshTrail meshTrail = gameObject.AddComponent<MeshTrail>();
                 meshTrail.abilityData = abilityData;
 
-               
+                //_feedback.PlayFeedbacks();
                 
                 CooldownManager.Instance.StartCooldown(chargeToUse, abilityData.Cooldown);
                 _player._isPerformingAction = false;

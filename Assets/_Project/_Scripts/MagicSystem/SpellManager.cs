@@ -196,6 +196,13 @@ public class SpellManager : MonoBehaviour, ICast
             spawnedSpell.transform.SetParent(transform); //Set the spell to be a child of the player
             spawnedSpell.transform.localPosition = Vector2.zero;
             spawnedSpell.OnEquip();
+            if (data.BaseStats.Feedback != null)
+            {
+                GameObject feedback = Instantiate(data.BaseStats.Feedback.gameObject, transform.position, Quaternion.identity);
+                feedback.transform.SetParent(go.transform);
+            }
+           
+            
             
             if (_spellTypeUpgrades.TryGetValue(data.BaseStats.Type, out int upgradeLevel))
             {
@@ -351,7 +358,7 @@ public class SpellManager : MonoBehaviour, ICast
     
     void ApplyUpgradeOptions()
     {
-        // Make a duplicate of the available spell / potion upgrade lists
+        // Make a duplicate of the available spell / potion upgrade lists,
         // so we can iterate through them in the function.
         List<SpellData> availableSpellUpgrades = new List<SpellData>(_availableSpells);
         List<PotionData> availablePassiveItemUpgrades = new List<PotionData>(_availablePotions);

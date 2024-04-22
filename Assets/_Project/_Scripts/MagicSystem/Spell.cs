@@ -26,7 +26,7 @@ public abstract class Spell : Item, ISpell
             Lightning,
             Poison,
             Arcane,
-            // add more as needed
+            
         }
         
         [FormerlySerializedAs("SpellPrefab")] [Header("Visuals")]
@@ -37,6 +37,7 @@ public abstract class Spell : Item, ISpell
         public GameObject StatusEffectPrefab;
         public VisualEffect VisualEffect;
         public ParticleSystem DetachEffect;
+        public MMF_Player Feedback;
         public bool HasFlash;
         public bool HasCastEffect;
         
@@ -77,6 +78,7 @@ public abstract class Spell : Item, ISpell
         [Tooltip("If true, the spell will spawn projectiles backwards, in the opposite direction of the player's forward.")]
         public bool ShootBackwards;
         public int NumberOfAttacks;
+        public int NumberOfPierces;
         public float ProjectileInteval;
         [Tooltip("The angle step between each projectile, in degrees. Used to spread out the projectiles. If NumberOfAttacks is 1, this value will be ignored.")]
         public float AngleStep;
@@ -136,6 +138,7 @@ public abstract class Spell : Item, ISpell
             result.SpawnsProjectilesSequentially = s2.SpawnsProjectilesSequentially || s1.SpawnsProjectilesSequentially;
             result.ShootBackwards = s2.ShootBackwards || s1.ShootBackwards;
             result.NumberOfAttacks = s1.NumberOfAttacks + s2.NumberOfAttacks;
+            result.NumberOfPierces = s1.NumberOfPierces + s2.NumberOfPierces;
             result.ProjectileInteval = s1.ProjectileInteval + s2.ProjectileInteval;
             result.AngleStep = s1.AngleStep + s2.AngleStep;
             result.SpreadRadius = s1.SpreadRadius + s2.SpreadRadius;
