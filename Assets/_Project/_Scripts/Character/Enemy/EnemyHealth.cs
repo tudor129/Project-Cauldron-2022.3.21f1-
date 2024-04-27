@@ -211,6 +211,7 @@ public class EnemyHealth : Health
         StopAllCoroutines();
         
         ObjectPoolManager.Instance.ReturnObjectToPool(obj);
+        //ObjectPoolManager.Instance.ReleaseObject(obj);
         Respawn();
         _returningToPool = false;
     }

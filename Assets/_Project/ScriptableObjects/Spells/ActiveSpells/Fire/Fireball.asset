@@ -52,7 +52,7 @@ MonoBehaviour:
     ImpactOffset: {x: 0, y: 0.1, z: 0}
     Damage: 100
     Speed: 8
-    Lifetime: 3
+    Lifetime: 5
     DecalLifetime: 0
     ImpactLifetime: 0.8
     SpellRadius: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
     StaggerDuration: 0
     SpawnsProjectilesSequentially: 0
     ShootBackwards: 0
-    NumberOfAttacks: 1
-    NumberOfPierces: 3
+    NumberOfAttacks: 5
+    NumberOfPierces: 5
     ProjectileInteval: 0.1
     AngleStep: 90
     SpreadRadius: 0.2

@@ -23,10 +23,7 @@ public class Storage : MonoBehaviour
             _slots[i].UpdateUI(_items[i]);
             _slots[i].SetupStorage(this);
             _slots[i].SetupMouseDrag(this);
-            
         }
-        
-        
     }
 
     public void SwapItem(UISlot slot)

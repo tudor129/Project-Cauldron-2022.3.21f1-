@@ -69,8 +69,8 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < _maxEnemies; i++)
         {
-            var obj = ObjectPoolManager.Instance.SpawnObject(_enemyDataList[0].EnemyPrefab, Vector3.zero, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
-            ObjectPoolManager.Instance.ReturnObjectToPool(obj);
+            // var obj = ObjectPoolManager.Instance.SpawnObject(_enemyDataList[0].EnemyPrefab, Vector3.zero, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
+            // ObjectPoolManager.Instance.ReturnObjectToPool(obj);
             
         }
         
@@ -187,6 +187,9 @@ public class EnemySpawner : MonoBehaviour
             Vector3 spawnPosition = wavePosition + offset;
             EnemySO enemySO = _enemyDataList[1];
             var enemyObject = ObjectPoolManager.Instance.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
+            
+            //GameObject enemyObj = ObjectPoolManager.Instance._objectPool.Get(enemySO.EnemyPrefab, spawnPosition, transform);   
+            
             var enemy = enemyObject.GetComponent<Enemy>();
 
             if (enemy != null)

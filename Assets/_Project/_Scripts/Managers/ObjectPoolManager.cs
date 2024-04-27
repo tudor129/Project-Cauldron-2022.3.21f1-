@@ -3,12 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class ObjectPoolManager : MonoBehaviour
 {
+    public enum PoolType
+    {
+        ImpactHits,
+        GameObject,
+        None,
+        Enemy, 
+        Projectiles,
+        Decals,
+        StatusEffects
+    }
+    
    public static ObjectPoolManager Instance { get; private set; }
-   public  List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
-  
+   public List<PooledObjectInfo> ObjectPools = new List<PooledObjectInfo>();
 
    GameObject _objectPoolEmptyHolder;
 
@@ -18,18 +29,8 @@ public class ObjectPoolManager : MonoBehaviour
    static GameObject _projectilesEmpty;
    static GameObject _decalsEmpty;
    static GameObject _statusEffectsEmpty;
-  
-
-   public enum PoolType
-   {
-       ImpactHits,
-       GameObject,
-       None,
-       Enemy, 
-       Projectiles,
-       Decals,
-       StatusEffects
-   }
+   
+   public CustomObjectPool<GameObject> _objectPool;
 
    void Awake()
    {
@@ -44,6 +45,53 @@ public class ObjectPoolManager : MonoBehaviour
        }
        
        SetupEmpties();
+       
+       _objectPool = new CustomObjectPool<GameObject>(
+            CreatePooledObject,
+           OnTakeFromPool, 
+           OnReturnToPool, 
+           OnDestroyObject, 
+           false,
+           200,
+           500);
+   }
+   
+   GameObject CreatePooledObject(GameObject objToSpawn, Vector3 position, Transform parent = null)
+   {
+       GameObject obj = Instantiate(objToSpawn, position, Quaternion.identity);
+       obj.transform.SetParent(parent, true);
+     
+       return obj.gameObject;
+   }
+   
+  
+    
+   void OnTakeFromPool(GameObject projectile)
+   {
+       projectile.gameObject.SetActive(true);
+        
+       projectile.transform.SetParent(_projectilesEmpty.transform, true);
+   }
+    
+   void OnReturnToPool(GameObject projectile)
+   {
+       projectile.gameObject.SetActive(false);
+   }
+    
+   void OnDestroyObject(GameObject projectile)
+   {
+       Destroy(projectile.gameObject);
+   }
+    
+   public IEnumerator EnterPoolAfterDelay(float delay, GameObject projectile)
+   {
+       yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+       _objectPool.Release(projectile);
+   }
+
+   public void ReleaseObject(GameObject o)
+   {
+       _objectPool.Release(o);
    }
    
     void SetupEmpties()
@@ -61,7 +109,6 @@ public class ObjectPoolManager : MonoBehaviour
          _enemyEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
          _decalsEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
          _statusEffectsEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
-         
     }
     
     
@@ -435,10 +482,17 @@ public class ObjectPoolManager : MonoBehaviour
        }
        else
        {
+           if (!obj.activeSelf)
+           {
+               Debug.Log("Object " + obj.name + " is already inactive.");
+               return;
+           }
            obj.SetActive(false);
            pool.InactiveObjects.Add(obj);
+           //Debug.Log("Object " + obj.name + " returned to pool." + obj.activeSelf);
        }
    }
+   
    
    public void ReturnStatusEffectToPool(GameObject obj)
    {
@@ -486,6 +540,7 @@ public class ObjectPoolManager : MonoBehaviour
                return null;
        }
    }
+   
 }
 
 [System.Serializable]

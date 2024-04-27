@@ -2,31 +2,75 @@ using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.Serialization;
 
 // All projectile spells will inherit from BaseProjectileSpell
 public class Fireball : Spell
 {
-    
-    Camera _mainCamera;
-    int _currentAttackCount;
-    float _currentAttackInterval;
-    protected bool _readyForAttack = true;
-    
-    
-    ProjectileBehavior _projectileBehaviorGameObject;
+    ObjectPool<ProjectileBehavior> _projectilePool;
+
     IEnumerator _despawnAfterdelay;
     MMF_Player _feedback;
     
     float _currentCooldown;
+    int _currentAttackCount;
+    float _currentAttackInterval;
+    
+    Transform _projectilesParent;
+    
 
     protected override void Awake()
     {
         base.Awake();
         //_currentStats = GetStats();
+        _projectilePool = new ObjectPool<ProjectileBehavior>(
+            CreatePooledObject, 
+            OnTakeFromPool, 
+            OnReturnToPool, 
+            OnDestroyObject, 
+            false,
+            200,
+            500);
         
     }
+    ProjectileBehavior CreatePooledObject()
+    {
+        Vector3 direction = _player.transform.forward;
+        
+        ProjectileBehavior projectile = Instantiate(_currentStats.ProjectilePrefab, _player.transform.position + Vector3.up, Quaternion.LookRotation(direction));
+        //projectile.Initialize(this, _feedback);
+        
+        
+        return projectile;
+    }
+    
+    void OnTakeFromPool(ProjectileBehavior projectile)
+    {
+        projectile.gameObject.SetActive(true);
+        
+        projectile.transform.SetParent(transform, true);
+        
+    }
+    
+    void OnReturnToPool(ProjectileBehavior projectile)
+    {
+        projectile.gameObject.SetActive(false);
+    }
+    
+    void OnDestroyObject(ProjectileBehavior projectile)
+    {
+        Destroy(projectile.gameObject);
+    }
+    
+    IEnumerator EnterPoolAfterDelay(float delay, ProjectileBehavior projectile)
+    {
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        _projectilePool.Release(projectile);
+    }
+   
 
     protected override void Start()
     {
@@ -67,17 +111,18 @@ public class Fireball : Spell
         }
     }
     
-    IEnumerator DespawnAfterDelay(float delay, GameObject gameObject)
-    {
-        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
-        ObjectPoolManager.Instance.ReturnObjectToPool(gameObject); // then call your function to return the game object to the pool
-    }
-    
     public override bool CanAttack()
     {
         if (_currentAttackCount > 0) return true;
         return _currentCooldown <= 0;
     }
+    
+    void HandleProjectileHit(ProjectileBehavior projectile)
+    {
+        OnReturnToPool(projectile);
+        projectile.OnHit -= HandleProjectileHit;
+    }
+    
     
     protected override bool Attack(int attackCount = 1)
     {
@@ -86,11 +131,7 @@ public class Fireball : Spell
             Debug.LogWarning($"Projectile prefab has not been set for {name} or cannot attack.");
             _currentCooldown = _currentStats.Cooldown;
             return false;
-            
-            
         }
-        
-        //_feedback.PlayFeedbacks();
 
         if (_currentStats.SpawnsProjectilesSequentially)
         {
@@ -106,34 +147,9 @@ public class Fireball : Spell
                 Vector3 direction = Quaternion.Euler(0, angleStep * i - offsetAngle, 0) * GetDirection();
                 Vector3 spawnPosition = basePosition + direction * radius; // Calculate the spawn position
                 
-                //SpellBehavior prefab = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
-                
-                ProjectileBehavior prefab = ObjectPoolManager.Instance.SpawnObject(
-                    _currentStats.ProjectilePrefab, 
-                    spawnPosition, 
-                    Quaternion.LookRotation(direction), 
-                    ObjectPoolManager.PoolType.Projectiles);
-                
-                prefab.Initialize(this, _feedback);
 
-
-                // Remember to fix this
-                if (!_currentStats.IsPassThrough)
-                {
-                    Debug.Log("Fireball is not pass through");
-                    StartCoroutine(DespawnAfterDelay(_currentStats.Lifetime, prefab.gameObject));
-                }
-                
-              
-                
-                if (_currentStats.CastSound != null)
-                {
-                    SoundFXManager.Instance.PlaySoundFXClip(_currentStats.CastSound, prefab.transform, 0.5f);
-                }
-                else if (_currentStats.CastSounds.Length > 0)
-                {
-                    SoundFXManager.Instance.PlaySoundFXClipWithVariation(_currentStats.CastSounds, prefab.transform, 0.5f);
-                }
+                //HandleProjectileBehavior(spawnPosition, direction);
+                HandleProjectileBehaviorTest(spawnPosition, direction);
             }
         }
         else
@@ -151,33 +167,11 @@ public class Fireball : Spell
                 Vector3 direction = Quaternion.Euler(0, angleStep * i - offsetAngle, 0) * GetDirection();
                 Vector3 spawnPosition = basePosition + direction * radius; // Calculate the spawn position
 
-                //ProjectileBehavior prefab1 = Instantiate(_currentStats.SpellPrefab, spawnPosition, Quaternion.LookRotation(direction));
                 
-                ProjectileBehavior prefab1 = ObjectPoolManager.Instance.SpawnObject(
-                    _currentStats.ProjectilePrefab, 
-                    spawnPosition, 
-                    Quaternion.LookRotation(direction), 
-                    ObjectPoolManager.PoolType.Projectiles);
-                
-                prefab1.Initialize(this, _feedback);
-                
-                StartCoroutine(DespawnAfterDelay(_currentStats.Lifetime, prefab1.gameObject));
-                
-                // prefab1.spell = this;
-                // prefab1.spell.GetStats();
-                
-                if (_currentStats.CastSound != null)
-                {
-                    SoundFXManager.Instance.PlaySoundFXClip(_currentStats.CastSound, prefab1.transform, 0.5f);
-                }
-                else if (_currentStats.CastSounds.Length > 0)
-                {
-                    SoundFXManager.Instance.PlaySoundFXClipWithVariation(_currentStats.CastSounds, prefab1.transform, 0.5f);
-                }
-                
+                //HandleProjectileBehavior(spawnPosition, direction);
+                HandleProjectileBehaviorTest(spawnPosition, direction);
             }
         }
-      
         _currentCooldown = _currentStats.Cooldown;
         return true;
         
@@ -193,4 +187,24 @@ public class Fireball : Spell
             }
         }
     }
+    void HandleProjectileBehavior(Vector3 spawnPosition, Vector3 direction)
+    {
+        ProjectileBehavior projectile = _projectilePool.Get();
+        projectile.transform.position = spawnPosition;
+        projectile.transform.rotation = Quaternion.LookRotation(direction);
+        CoroutineManager.Instance.StartManagedCoroutine(EnterPoolAfterDelay(_currentStats.Lifetime, projectile));
+        projectile.OnHit += HandleProjectileHit;
+    }
+    
+    void HandleProjectileBehaviorTest(Vector3 spawnPosition, Vector3 direction)
+    {
+        GameObject projectile = ObjectPoolManager.Instance._objectPool.Get(_currentStats.ProjectilePrefab.gameObject, spawnPosition);   
+        projectile.transform.position = spawnPosition;
+        projectile.transform.rotation = Quaternion.LookRotation(direction);
+        ProjectileBehavior projectileBehavior = projectile.GetComponent<ProjectileBehavior>();
+        projectileBehavior.Initialize(this, _feedback);
+        projectileBehavior.OnHit += HandleProjectileHit;
+        CoroutineManager.Instance.StartManagedCoroutine(ObjectPoolManager.Instance.EnterPoolAfterDelay(_currentStats.Lifetime, projectile));
+    }
+
 }

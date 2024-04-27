@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ProjectileBehavior : BaseSpellBehavior
 {
+    public event Action<ProjectileBehavior> OnHit;
+    
     [SerializeField] protected GameObject flash;
     [SerializeField] protected GameObject[] Detached;
       
@@ -19,8 +21,6 @@ public class ProjectileBehavior : BaseSpellBehavior
     Vector3 _spawnPosition;
     Quaternion _spawnRotation;
     
-    //bool _isInitialized = false;
-    
     protected override void Awake()
     {
         base.Awake();
@@ -30,11 +30,34 @@ public class ProjectileBehavior : BaseSpellBehavior
     {
         _attackablesInRadius.Clear();
         _hitCount = 0;
+
+        // Reset Rigidbody
+        if (_rigidbody != null)
+        {
+            _rigidbody.isKinematic = true;
+        }
+
+        // Reset Particle Systems
+        if (_part != null)
+        {
+            _part.Play();   
+        }
+
+
+        // Reactivate the collider if it was deactivated
+        if (_sphereCollider != null)
+        {
+            _sphereCollider.enabled = true;
+            _sphereCollider.isTrigger = true;
+        }
     }
 
     void OnDisable()
     {
         _hitCount = 0;
+        // _part.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        // OnHit = null;
+        //Initialize(spell, _feedback);
     }
 
     protected override void Start()
@@ -57,13 +80,10 @@ public class ProjectileBehavior : BaseSpellBehavior
 
         if (_currentStats.TravelingSound != null)
         {
-            SoundFXManager.Instance.PlaySoundFXClip(_currentStats.TravelingSound, transform, 0.2f);
+            //SoundFXManager.Instance.PlaySoundFXClip(_currentStats.TravelingSound, transform, 0.2f);
         }
-        //StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime));
-        
-        //Destroy(gameObject, _currentStats.ProjectileLifetime);
+      
         _hitCount = 0;
-        //_feedback = FindObjectOfType<MMF_Player>();
     }
     
     
@@ -89,16 +109,6 @@ public class ProjectileBehavior : BaseSpellBehavior
         //StartCoroutine(DespawnAfterDelay(_currentStats.ProjectileLifetime));
     }
 
-   
-
-    IEnumerator DespawnAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
-        Debug.Log("In DespawnAfterDelay ProjectileLifetime is: " + _currentStats.Lifetime);
-        ObjectPoolManager.Instance.ReturnObjectToPool(gameObject); // then call your function to return the game object to the pool
-    }
-
-
     protected virtual void FixedUpdate()
     {
         if (_currentStats.Speed > 0)
@@ -113,38 +123,39 @@ public class ProjectileBehavior : BaseSpellBehavior
         {
             return;
         }
-        
+        _hitCount++;
 
         Vector3 impactPoint = HandleImpactPoint(other);
-        
 
         HandleDealDamage(_currentStats);
-
         
         //HandleProjectileImpactEffect(impactPoint);
         
         if (_currentStats.ImpactSound != null)
         {
-            SoundFXManager.Instance.PlaySoundFXClip(_currentStats.ImpactSound, transform, 0.1f);
+            //SoundFXManager.Instance.PlaySoundFXClip(_currentStats.ImpactSound, transform, 0.1f);
         }
         
         if (!_currentStats.IsPassThrough)
         {
-            //Destroy(gameObject);
             if (_hitCount >= _currentStats.NumberOfPierces)
             {
                 _feedback.PlayFeedbacks();
-                //ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
-                StartCoroutine(ReturnToPoolAfterDelay(0.1f, gameObject));
+          
+                StartCoroutine(GoToPoolAtEndOfFrame());
             }
-            
         }
-
         HandleProjectileTrailRemoval();
-
-       
-        
         _attackablesInRadius.Clear();
+    }
+    
+    
+    IEnumerator GoToPoolAtEndOfFrame()
+    {
+        // Wait until the end of the frame
+        yield return new WaitForEndOfFrame();
+
+        OnHit?.Invoke(this);
     }
     
     // The method below is called in HandleDealDamage()
@@ -216,11 +227,7 @@ public class ProjectileBehavior : BaseSpellBehavior
 
             if (attackable != null && attackable.IsActive())
             {
-                _hitCount++;
-                if (_hitCount >= 3)
-                {
-                    
-                }
+               
                 (int damage, bool isCritical) = CalculateActiveSpellDamage(_hitCount, 0.1f, 3, spellData);
                 attackable.TakeDamage(damage, isCritical, spellData);
                 
@@ -320,7 +327,6 @@ public class ProjectileBehavior : BaseSpellBehavior
         {
             if (detachedPrefab != null)
             {
-                Debug.Log("Detached prefab is not null");
                 //detachedPrefab.transform.parent = null;
                 //Destroy(detachedPrefab, 1);
                 // StartCoroutine(DespawnAfterDelay())
