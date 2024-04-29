@@ -11,6 +11,7 @@ public class BaseSpellBehavior : MonoBehaviour
     protected Player _player;
     protected ParticleSystem _part;
     protected BoxCollider _collider;
+    protected MMF_Player _feedback;
     
     public Spell.Stats _currentStats;
     protected bool _isInitialized;
@@ -25,13 +26,14 @@ public class BaseSpellBehavior : MonoBehaviour
    
     }
     
-    public void Initialize(Spell spell)
+    public void Initialize(Spell spell, MMF_Player feedback)
     {
         if (_isInitialized) return;  // Prevent re-initialization
 
         
         this.spell = spell;
         _currentStats = spell.GetStats();
+        _feedback = feedback;
         _isInitialized = true;
 
         
@@ -50,4 +52,6 @@ public class BaseSpellBehavior : MonoBehaviour
         yield return new WaitForSeconds(delay);
         ObjectPoolManager.Instance.ReturnObjectToPool(objectToReturn);
     }
+    
+    
 }

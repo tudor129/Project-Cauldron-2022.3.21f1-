@@ -21,7 +21,6 @@ MonoBehaviour:
     Description: "Unleashes a spiraling tornado of biting cold and ice, drawing in
       and freezing enemies caught in it\u2019s path, dealing damage and reducing
       movement speed. "
-    IsAffinityUpgrade: 0
     Type: 1
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 2978100695284096194, guid: 69976e46ef59dc94fbfbbb42a868e77a,
@@ -31,6 +30,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -57,7 +57,8 @@ MonoBehaviour:
     StaggerDuration: 0
     SpawnsProjectilesSequentially: 1
     ShootBackwards: 0
-    NumberOfAttacks: 3
+    NumberOfAttacks: 1
+    NumberOfPierces: 0
     ProjectileInteval: 0
     AngleStep: 0
     SpreadRadius: 0

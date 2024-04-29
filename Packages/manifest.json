@@ -9,6 +9,7 @@
     }
   ],
   "dependencies": {
+    "ca.andydbc.unity-texture-packer": "https://github.com/andydbc/unity-texture-packer.git#0.1.0",
     "com.arongranberg.astar": "5.0.3",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.burst": "1.8.12",

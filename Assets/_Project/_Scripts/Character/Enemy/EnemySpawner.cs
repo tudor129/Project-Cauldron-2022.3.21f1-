@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     Vector3[][] _formations;
     float _formationSpacing = 2f; // the distance between enemies in a formation
-    int _maxEnemies = 200;
+    [SerializeField] int _maxEnemies = 200;
     float _timer;
     
     public enum FormationType
@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        
+      
         IEnumerable<Vector3> _squareFormationList = GenerateSquareFormation();
         
         _formations = new Vector3[][]
@@ -87,7 +87,7 @@ public class EnemySpawner : MonoBehaviour
             _timer = 0f;
 
             // Spawn the enemy
-            SpawnEnemy();
+            //SpawnEnemy();
         }
         if (_timer >= _formationSpawnInterval)
         {
@@ -167,8 +167,9 @@ public class EnemySpawner : MonoBehaviour
             Vector3 spawnPosition = GetSingleEnemySpawnPosition();
             EnemySO enemySO = _enemyDataList[0];
 
-            var enemyObject = ObjectPoolManager.Instance.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
-            var enemy = enemyObject.GetComponent<Enemy>();
+            //var enemyObject = ObjectPoolManager.Instance.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
+            GameObject enemyObj = ObjectPoolManager.Instance._enemyPool.Get(enemySO.EnemyPrefab, spawnPosition, ObjectPoolManager.PoolType.Enemy);
+            var enemy = enemyObj.GetComponent<Enemy>();
         
             if (enemy != null)
             {
@@ -186,11 +187,12 @@ public class EnemySpawner : MonoBehaviour
         {
             Vector3 spawnPosition = wavePosition + offset;
             EnemySO enemySO = _enemyDataList[1];
-            var enemyObject = ObjectPoolManager.Instance.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
+            //var enemyObject = ObjectPoolManager.Instance.SpawnObject(enemySO.EnemyPrefab, spawnPosition, Quaternion.identity, ObjectPoolManager.PoolType.Enemy);
             
-            //GameObject enemyObj = ObjectPoolManager.Instance._objectPool.Get(enemySO.EnemyPrefab, spawnPosition, transform);   
+            GameObject enemyObj = ObjectPoolManager.Instance._enemyPool.Get(enemySO.EnemyPrefab, spawnPosition, ObjectPoolManager.PoolType.Enemy);
+            enemyObj.transform.position = spawnPosition;
             
-            var enemy = enemyObject.GetComponent<Enemy>();
+            var enemy = enemyObj.GetComponent<Enemy>();
 
             if (enemy != null)
             {
@@ -201,6 +203,11 @@ public class EnemySpawner : MonoBehaviour
 
             yield return null;
         }
+    }
+    
+    public void ReleaseObjectFromPool(GameObject o)
+    {
+        ObjectPoolManager.Instance._enemyPool.Release(o);
     }
     
     Vector3 GetSquareFormationSpawnPosition()

@@ -113,17 +113,21 @@ public class CurrencyPickup : MonoBehaviour
         if(transform.parent != null) // check if there is a parent object
         {
             //Destroy(transform.parent.gameObject);
-            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+            //ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+            ObjectPoolManager.Instance._gameObjectPool.Release(gameObject);
             
         }
         else
         {
             // Destroy the current object if there's no parent
             //Destroy(gameObject);
-            ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+            //ObjectPoolManager.Instance.ReturnObjectToPool(gameObject);
+            ObjectPoolManager.Instance._gameObjectPool.Release(gameObject);
         }
         _isBeingAttracted = false;
     }
+    
+    
     
     void OnDrawGizmosSelected()
     {

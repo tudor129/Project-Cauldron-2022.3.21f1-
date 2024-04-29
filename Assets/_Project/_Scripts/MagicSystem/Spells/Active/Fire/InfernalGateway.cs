@@ -52,7 +52,7 @@ public class InfernalGateway : Spell
         // And spawn a copy of the projectile.
         SpellBehavior prefab = Instantiate(_currentStats.SpellPrefab, _player.transform.position + _currentStats.ImpactOffset, Quaternion.identity);
         
-        prefab.Initialize(this);
+        prefab.Initialize(this, _feedback);
       
         
         Transform lava = prefab.transform.FindDeepChild("Lava");
@@ -63,7 +63,7 @@ public class InfernalGateway : Spell
         rain.transform.localScale = new Vector3(_currentStats.SpellRadius, _currentStats.SpellRadius, _currentStats.SpellRadius);
         
         lava.SetParent(null);
-        rain.GetComponent<RainBehavior>().Initialize(this);
+        rain.GetComponent<RainBehavior>().Initialize(this, _feedback);
         
         RainBehavior rainBehavior = rain.GetComponent<RainBehavior>();
         

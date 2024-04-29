@@ -134,6 +134,12 @@ public class MeshTrail : MonoBehaviour
                         Quaternion.identity,
                         ObjectPoolManager.PoolType.StatusEffects);
                     
+                    // GameObject fireObject = ObjectPoolManager.Instance._statusEffectsPool.Get(
+                    //     abilityData.FirePrefab, 
+                    //     offsetPosition, 
+                    //     ObjectPoolManager.PoolType.StatusEffects);
+                    // fireObject.transform.position = offsetPosition;
+                    
                         
                     //fireObject.transform.SetPositionAndRotation(Player.Instance.transform.position, Player.Instance.transform.rotation);
                         
@@ -147,11 +153,18 @@ public class MeshTrail : MonoBehaviour
         _isTrailActive = false;
     }
     
-    IEnumerator ReturnStatusEffectToPoolAfterDelay(float delay, GameObject objectToReturn)
+    IEnumerator ReturnStatusEffectToPoolAfterDelay(float delay, GameObject obj)
     {
-        yield return new WaitForSeconds(delay);
-        ObjectPoolManager.Instance.ReturnStatusEffectToPool(objectToReturn);
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        ObjectPoolManager.Instance.ReturnStatusEffectToPool(obj);
     }
+    
+    IEnumerator EnterPoolAfterDelay(float delay, GameObject obj)
+    {
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        ObjectPoolManager.Instance._statusEffectsPool.Release(obj.gameObject);
+    }
+    
 
     IEnumerator AnimateMaterialFloat(Material mat, float goal, float rate, float refreshRate)
     {

@@ -16,8 +16,6 @@ public abstract class Spell : Item, ISpell
         public string Name;
         public string Description;
         
-        public bool IsAffinityUpgrade;
-        
         public SpellType Type;
         public enum SpellType
         {
@@ -26,7 +24,6 @@ public abstract class Spell : Item, ISpell
             Lightning,
             Poison,
             Arcane,
-            
         }
         
         [FormerlySerializedAs("SpellPrefab")] [Header("Visuals")]
@@ -53,7 +50,6 @@ public abstract class Spell : Item, ISpell
         public AudioClip[] TravelingSounds;
         public AudioClip[] LoopingSounds;
         public AudioClip[] ImpactSounds;
-        
        
         [Header("Values")]
         [Tooltip("The offset from the impact point where the SpellImpactPrefab will be instantiated. Use this to avoid z-fighting.")]
@@ -90,7 +86,6 @@ public abstract class Spell : Item, ISpell
         public float WanderTimer;
         [Tooltip("The radius around the player where the spell will look for enemies.")]
         public float WanderRadius;
-        
         
         [Header("Affinity")]
         public bool IsFire;
@@ -154,6 +149,7 @@ public abstract class Spell : Item, ISpell
             return result;
         }
     }
+    
     [FormerlySerializedAs("SpellSO")] public SpellData spellData;
   
     protected Stats _currentStats;
@@ -198,7 +194,7 @@ public abstract class Spell : Item, ISpell
         return true;
     }
     
-    public virtual bool CanAttack()
+    protected virtual bool CanAttack()
     {
         return _currentCooldown <= 0;
     }
@@ -212,18 +208,8 @@ public abstract class Spell : Item, ISpell
         _player = GameManager.Instance.player;
         
     }
-    
-    public void Initialize(SpellData spellData, Player playerTransform, PlayerData playerStats)
-    {
-        this.spellData = spellData;
-        _currentStats = spellData.BaseStats;
-        
-        _player = GameManager.Instance.player;
-        //PlayerData = GameManager.Instance._playerStat;
-        
-    }
-    
-    public virtual bool CanLevelUp()
+   
+    protected virtual bool CanLevelUp()
     {
         return CurrentLevel <= MaxLevel;
     }
@@ -263,6 +249,5 @@ public abstract class Spell : Item, ISpell
         yield return new WaitForSeconds(delay);
         ObjectPoolManager.Instance.ReturnObjectToPool(objectToReturn);
     }
-
 
 }

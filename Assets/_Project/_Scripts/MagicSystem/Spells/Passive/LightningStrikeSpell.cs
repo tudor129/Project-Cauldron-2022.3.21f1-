@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 
 public class LightningStrikeSpell : Spell
 {
-    
-    
     protected override void Update()
     {
         _currentCooldown -= Time.deltaTime;
@@ -19,7 +17,7 @@ public class LightningStrikeSpell : Spell
        
     }
     
-    public override bool CanAttack()
+    protected override bool CanAttack()
     {
         return _currentCooldown <= 0;
     }

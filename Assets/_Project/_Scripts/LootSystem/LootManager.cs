@@ -33,11 +33,17 @@ public class LootManager : MonoBehaviour
                 //     enemyTransform.position + new Vector3(0, loot._spawnHeightOffset, 0), 
                 //     rotation);
                 
-                GameObject droppedLoot = ObjectPoolManager.Instance.SpawnObject(
-                    loot._lootPrefab, 
+                // GameObject droppedLoot = ObjectPoolManager.Instance.SpawnObject(
+                //     loot._lootPrefab, 
+                //     enemyTransform.position + new Vector3(0, loot._spawnHeightOffset, 0), 
+                //     rotation, 
+                //     ObjectPoolManager.PoolType.GameObject);
+                
+                GameObject droppedLoot = ObjectPoolManager.Instance._gameObjectPool.Get(loot._lootPrefab, 
                     enemyTransform.position + new Vector3(0, loot._spawnHeightOffset, 0), 
-                    rotation, 
                     ObjectPoolManager.PoolType.GameObject);
+                droppedLoot.transform.position = enemyTransform.position + new Vector3(0, loot._spawnHeightOffset, 0);
+                droppedLoot.transform.rotation = rotation;
 
                 
                 if (droppedLoot.name.Contains("Chest_Closed"))  

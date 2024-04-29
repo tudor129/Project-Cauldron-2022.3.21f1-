@@ -144,7 +144,7 @@ public class TransformMotion : MonoBehaviour
                 {
                     _t.position = hit.point;
                     _oldPos = _t.position;
-                    OnCollisionBehaviour(hit);
+                    //OnCollisionBehaviour(hit);
                     OnCollisionDeactivateBehaviour(false);
                     return;
                 }
@@ -200,7 +200,7 @@ public class TransformMotion : MonoBehaviour
     
     void OnCollisionBehaviour(RaycastHit hit)
     {
-        var handler = CollisionEnter;
+        /*var handler = CollisionEnter;
         if (handler != null)
             handler(this, new RFX1_CollisionInfo {Hit = hit});
         CollidedInstances.Clear();
@@ -237,7 +237,7 @@ public class TransformMotion : MonoBehaviour
                 ObjectPoolManager.Instance.ReturnParentObjectToPool(gameObject);
                 _currentHitCount = 0;
             }
-        }
+        }*/
     }
     
     IEnumerator ReturnChildToPoolAfterDelay(GameObject obj, List<GameObject> children, float delay, ObjectPoolManager.PoolType poolType, int childIndex)

@@ -7,8 +7,6 @@ using UnityEngine.Serialization;
 
 public class PlayerLocomotionManager : MonoBehaviour
 {
-    [SerializeField] OrbitalMovement _orbitalMovement;
-    
     [Header("Movement Variables")]
     [SerializeField] public float _moveSpeed = 8f;
     [SerializeField] float _gravity = -30f;

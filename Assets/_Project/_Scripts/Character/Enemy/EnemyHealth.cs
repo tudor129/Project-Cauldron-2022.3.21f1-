@@ -125,10 +125,6 @@ public class EnemyHealth : Health
         }
         
         _hasDoTEffect = false;
-        
-        //transform.Find("Spell_Light_6_LWRP").gameObject.SetActive(false);
-
-        // Handle the end of the DoT effect here, vfx, sfx, etc.
     }
     
     void UpdateHealthUI()
@@ -210,8 +206,10 @@ public class EnemyHealth : Health
         yield return new WaitForSeconds(delay);
         StopAllCoroutines();
         
-        ObjectPoolManager.Instance.ReturnObjectToPool(obj);
-        //ObjectPoolManager.Instance.ReleaseObject(obj);
+        //ObjectPoolManager.Instance.ReturnObjectToPool(obj);
+        EnemySpawner.Instance.ReleaseObjectFromPool(obj);
+       
+        //ObjectPoolManager.SetParentObject(ObjectPoolManager.PoolType.Enemy);
         Respawn();
         _returningToPool = false;
     }

@@ -51,14 +51,20 @@ public class FireBehavior : BaseSpellBehavior
                 Quaternion.identity,
                 ObjectPoolManager.PoolType.StatusEffects);
             
+            // GameObject fireObject = ObjectPoolManager.Instance._statusEffectsPool.Get(
+            //     _firePrefab, 
+            //     other.transform.position + new Vector3(0, 0.1f, 0), 
+            //     ObjectPoolManager.PoolType.StatusEffects);
+            // fireObject.transform.position = other.transform.position + new Vector3(0, 0.1f, 0);
+            
             CoroutineManager.Instance.StartManagedCoroutine(ReturnStatusEffectToPoolAfterDelay(10f, fireObject));
         }
     }
     
-    IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
+    IEnumerator EnterPoolAfterDelay(float delay, GameObject obj)
     {
-        yield return new WaitForSeconds(delay);
-        ObjectPoolManager.Instance.ReturnObjectToPool(objectToReturn);
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        ObjectPoolManager.Instance._statusEffectsPool.Release(obj.gameObject);
     }
     
     IEnumerator ReturnStatusEffectToPoolAfterDelay(float delay, GameObject objectToReturn)
@@ -66,6 +72,8 @@ public class FireBehavior : BaseSpellBehavior
         yield return new WaitForSeconds(delay);
         ObjectPoolManager.Instance.ReturnStatusEffectToPool(objectToReturn);
     }
+    
+   
     
     
 }

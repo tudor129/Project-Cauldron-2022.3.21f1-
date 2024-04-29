@@ -10,67 +10,23 @@ using UnityEngine.Serialization;
 // All projectile spells will inherit from BaseProjectileSpell
 public class Fireball : Spell
 {
-    ObjectPool<ProjectileBehavior> _projectilePool;
-
-    IEnumerator _despawnAfterdelay;
+    
     MMF_Player _feedback;
     
     float _currentCooldown;
     int _currentAttackCount;
     float _currentAttackInterval;
     
-    Transform _projectilesParent;
     
 
     protected override void Awake()
     {
         base.Awake();
         //_currentStats = GetStats();
-        _projectilePool = new ObjectPool<ProjectileBehavior>(
-            CreatePooledObject, 
-            OnTakeFromPool, 
-            OnReturnToPool, 
-            OnDestroyObject, 
-            false,
-            200,
-            500);
-        
-    }
-    ProjectileBehavior CreatePooledObject()
-    {
-        Vector3 direction = _player.transform.forward;
-        
-        ProjectileBehavior projectile = Instantiate(_currentStats.ProjectilePrefab, _player.transform.position + Vector3.up, Quaternion.LookRotation(direction));
-        //projectile.Initialize(this, _feedback);
-        
-        
-        return projectile;
+       
     }
     
-    void OnTakeFromPool(ProjectileBehavior projectile)
-    {
-        projectile.gameObject.SetActive(true);
-        
-        projectile.transform.SetParent(transform, true);
-        
-    }
     
-    void OnReturnToPool(ProjectileBehavior projectile)
-    {
-        projectile.gameObject.SetActive(false);
-    }
-    
-    void OnDestroyObject(ProjectileBehavior projectile)
-    {
-        Destroy(projectile.gameObject);
-    }
-    
-    IEnumerator EnterPoolAfterDelay(float delay, ProjectileBehavior projectile)
-    {
-        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
-        _projectilePool.Release(projectile);
-    }
-   
 
     protected override void Start()
     {
@@ -111,7 +67,7 @@ public class Fireball : Spell
         }
     }
     
-    public override bool CanAttack()
+    protected override bool CanAttack()
     {
         if (_currentAttackCount > 0) return true;
         return _currentCooldown <= 0;
@@ -119,8 +75,25 @@ public class Fireball : Spell
     
     void HandleProjectileHit(ProjectileBehavior projectile)
     {
-        OnReturnToPool(projectile);
+        ObjectPoolManager.Instance.OnReturnToPool(projectile.gameObject);
         projectile.OnHit -= HandleProjectileHit;
+    }
+    
+    IEnumerator EnterPoolAfterDelay(float delay, GameObject projectile)
+    {
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        ObjectPoolManager.Instance._projectilePool.Release(projectile.gameObject);
+    }
+    
+    void HandleProjectileBehavior(Vector3 spawnPosition, Vector3 direction)
+    {
+        GameObject projectile = ObjectPoolManager.Instance._projectilePool.Get(_currentStats.ProjectilePrefab.gameObject, spawnPosition, ObjectPoolManager.PoolType.Projectiles);
+        ProjectileBehavior projectileBehavior = projectile.GetComponent<ProjectileBehavior>();
+        projectileBehavior.Initialize(this, _feedback);
+        projectile.transform.position = spawnPosition;
+        projectile.transform.rotation = Quaternion.LookRotation(direction);
+        CoroutineManager.Instance.StartManagedCoroutine(EnterPoolAfterDelay(_currentStats.Lifetime, projectile));
+        projectileBehavior.OnHit += HandleProjectileHit;
     }
     
     
@@ -148,8 +121,7 @@ public class Fireball : Spell
                 Vector3 spawnPosition = basePosition + direction * radius; // Calculate the spawn position
                 
 
-                //HandleProjectileBehavior(spawnPosition, direction);
-                HandleProjectileBehaviorTest(spawnPosition, direction);
+                HandleProjectileBehavior(spawnPosition, direction);
             }
         }
         else
@@ -168,8 +140,7 @@ public class Fireball : Spell
                 Vector3 spawnPosition = basePosition + direction * radius; // Calculate the spawn position
 
                 
-                //HandleProjectileBehavior(spawnPosition, direction);
-                HandleProjectileBehaviorTest(spawnPosition, direction);
+                HandleProjectileBehavior(spawnPosition, direction);
             }
         }
         _currentCooldown = _currentStats.Cooldown;
@@ -187,24 +158,4 @@ public class Fireball : Spell
             }
         }
     }
-    void HandleProjectileBehavior(Vector3 spawnPosition, Vector3 direction)
-    {
-        ProjectileBehavior projectile = _projectilePool.Get();
-        projectile.transform.position = spawnPosition;
-        projectile.transform.rotation = Quaternion.LookRotation(direction);
-        CoroutineManager.Instance.StartManagedCoroutine(EnterPoolAfterDelay(_currentStats.Lifetime, projectile));
-        projectile.OnHit += HandleProjectileHit;
-    }
-    
-    void HandleProjectileBehaviorTest(Vector3 spawnPosition, Vector3 direction)
-    {
-        GameObject projectile = ObjectPoolManager.Instance._objectPool.Get(_currentStats.ProjectilePrefab.gameObject, spawnPosition);   
-        projectile.transform.position = spawnPosition;
-        projectile.transform.rotation = Quaternion.LookRotation(direction);
-        ProjectileBehavior projectileBehavior = projectile.GetComponent<ProjectileBehavior>();
-        projectileBehavior.Initialize(this, _feedback);
-        projectileBehavior.OnHit += HandleProjectileHit;
-        CoroutineManager.Instance.StartManagedCoroutine(ObjectPoolManager.Instance.EnterPoolAfterDelay(_currentStats.Lifetime, projectile));
-    }
-
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BaseSpellImpactBehavior : BaseSpellBehavior
 {
-
     protected override void Awake()
     {
        
@@ -16,12 +15,12 @@ public class BaseSpellImpactBehavior : BaseSpellBehavior
         base.Start();
         //Destroy(gameObject, _currentStats.Lifetime);
         _currentStats = spell.GetStats();
-        StartCoroutine(DespawnAfterDelay(_currentStats.ImpactLifetime));
+        //StartCoroutine(DespawnAfterDelay(_currentStats.ImpactLifetime));
     }
 
     void OnEnable()
     {
-        StartCoroutine(DespawnAfterDelay(_currentStats.ImpactLifetime));
+        //StartCoroutine(DespawnAfterDelay(_currentStats.ImpactLifetime));
     }
 
     IEnumerator DespawnAfterDelay(float delay)

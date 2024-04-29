@@ -40,6 +40,12 @@ public class LavaBehavior : BaseSpellBehavior
                 Quaternion.identity,
                 ObjectPoolManager.PoolType.StatusEffects);
             
+            // GameObject lavaObject = ObjectPoolManager.Instance._statusEffectsPool.Get(
+            //     _currentStats.StatusEffectPrefab, 
+            //     other.transform.position + new Vector3(0, 0.1f, 0), 
+            //     ObjectPoolManager.PoolType.StatusEffects);
+            // lavaObject.transform.position = other.transform.position + new Vector3(0, 0.1f, 0);
+            
             CoroutineManager.Instance.StartManagedCoroutine(ReturnToPoolAfterDelay(_currentStats.DamageOverTimeDuration, lavaObject));
         }
     }
@@ -48,5 +54,11 @@ public class LavaBehavior : BaseSpellBehavior
     {
         yield return new WaitForSeconds(delay);
         ObjectPoolManager.Instance.ReturnStatusEffectToPool(objectToReturn);
+    }
+    
+    IEnumerator EnterPoolAfterDelay(float delay, GameObject obj)
+    {
+        yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+        ObjectPoolManager.Instance._statusEffectsPool.Release(obj.gameObject);
     }
 }

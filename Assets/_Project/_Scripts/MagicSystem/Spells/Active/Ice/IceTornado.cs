@@ -50,7 +50,7 @@ public class IceTornado : Spell
                     Quaternion.LookRotation(direction), 
                     ObjectPoolManager.PoolType.GameObject);
                 
-                prefab.Initialize(this);
+                prefab.Initialize(this, null);
                 
                 CoroutineManager.Instance.StartManagedCoroutine(ReturnToPoolAfterDelay(_currentStats.Lifetime, prefab.gameObject));
                 

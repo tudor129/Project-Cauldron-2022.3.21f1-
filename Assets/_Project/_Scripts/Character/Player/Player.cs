@@ -29,7 +29,6 @@ public class Player : MonoBehaviour, IObjectParent
     [HideInInspector] public CharacterController _characterController;
     PlayerLocomotionManager _locomotionManager;
  
-    Attack _playerAttack;
     DeathDetector _deathDetector;
     Animator _animator;
 
@@ -80,7 +79,6 @@ public class Player : MonoBehaviour, IObjectParent
         
         GameManager.Instance.RegisterPlayer(transform);
         
-        _playerAttack = GetComponent<Attack>();
         _deathDetector = GetComponent<DeathDetector>();
         _locomotionManager = GetComponent<PlayerLocomotionManager>();
         _animator = GetComponent<Animator>();

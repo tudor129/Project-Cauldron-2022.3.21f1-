@@ -8,6 +8,8 @@ public class ProjectileBehavior : BaseSpellBehavior
 {
     public event Action<ProjectileBehavior> OnHit;
     
+    //CustomObjectPool<GameObject> _impactEffectPool;
+    
     [SerializeField] protected GameObject flash;
     [SerializeField] protected GameObject[] Detached;
       
@@ -24,6 +26,7 @@ public class ProjectileBehavior : BaseSpellBehavior
     protected override void Awake()
     {
         base.Awake();
+       
     }
     
     void OnEnable()
@@ -140,7 +143,8 @@ public class ProjectileBehavior : BaseSpellBehavior
         {
             if (_hitCount >= _currentStats.NumberOfPierces)
             {
-                _feedback.PlayFeedbacks();
+                if (_feedback != null)
+                    _feedback.PlayFeedbacks();
           
                 StartCoroutine(GoToPoolAtEndOfFrame());
             }
@@ -272,14 +276,26 @@ public class ProjectileBehavior : BaseSpellBehavior
         // Spawn hit effect on trigger
         if (spellInfo.baseSpellImpactPrefab != null)
         {
-            BaseSpellImpactBehavior hitInstance = ObjectPoolManager.Instance.SpawnObject(
-                _currentStats.baseSpellImpactPrefab, 
-                impactPoint + _currentStats.ImpactOffset, 
-                Quaternion.identity, 
-                ObjectPoolManager.PoolType.ImpactHits);
+            // BaseSpellImpactBehavior hitInstance = ObjectPoolManager.Instance.SpawnObject(
+            //     _currentStats.baseSpellImpactPrefab, 
+            //     impactPoint + _currentStats.ImpactOffset, 
+            //     Quaternion.identity, 
+            //     ObjectPoolManager.PoolType.ImpactHits);
             
+            //hitInstance.spell = spell;
             
-            hitInstance.spell = spell;
+            GameObject impact = ObjectPoolManager.Instance._impactEffectPool.Get(_currentStats.baseSpellImpactPrefab.gameObject, impactPoint, ObjectPoolManager.PoolType.ImpactEffects);
+            impact.transform.position = impactPoint + _currentStats.ImpactOffset;
+            BaseSpellImpactBehavior impactBehavior = impact.GetComponent<BaseSpellImpactBehavior>();
+            impactBehavior.spell = spell;
+            CoroutineManager.Instance.StartManagedCoroutine(EnterPoolAfterDelay(_currentStats.Lifetime, impact));
+            
+        }
+        
+        IEnumerator EnterPoolAfterDelay(float delay, GameObject projectile)
+        {
+            yield return new WaitForSeconds(delay); // wait for 'delay' seconds
+            ObjectPoolManager.Instance._impactEffectPool.Release(projectile.gameObject);
         }
         
         // Alternative to the above code

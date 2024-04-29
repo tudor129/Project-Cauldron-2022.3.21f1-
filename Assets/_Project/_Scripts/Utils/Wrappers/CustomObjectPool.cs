@@ -2,30 +2,24 @@ using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public class PooledGameObject
-{
-    public GameObject Instance { get; set; }
-    public Transform ParentTransform { get; set; }
-    // Additional data can be added here
-}
+
 public class CustomObjectPool<T> where T : class
 {
     ObjectPool<T> pool;
-    Func<GameObject, Vector3, Transform, T> createFunc;
-    
+    readonly Func<GameObject, Vector3, ObjectPoolManager.PoolType, T> _createFunc;
 
     public CustomObjectPool(
-        Func<GameObject, Vector3, Transform, T> customCreateFunc, 
-        Action<T> onGet = null,
+        Func<GameObject, Vector3, ObjectPoolManager.PoolType, T> customCreateFunc, 
+        Action<T> onGet = null, 
         Action<T> onRelease = null, 
         Action<T> onDestroy = null, 
         bool collectionCheck = true, 
         int defaultCapacity = 10,
         int maxSize = 10000)
     {
-        this.createFunc = customCreateFunc;
+        this._createFunc = customCreateFunc;
         this.pool = new ObjectPool<T>(
-            () => this.createFunc(null, default(Vector3), null), // Default values or manage via methods
+            () => this._createFunc(null, default(Vector3), default(ObjectPoolManager.PoolType)), // Default values or manage via methods
             onGet,
             onRelease,
             onDestroy,
@@ -34,15 +28,8 @@ public class CustomObjectPool<T> where T : class
             maxSize);
     }
 
-    public T Get(GameObject prefab, Vector3 position, Transform parent = null)
+    public T Get(GameObject prefab, Vector3 position, ObjectPoolManager.PoolType enumType = default(ObjectPoolManager.PoolType))
     {
-        // if (pool.CountInactive > 0)
-        // {
-        //     T item = pool.Get();
-        //     return item;
-        // }
-        // return createFunc(prefab, position); // Only create a new object if none are available
-        
         T item;
         if (pool.CountInactive > 0)
         {
@@ -50,13 +37,12 @@ public class CustomObjectPool<T> where T : class
         }
         else
         {
-            item = createFunc(prefab, position, parent); // Create a new object if none are available
+            item = _createFunc(prefab, position, enumType); // Create a new object if none are available
            
         }
         return item;
     }
 
-    // Expose other methods as needed
     public void Release(T item)
     {
         pool.Release(item);

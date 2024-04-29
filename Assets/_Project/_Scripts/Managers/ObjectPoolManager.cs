@@ -9,7 +9,7 @@ public class ObjectPoolManager : MonoBehaviour
 {
     public enum PoolType
     {
-        ImpactHits,
+        ImpactEffects,
         GameObject,
         None,
         Enemy, 
@@ -23,15 +23,19 @@ public class ObjectPoolManager : MonoBehaviour
 
    GameObject _objectPoolEmptyHolder;
 
-   static GameObject _impactHitsEmpty;
+   static GameObject _impactEffectEmpty;
    static GameObject _gameObjectEmpty;
    static GameObject _enemyEmpty;
    static GameObject _projectilesEmpty;
    static GameObject _decalsEmpty;
    static GameObject _statusEffectsEmpty;
    
-   public CustomObjectPool<GameObject> _objectPool;
-
+   public CustomObjectPool<GameObject> _impactEffectPool;
+   public CustomObjectPool<GameObject> _enemyPool; 
+   public CustomObjectPool<GameObject> _projectilePool;
+   public CustomObjectPool<GameObject> _gameObjectPool;
+   public CustomObjectPool<GameObject> _statusEffectsPool;
+   
    void Awake()
    {
        if (Instance == null)
@@ -45,35 +49,24 @@ public class ObjectPoolManager : MonoBehaviour
        }
        
        SetupEmpties();
-       
-       _objectPool = new CustomObjectPool<GameObject>(
-            CreatePooledObject,
-           OnTakeFromPool, 
-           OnReturnToPool, 
-           OnDestroyObject, 
-           false,
-           200,
-           500);
+       SetupPools();
+    
    }
    
-   GameObject CreatePooledObject(GameObject objToSpawn, Vector3 position, Transform parent = null)
+   GameObject CreatePooledObject(GameObject objToSpawn, Vector3 position, PoolType poolType)
    {
        GameObject obj = Instantiate(objToSpawn, position, Quaternion.identity);
-       obj.transform.SetParent(parent, true);
-     
+       GameObject parent = SetParentObject(poolType);
+       obj.transform.SetParent(parent.transform, true);
        return obj.gameObject;
    }
-   
-  
     
    void OnTakeFromPool(GameObject projectile)
    {
        projectile.gameObject.SetActive(true);
-        
-       projectile.transform.SetParent(_projectilesEmpty.transform, true);
    }
     
-   void OnReturnToPool(GameObject projectile)
+   public void OnReturnToPool(GameObject projectile)
    {
        projectile.gameObject.SetActive(false);
    }
@@ -83,32 +76,65 @@ public class ObjectPoolManager : MonoBehaviour
        Destroy(projectile.gameObject);
    }
     
-   public IEnumerator EnterPoolAfterDelay(float delay, GameObject projectile)
-   {
-       yield return new WaitForSeconds(delay); // wait for 'delay' seconds
-       _objectPool.Release(projectile);
-   }
-
-   public void ReleaseObject(GameObject o)
-   {
-       _objectPool.Release(o);
-   }
    
     void SetupEmpties()
     {
          _objectPoolEmptyHolder = new GameObject("ObjectPoolEmptyHolder");
          _projectilesEmpty = new GameObject("ProjectilesEmpty");
-         _impactHitsEmpty = new GameObject("ImpactHitsEmpty");
+         _impactEffectEmpty = new GameObject("ImpactEffectEmpty");
          _gameObjectEmpty = new GameObject("GameObjectEmpty");
          _enemyEmpty = new GameObject("EnemyEmpty");
          _decalsEmpty = new GameObject("DecalsEmpty");
          _statusEffectsEmpty = new GameObject("StatusEffectsEmpty");
          _projectilesEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
-         _impactHitsEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
+         _impactEffectEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
          _gameObjectEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
          _enemyEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
          _decalsEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
          _statusEffectsEmpty.transform.SetParent(_objectPoolEmptyHolder.transform);
+    }
+    void SetupPools()
+    {
+        _impactEffectPool = new CustomObjectPool<GameObject>(
+            ObjectPoolManager.Instance.CreatePooledObject, 
+            ObjectPoolManager.Instance.OnTakeFromPool, 
+            ObjectPoolManager.Instance.OnReturnToPool, 
+            ObjectPoolManager.Instance.OnDestroyObject, 
+            false,
+            200,
+            500);
+        _enemyPool = new CustomObjectPool<GameObject>(
+            ObjectPoolManager.Instance.CreatePooledObject,
+            ObjectPoolManager.Instance.OnTakeFromPool, 
+            ObjectPoolManager.Instance.OnReturnToPool, 
+            ObjectPoolManager.Instance.OnDestroyObject, 
+            false,
+            200,
+            500);
+        _projectilePool = new CustomObjectPool<GameObject>(
+            ObjectPoolManager.Instance.CreatePooledObject, 
+            ObjectPoolManager.Instance.OnTakeFromPool, 
+            ObjectPoolManager.Instance.OnReturnToPool, 
+            ObjectPoolManager.Instance.OnDestroyObject, 
+            false,
+            200,
+            500);
+        _gameObjectPool = new CustomObjectPool<GameObject>(
+            ObjectPoolManager.Instance.CreatePooledObject, 
+            ObjectPoolManager.Instance.OnTakeFromPool, 
+            ObjectPoolManager.Instance.OnReturnToPool, 
+            ObjectPoolManager.Instance.OnDestroyObject, 
+            false,
+            200,
+            500);
+        _statusEffectsPool = new CustomObjectPool<GameObject>(
+            ObjectPoolManager.Instance.CreatePooledObject, 
+            ObjectPoolManager.Instance.OnTakeFromPool, 
+            ObjectPoolManager.Instance.OnReturnToPool, 
+            ObjectPoolManager.Instance.OnDestroyObject, 
+            false,
+            200,
+            500);
     }
     
     
@@ -316,128 +342,6 @@ public class ObjectPoolManager : MonoBehaviour
        return spawnableObject;
    }
    
-   public ProjectileBehavior SpawnObject(ProjectileBehavior objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
-   {
-       
-       PooledObjectInfo pool = null;
-       foreach (PooledObjectInfo p in ObjectPools)
-       {
-           if (p.LookupString == objectToSpawn.name)
-           {
-               pool = p;
-               break;
-           }
-       }
-       // If the pool doesn't exist, create it
-       if (pool == null)
-       {
-           pool = new PooledObjectInfo()
-           {
-               LookupString = objectToSpawn.name
-               
-           };
-           
-           ObjectPools.Add(pool);
-       }
-       // Check if there are any inactive objects in the pool
-       GameObject spawnableObject = null;
-       foreach (GameObject obj in pool.InactiveObjects)
-       {
-           if (obj != null)
-           {
-               spawnableObject = obj;
-               break;
-           }
-       }
-
-       if (spawnableObject == null)
-       {
-           //Find the parent of the empty object
-           GameObject parentObject = SetParentObject(poolType);
-           
-           
-           // If there are no inactive objects, create a new one
-           spawnableObject = Instantiate(objectToSpawn.gameObject, spawnPosition, spawnRotation);
-           spawnableObject.name = objectToSpawn.name;
-           
-           if (parentObject != null)
-           {
-               spawnableObject.transform.SetParent(parentObject.transform);
-           }
-       }
-       else
-       {
-           // If there is an inactive object, reactivate it
-           spawnableObject.transform.position = spawnPosition;
-           spawnableObject.transform.rotation = spawnRotation;
-           pool.InactiveObjects.Remove(spawnableObject.gameObject);
-           spawnableObject.gameObject.SetActive(true);
-       }
-       
-       return spawnableObject.gameObject.GetComponent<ProjectileBehavior>();
-   }
-   
-   public BaseSpellImpactBehavior SpawnObject(BaseSpellImpactBehavior objectToSpawn, Vector3 spawnPosition, Quaternion spawnRotation, PoolType poolType = PoolType.None)
-   {
-       
-       PooledObjectInfo pool = null;
-       foreach (PooledObjectInfo p in ObjectPools)
-       {
-           if (p.LookupString == objectToSpawn.name)
-           {
-               pool = p;
-               break;
-           }
-       }
-       // If the pool doesn't exist, create it
-       if (pool == null)
-       {
-           pool = new PooledObjectInfo()
-           {
-               LookupString = objectToSpawn.name
-               
-           };
-           
-              ObjectPools.Add(pool);
-       }
-       // Check if there are any inactive objects in the pool
-       GameObject spawnableObject = null;
-       foreach (GameObject obj in pool.InactiveObjects)
-       {
-           if (obj != null)
-           {
-               spawnableObject = obj;
-               break;
-           }
-       }
-
-       if (spawnableObject == null)
-       {
-           //Find the parent of the empty object
-           GameObject parentObject = SetParentObject(poolType);
-           
-           
-           // If there are no inactive objects, create a new one
-           spawnableObject = Instantiate(objectToSpawn.gameObject, spawnPosition, spawnRotation);
-           spawnableObject.name = objectToSpawn.name;
-           
-           if (parentObject != null)
-           {
-               spawnableObject.transform.SetParent(parentObject.transform);
-           }
-       }
-       else
-       {
-           // If there is an inactive object, reactivate it
-           spawnableObject.transform.position = spawnPosition;
-           spawnableObject.transform.rotation = spawnRotation;
-           pool.InactiveObjects.Remove(spawnableObject.gameObject);
-           spawnableObject.gameObject.SetActive(true);
-       }
-       
-       return spawnableObject.gameObject.GetComponent<BaseSpellImpactBehavior>();
-   }
-
    public void ReturnParentObjectToPool(GameObject obj)
    {
        GameObject parentObject = obj.transform.parent.gameObject; // Get the immediate parent object
@@ -493,7 +397,6 @@ public class ObjectPoolManager : MonoBehaviour
        }
    }
    
-   
    public void ReturnStatusEffectToPool(GameObject obj)
    {
        string goName = obj.name;
@@ -522,8 +425,8 @@ public class ObjectPoolManager : MonoBehaviour
    {
        switch (poolType)
        {
-           case PoolType.ImpactHits:
-               return _impactHitsEmpty;
+           case PoolType.ImpactEffects:
+               return _impactEffectEmpty;
            case PoolType.GameObject:
                return _gameObjectEmpty;
            case PoolType.None:
@@ -540,6 +443,8 @@ public class ObjectPoolManager : MonoBehaviour
                return null;
        }
    }
+   
+  
    
 }
 
