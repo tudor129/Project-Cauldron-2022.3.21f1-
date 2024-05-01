@@ -45,21 +45,21 @@ MonoBehaviour:
     ImpactOffset: {x: 0, y: 0, z: 0}
     Damage: 100
     Speed: 0
-    Lifetime: 10
+    Lifetime: 30
     DecalLifetime: 10
     ImpactLifetime: 0
     SpellRadius: 2
-    Cooldown: 2
-    DamageOverTimeDamage: 30
-    DamageOverTimeDuration: 5
-    DamageOverTimeInterval: 1.5
-    DamageOverTimeInitialDelay: 1
+    Cooldown: 30
+    DamageOverTime: 172
+    DamageOverTimeDuration: 10
+    DamageOverTimeInterval: 0.4
+    DamageOverTimeInitialDelay: 0.3
     StaggerDuration: 0
     SpawnsProjectilesSequentially: 1
     ShootBackwards: 0
     NumberOfAttacks: 1
     NumberOfPierces: 0
-    ProjectileInteval: 0
+    ProjectileInteval: 0.4
     AngleStep: 0
     SpreadRadius: 0
     EnemyCheckTimer: 5

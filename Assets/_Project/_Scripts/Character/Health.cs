@@ -46,7 +46,11 @@ public class Health : MonoBehaviour, IAttackable
     // This is a workaround for the fact that the Animation Event system doesn't support bool parameters
     public virtual void TakeDamage(int amount, bool isCritical, Spell.Stats spellInfo, bool isDirectDamage = true)
     {
-        TakeDamage(amount); // call the non-critical version by default
+        if (!IsDead())
+        {
+            TakeDamage(amount); // call the non-critical version by default
+        }
+        
     }
     public bool IsActive()
     {

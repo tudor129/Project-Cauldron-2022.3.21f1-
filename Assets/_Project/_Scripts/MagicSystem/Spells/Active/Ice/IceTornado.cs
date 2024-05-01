@@ -34,7 +34,7 @@ public class IceTornado : Spell
             float angleStep = _currentStats.AngleStep / attackCount; // Divide a circle into equal parts based on attackCount, basically the "cone" in front of the player
             float radius = _currentStats.SpreadRadius; // Define the radius of the circle around the player where spells will spawn, not to be confused with SpellRadius
             bool isAttackCountEven = attackCount % 2 == 0;
-            float middleIndex = isAttackCountEven ? (attackCount * 0.5f) - 0.5f : (attackCount - 1) * 0.5f;
+            float middleIndex = isAttackCountEven ? attackCount * 0.5f - 0.5f : (attackCount - 1) * 0.5f;
             float offsetAngle = middleIndex * angleStep; // This is needed to make the middle spell spawn in front of the player
             
             for (int i = 0; i < attackCount; i++)

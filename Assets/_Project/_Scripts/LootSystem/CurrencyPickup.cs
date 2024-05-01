@@ -18,7 +18,7 @@ public class CurrencyPickup : MonoBehaviour
 
     void OnEnable()
     {
-        _player = FindObjectOfType<Player>();
+        _player = Player.Instance;
 
         transform.localScale = new Vector3(4, 4, 4);
         

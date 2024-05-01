@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject _statusEffectPrefab;
     
     bool _isAttackAnimationPlaying = false;
+    bool _isDead = false;
     public bool IsPushed;
     public bool StopAnimator;
     
@@ -39,16 +40,16 @@ public class Enemy : MonoBehaviour
     
     Vector3 _startingAttackPosition;
     
-    enum EnemyState
+    public enum EnemyState
     {
         Walking,
         Attacking,
-        FollowingPath
+        TornadoPull
     }
     
     int currentPathIndex = 0;
 
-    EnemyState _currentState = EnemyState.Walking;
+    public EnemyState _currentState = EnemyState.Walking;
 
     protected void Awake()
     {
@@ -71,12 +72,14 @@ public class Enemy : MonoBehaviour
    
     protected void OnEnable()
     {
+        _isDead = false;
         if (_statusEffectPrefab != null)
         {
             _statusEffectPrefab.SetActive(false);
         }
         _followerEntity = GetComponent<FollowerEntity>();
         _aiDestinationSetter.target = _playerTransform;
+        _currentState = EnemyState.Walking;
         if(!ActiveEnemies.Contains(this))
         {
             ActiveEnemies.Add(this);
@@ -85,6 +88,7 @@ public class Enemy : MonoBehaviour
 
     protected void OnDisable()
     {
+        _isDead = true;
         if(!ActiveEnemies.Contains(this))
         {
             ActiveEnemies.Remove(this);
@@ -145,21 +149,31 @@ public class Enemy : MonoBehaviour
                 case EnemyState.Attacking:
                     HandleAttackingState(distanceToPlayer);
                     break;
+                case EnemyState.TornadoPull:
+                    HandleTornadoPullState();
+                    break;
             }
         }
     }
-
-    void InitializePlayerTransform()
+    
+    public bool IsDead()
     {
-        _playerTransform = GameManager.Instance.GetPlayerTransform();
-        if (_playerTransform == null)
+        if (_health.IsDead())
         {
-            Debug.LogError("Player transform is null!");
+            _isDead = true;
+            return true;
         }
+        _isDead = false;
+        return false;
+        
     }
 
     void HandleWalkingState(float distanceToPlayer)
     {
+        _followerEntity.enabled = true;
+        _followerEntity.maxSpeed = 2f;
+        _aiDestinationSetter.enabled = true;
+        _aiDestinationSetter.target = _playerTransform;
         _isAttackAnimationPlaying = false;
         _animatorManager.PlayWalkingAnimation();
         if (EnemySpawner.Instance.GetFormation() == EnemySpawner.FormationType.Fibonacci)
@@ -175,8 +189,8 @@ public class Enemy : MonoBehaviour
             var tangent = Vector3.Cross(normal, _playerTransform.up);
             
             {
-                //_followerEntity.SetDestination(_playerTransform.position + normal * radius + tangent * offset);
-                //_aiDestinationSetter.target = _playerTransform;
+                // _followerEntity.SetDestination(_playerTransform.position + normal * radius + tangent * offset);
+                // _aiDestinationSetter.target = _playerTransform;
             }
         }
 
@@ -186,21 +200,6 @@ public class Enemy : MonoBehaviour
             _animatorManager.StopWalkingAnimation();
         }
     }
-    
-    IEnumerator InitializePathfinding()
-    {
-        // Wait until the end of the frame to ensure all Start methods are called.
-        yield return new WaitForEndOfFrame();
-
-        float radius = 5f;
-        float offset = 2f;
-            
-        var normal = (transform.position - _playerTransform.position).normalized;
-        var tangent = Vector3.Cross(normal, _playerTransform.up);
-        // Now it's safe to start pathfinding.
-        _followerEntity.SetDestination(_playerTransform.position + normal * radius + tangent * offset);
-    }
-    
    
     void HandleAttackingState(float distanceToPlayer)
     {
@@ -225,6 +224,40 @@ public class Enemy : MonoBehaviour
         {
             StartAttackAnimation();
         }
+    }
+    
+    void HandleTornadoPullState()
+    {
+        GameObject tornado = GameObject.FindGameObjectWithTag("Tornado");
+
+        _followerEntity.enabled = false;
+        float radius = 1f;
+        float offset = 1f;
+        var normal = (transform.position - tornado.transform.position).normalized;
+        var tangent = Vector3.Cross(normal, tornado.transform.up);
+        
+        Vector3 pullPosition = Vector3.Lerp(transform.position, tornado.transform.position + normal * radius + tangent * offset, 1.5f * Time.deltaTime);
+        transform.position = pullPosition;
+        
+        
+        _animatorManager.StopWalkingAnimation();
+        _animatorManager.StopAttackAnimation();
+    }
+    
+   
+    
+    IEnumerator InitializePathfinding()
+    {
+        // Wait until the end of the frame to ensure all Start methods are called.
+        yield return new WaitForEndOfFrame();
+
+        float radius = 5f;
+        float offset = 2f;
+            
+        var normal = (transform.position - _playerTransform.position).normalized;
+        var tangent = Vector3.Cross(normal, _playerTransform.up);
+        // Now it's safe to start pathfinding.
+        _followerEntity.SetDestination(_playerTransform.position + normal * radius + tangent * offset);
     }
 
     void StartAttackAnimation()

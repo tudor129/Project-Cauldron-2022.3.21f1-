@@ -32,7 +32,7 @@ public class LavaBehavior : BaseSpellBehavior
             {
                 return;
             }
-            other.GetComponent<EnemyHealth>().ApplyDoTEffect(_currentStats);
+            other.GetComponent<EnemyHealth>().ApplyDoT(_currentStats);
             GameObject lavaObject = ObjectPoolManager.Instance.SpawnStatusEffect(
                 _currentStats.StatusEffectPrefab,
                  other.gameObject,
@@ -50,7 +50,7 @@ public class LavaBehavior : BaseSpellBehavior
         }
     }
     
-    IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
+    new IEnumerator ReturnToPoolAfterDelay(float delay, GameObject objectToReturn)
     {
         yield return new WaitForSeconds(delay);
         ObjectPoolManager.Instance.ReturnStatusEffectToPool(objectToReturn);

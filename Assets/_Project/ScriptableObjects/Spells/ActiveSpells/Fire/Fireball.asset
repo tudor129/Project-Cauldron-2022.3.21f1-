@@ -19,7 +19,6 @@ MonoBehaviour:
   BaseStats:
     Name: Fireball
     Description: Casts a ball of fire upon the enemies.
-    IsAffinityUpgrade: 0
     Type: 0
     ProjectilePrefab: {fileID: 1298154281070230439, guid: 98f2028b74c10a149aa55a71ac40cab8,
       type: 3}
@@ -57,15 +56,15 @@ MonoBehaviour:
     ImpactLifetime: 0.8
     SpellRadius: 0
     Cooldown: 1
-    DamageOverTimeDamage: 3
+    DamageOverTime: 3
     DamageOverTimeDuration: 10
     DamageOverTimeInterval: 1
     DamageOverTimeInitialDelay: 1
     StaggerDuration: 0
     SpawnsProjectilesSequentially: 0
     ShootBackwards: 0
-    NumberOfAttacks: 5
-    NumberOfPierces: 5
+    NumberOfAttacks: 1
+    NumberOfPierces: 2
     ProjectileInteval: 0.1
     AngleStep: 90
     SpreadRadius: 0.2
@@ -82,7 +81,6 @@ MonoBehaviour:
   LinearGrowth:
   - Name: 
     Description: 
-    IsAffinityUpgrade: 0
     Type: 0
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
@@ -111,7 +109,7 @@ MonoBehaviour:
     ImpactLifetime: 0
     SpellRadius: 0
     Cooldown: 0
-    DamageOverTimeDamage: 0
+    DamageOverTime: 0
     DamageOverTimeDuration: 0
     DamageOverTimeInterval: 0
     DamageOverTimeInitialDelay: 0
@@ -137,7 +135,6 @@ MonoBehaviour:
   AffinityGrowth:
   - Name: 
     Description: 
-    IsAffinityUpgrade: 0
     Type: 0
     ProjectilePrefab: {fileID: 0}
     SpellPrefab: {fileID: 0}
@@ -166,7 +163,7 @@ MonoBehaviour:
     ImpactLifetime: 0
     SpellRadius: 0
     Cooldown: 0
-    DamageOverTimeDamage: 0
+    DamageOverTime: 0
     DamageOverTimeDuration: 0
     DamageOverTimeInterval: 0
     DamageOverTimeInitialDelay: 0

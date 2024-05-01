@@ -32,7 +32,7 @@ public class SpellInstance
         Lifetime = spellData.BaseStats.Lifetime;
         SpellRadius = spellData.BaseStats.SpellRadius;
         Cooldown = spellData.BaseStats.Cooldown;  
-        DamageOverTimeDamage = spellData.BaseStats.DamageOverTimeDamage;
+        DamageOverTimeDamage = spellData.BaseStats.DamageOverTime;
         DamageOverTimeDuration = spellData.BaseStats.DamageOverTimeDuration;
         DamageOverTimeInterval = spellData.BaseStats.DamageOverTimeInterval;
         DamageOverTimeInitialDelay = spellData.BaseStats.DamageOverTimeInitialDelay;

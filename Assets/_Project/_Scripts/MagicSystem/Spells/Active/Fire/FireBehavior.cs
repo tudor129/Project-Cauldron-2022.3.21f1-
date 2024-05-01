@@ -35,7 +35,7 @@ public class FireBehavior : BaseSpellBehavior
             {
                 return;
             }
-            other.GetComponent<EnemyHealth>().ApplyDoTEffect(_currentStats);
+            other.GetComponent<EnemyHealth>().ApplyDoT(_currentStats);
             // GameObject lavaObject = ObjectPoolManager.Instance.SpawnObject(
             //     _firePrefab,
             //     other.transform.position + new Vector3(0, 0.1f, 0),

@@ -19,7 +19,6 @@ MonoBehaviour:
   BaseStats:
     Name: Arcane Bolt
     Description: Shoots a bolt of arcane energy onto the enemies.
-    IsAffinityUpgrade: 0
     Type: 4
     ProjectilePrefab: {fileID: 394692689692053473, guid: 0dcec9332a57aeb419df0f2e3d48df2f,
       type: 3}
@@ -30,6 +29,7 @@ MonoBehaviour:
     StatusEffectPrefab: {fileID: 0}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
+    Feedback: {fileID: 0}
     HasFlash: 0
     HasCastEffect: 0
     SpellAnimation: 
@@ -49,7 +49,7 @@ MonoBehaviour:
     ImpactLifetime: 0.8
     SpellRadius: 0
     Cooldown: 0.7
-    DamageOverTimeDamage: 0
+    DamageOverTime: 0
     DamageOverTimeDuration: 0
     DamageOverTimeInterval: 0
     DamageOverTimeInitialDelay: 0
@@ -57,6 +57,7 @@ MonoBehaviour:
     SpawnsProjectilesSequentially: 0
     ShootBackwards: 0
     NumberOfAttacks: 9
+    NumberOfPierces: 0
     ProjectileInteval: 0.2
     AngleStep: 90
     SpreadRadius: 0.5

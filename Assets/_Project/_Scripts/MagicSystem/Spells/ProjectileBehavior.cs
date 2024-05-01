@@ -1,8 +1,10 @@
+using Highlands;
 using MoreMountains.Feedbacks;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ProjectileBehavior : BaseSpellBehavior
 {
@@ -12,7 +14,8 @@ public class ProjectileBehavior : BaseSpellBehavior
     
     [SerializeField] protected GameObject flash;
     [SerializeField] protected GameObject[] Detached;
-      
+    [SerializeField] protected WindSettings _windEffect;
+       
     protected List<IAttackable> _attackablesInRadius = new List<IAttackable>();
     protected GameObject _flashInstance;
     protected int _hitCount;
@@ -67,7 +70,8 @@ public class ProjectileBehavior : BaseSpellBehavior
     {
         _attackablesInRadius.Clear();
         base.Start();
-        
+
+        _windEffect = GetComponent<WindSettings>();
         _sphereCollider = GetComponent<SphereCollider>();
         _sphereCollider.isTrigger = true;
         _part= GetComponent<ParticleSystem>();
@@ -91,7 +95,7 @@ public class ProjectileBehavior : BaseSpellBehavior
     
     
     
-    public void Initialize(Spell spell, MMF_Player feedback)
+    public new void Initialize(Spell spell, MMF_Player feedback)
     {
         if (_isInitialized) return;  // Prevent re-initialization
 
@@ -144,14 +148,22 @@ public class ProjectileBehavior : BaseSpellBehavior
             if (_hitCount >= _currentStats.NumberOfPierces)
             {
                 if (_feedback != null)
+                {
                     _feedback.PlayFeedbacks();
-          
+                  
+                    
+                    CoroutineManager.Instance.StartManagedCoroutine(WindSettings.Instance.SetWindSettings(4));
+                }
+                    
+                    
                 StartCoroutine(GoToPoolAtEndOfFrame());
             }
         }
         HandleProjectileTrailRemoval();
         _attackablesInRadius.Clear();
     }
+    
+   
     
     
     IEnumerator GoToPoolAtEndOfFrame()
@@ -241,7 +253,7 @@ public class ProjectileBehavior : BaseSpellBehavior
                 {
                     if (ShouldApplyDoT(spellData, enemyHealth))
                     {
-                        enemyHealth.ApplyDoTEffect(spellData);
+                        enemyHealth.ApplyDoT(spellData);
                     }
                 }
 

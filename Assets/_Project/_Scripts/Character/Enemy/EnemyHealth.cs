@@ -54,14 +54,18 @@ public class EnemyHealth : Health
 
     public override void TakeDamage(int amount, bool isCritical, Spell.Stats spellInfo, bool isDirectDamage = true)
     {
-        base.TakeDamage(amount, isCritical, spellInfo, true);
-        UpdateHealthUI();
-        HandleDamageNumbers(amount, isCritical);
-
-        if (isDirectDamage)
+        if (!IsDead())
         {
-            ApplyStaggerEffect(spellInfo.StaggerDuration);
+            base.TakeDamage(amount, isCritical, spellInfo, true);
+            UpdateHealthUI();
+            HandleDamageNumbers(amount, isCritical);
+
+            if (isDirectDamage)
+            {
+                ApplyStaggerEffect(spellInfo.StaggerDuration);
+            } 
         }
+        
         
     }
     
@@ -94,14 +98,14 @@ public class EnemyHealth : Health
         }
     }
     
-    public void ApplyDoTEffect(Spell.Stats spellInfo)
+    public void ApplyDoT(Spell.Stats spellInfo)
     {
         if (_dotRoutine != null)
         {
             StopCoroutine(_dotRoutine);
         }
         _dotRoutine = StartCoroutine(DoTRoutine(
-            spellInfo.DamageOverTimeDamage, 
+            spellInfo.DamageOverTime, 
             spellInfo.DamageOverTimeDuration, 
             spellInfo.DamageOverTimeInitialDelay, 
             spellInfo.DamageOverTimeInterval, 

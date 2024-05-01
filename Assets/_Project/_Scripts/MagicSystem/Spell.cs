@@ -64,7 +64,7 @@ public abstract class Spell : Item, ISpell
         public float ImpactLifetime;
         public float SpellRadius;
         public float Cooldown;
-        public int DamageOverTimeDamage;
+        [FormerlySerializedAs("DamageOverTimeDamage")] public int DamageOverTime;
         public float DamageOverTimeDuration;
         public float DamageOverTimeInterval;
         public float DamageOverTimeInitialDelay;
@@ -125,7 +125,7 @@ public abstract class Spell : Item, ISpell
             result.ImpactLifetime = s1.ImpactLifetime + s2.ImpactLifetime;
             result.SpellRadius = s1.SpellRadius + s2.SpellRadius;
             result.Cooldown = s1.Cooldown + s2.Cooldown;
-            result.DamageOverTimeDamage = s1.DamageOverTimeDamage + s2.DamageOverTimeDamage;
+            result.DamageOverTime = s1.DamageOverTime + s2.DamageOverTime;
             result.DamageOverTimeDuration = s1.DamageOverTimeDuration + s2.DamageOverTimeDuration;
             result.DamageOverTimeInterval = s1.DamageOverTimeInterval + s2.DamageOverTimeInterval;
             result.DamageOverTimeInitialDelay = s1.DamageOverTimeInitialDelay + s2.DamageOverTimeInitialDelay;
