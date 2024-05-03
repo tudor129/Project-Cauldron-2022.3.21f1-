@@ -35,6 +35,7 @@ public class ObjectPoolManager : MonoBehaviour
    public CustomObjectPool<GameObject> _projectilePool;
    public CustomObjectPool<GameObject> _gameObjectPool;
    public CustomObjectPool<GameObject> _statusEffectsPool;
+   public CustomObjectPool<GameObject> _decalsPool;
    
    void Awake()
    {
@@ -135,6 +136,15 @@ public class ObjectPoolManager : MonoBehaviour
             false,
             200,
             500);
+        _decalsPool = new CustomObjectPool<GameObject>(
+            ObjectPoolManager.Instance.CreatePooledObject, 
+            ObjectPoolManager.Instance.OnTakeFromPool, 
+            ObjectPoolManager.Instance.OnReturnToPool, 
+            ObjectPoolManager.Instance.OnDestroyObject, 
+            false,
+            200,
+            500);
+        
     }
     
     

@@ -27,6 +27,7 @@ public class EnemyHealth : Health
         //_aiPath = GetComponent<AIPath>();
         _followerEntity = GetComponent<FollowerEntity>();
         _visualEffects = GetComponent<EnemyVisualEffects>();
+        _animatorManager = GetComponent<CharacterAnimatorManager>();
         _healthBarUI.Initialize(this);
        
         UpdateHealthUI();
@@ -35,14 +36,12 @@ public class EnemyHealth : Health
     protected override void Start()
     {
         base.Start();
-        // _isAlive = true;
-        // _aiPath.canMove = true;
+      
     }
 
     void OnEnable()
     {
-        // _isAlive = true;
-        // _aiPath.canMove = true;
+       
        _followerEntity.enabled = true;
         _hasDoTEffect = false;
     }
@@ -162,6 +161,7 @@ public class EnemyHealth : Health
         _isAlive = false;
         //_aiPath.canMove = false;
         _followerEntity.enabled = false;
+        _animatorManager._animator.speed = 1.5f;
         
         
         if (_staggerRoutine != null)

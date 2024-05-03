@@ -44,6 +44,22 @@ public class CharacterAnimatorManager : MonoBehaviour
             Debug.LogError("Animator is null!");
         }
     }
+    public void PlayIsPulledAnimation()
+    {
+        if (_animator != null)
+        {
+            _animator.SetBool("IsPulled", true);
+        }
+      
+    }
+    public void StopIsPulledAnimation()
+    {
+        if (_animator != null)
+        {
+            _animator.SetBool("IsPulled", false);
+        }
+      
+    }
 
     public void PlayDeathAnimation()
     {

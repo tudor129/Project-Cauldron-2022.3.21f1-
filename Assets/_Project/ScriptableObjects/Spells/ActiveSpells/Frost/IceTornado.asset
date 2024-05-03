@@ -27,7 +27,8 @@ MonoBehaviour:
       type: 3}
     baseSpellImpactPrefab: {fileID: 0}
     CharacterEffectPrefab: {fileID: 0}
-    StatusEffectPrefab: {fileID: 0}
+    StatusEffectPrefab: {fileID: 7640568225079622415, guid: 47388aab60c101f40ba2f52979f6057e,
+      type: 3}
     VisualEffect: {fileID: 0}
     DetachEffect: {fileID: 0}
     Feedback: {fileID: 0}
@@ -45,12 +46,12 @@ MonoBehaviour:
     ImpactOffset: {x: 0, y: 0, z: 0}
     Damage: 100
     Speed: 0
-    Lifetime: 30
-    DecalLifetime: 10
+    Lifetime: 15
+    DecalLifetime: 6
     ImpactLifetime: 0
     SpellRadius: 2
-    Cooldown: 30
-    DamageOverTime: 172
+    Cooldown: 5
+    DamageOverTime: 72
     DamageOverTimeDuration: 10
     DamageOverTimeInterval: 0.4
     DamageOverTimeInitialDelay: 0.3

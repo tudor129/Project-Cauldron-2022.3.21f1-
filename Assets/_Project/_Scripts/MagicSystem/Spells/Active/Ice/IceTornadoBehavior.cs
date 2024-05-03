@@ -8,76 +8,89 @@ using Random = UnityEngine.Random;
 
 public class IceTornadoBehavior : SpellBehavior
 {
+    public static List<IceTornadoBehavior> ActiveTornadoes = new List<IceTornadoBehavior>();
     Dictionary<Collider, Coroutine> _activeCoroutines = new Dictionary<Collider, Coroutine>();
     
-    public float changeDirectionInterval = 2f; // Time in seconds between direction changes
-    public float maxDirectionChange = 180.0f; // Max degrees the tornado can turn per interval
     float _timeSinceLastChange = 0.0f;
     bool _isCoroutineRunning;
-
-    
-    Vector3 _targetDirection;
-    
-
-    [FormerlySerializedAs("pullStrength")] [SerializeField] float _pullStrength = 1f;
     
     FollowerEntity _followerEntity;
     
-    protected GameObject _currentTarget;
+    protected Enemy _currentTarget;
 
     protected override void Awake()
     {
         base.Awake();
         _followerEntity = GetComponent<FollowerEntity>();
+        ActiveTornadoes.Clear();
+        if(!ActiveTornadoes.Contains(this))
+        {
+            ActiveTornadoes.Add(this);
+        }
     }
     protected override void Start()
     {
         base.Start();
-        _targetDirection = _randomDirection;
+        CoroutineManager.Instance.StartManagedCoroutine(SpawnDecals(0.35f));
     }
-   
+
+    protected void OnEnable()
+    {
+        if(!ActiveTornadoes.Contains(this))
+        {
+            ActiveTornadoes.Add(this);
+        }
+    }
+    void OnDisable()
+    {
+        if(!ActiveTornadoes.Contains(this))
+        {
+            ActiveTornadoes.Remove(this);
+        }
+    }
+
 
     // Update is called once per frame
     protected override void Update()
     {
         if (_hasMovement)
         {
-            
-            // float radius = 5f;
-            // float offset = 2f;
-            //
-            // var normal = (transform.position - _player.transform.position).normalized;
-            // var tangent = Vector3.Cross(normal, _player.transform.up);
-            //
-            // _followerEntity.SetDestination(_player.transform.position + normal * radius + tangent * offset);
-            
             float radius = 5f;
             float offset = 2f;
-            float engageDistance = 10f;
+            float engageDistance = 20f;
+            float closeEnoughDistance = 0.2f;
             // Check if current target is null or too far away
             if (_currentTarget == null || Vector3.Distance(transform.position, _currentTarget.transform.position) > engageDistance)
             {
-                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                if (enemies.Length > 0)
+                //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                List<Enemy> enemies = Enemy.ActiveEnemies;
+                //Enemy.ActiveEnemies = enemies;
+                if (enemies.Count > 0)
                 {
-                    int randomIndex = UnityEngine.Random.Range(0, enemies.Length);
+                    int randomIndex = Random.Range(0, enemies.Count);
                     _currentTarget = enemies[randomIndex]; // Set new random target
                 }
                 else
                 {
-                    _currentTarget = _player.gameObject; // Default back to player if no enemies
+                    _currentTarget = null; // Default back to player if no enemies
                 }
             }
-
             // Calculate position relative to the current target
-            var normal = (transform.position - _currentTarget.transform.position).normalized;
-            var tangent = Vector3.Cross(normal, _currentTarget.transform.up);
+            // var normal = (transform.position - _currentTarget.transform.position).normalized;
+            // var tangent = Vector3.Cross(normal, _currentTarget.transform.up);
 
             // Set destination to orbit around the current target
-            _followerEntity.SetDestination(_currentTarget.transform.position + normal * radius + tangent * offset);
-            //_followerEntity.SetDestination(_currentTarget.transform.position);
-           
+            //_followerEntity.SetDestination(_currentTarget.transform.position + normal * radius + tangent * offset);
             
+            // Set destination to move towards the current target
+            _followerEntity.SetDestination(_currentTarget.transform.position);
+           
+            // Check if reached the target
+            if (Vector3.Distance(transform.position, _currentTarget.transform.position) <= closeEnoughDistance)
+            {
+                _currentTarget = null; // Reset target, so it will find a new one in the next frame
+            }
+           
         }
     }
 
@@ -88,7 +101,7 @@ public class IceTornadoBehavior : SpellBehavior
             var enemy = other.GetComponent<Enemy>();
             if (!enemy.IsDead())
             {
-                enemy._currentState = Enemy.EnemyState.TornadoPull;
+                enemy._currentState = Enemy.EnemyState.Slowed;
             
                 int damage = Mathf.RoundToInt(_currentStats.DamageOverTime);
                 Coroutine coroutine = StartCoroutine(DoTRoutine(
@@ -127,6 +140,28 @@ public class IceTornadoBehavior : SpellBehavior
         {
             _activeCoroutines.Remove(other);
         }
+    }
+    
+    IEnumerator SpawnDecals(float interval)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(interval); 
+            GameObject iceDecal = ObjectPoolManager.Instance._decalsPool.Get(
+                _currentStats.StatusEffectPrefab.gameObject, 
+                transform.position + new Vector3(0, 0.1f, 0), 
+                ObjectPoolManager.PoolType.Decals);
+            iceDecal.transform.position = transform.position + new Vector3(0, 0.1f, 0);
+            IceBehavior iceBehavior = iceDecal.GetComponent<IceBehavior>();
+            iceBehavior.Initialize(_currentStats);
+            CoroutineManager.Instance.StartManagedCoroutine(EnterPoolAfterDelay(_currentStats.DecalLifetime, iceDecal));
+        }
+    }
+    
+    IEnumerator EnterPoolAfterDelay(float delay, GameObject obj)
+    {
+        yield return new WaitForSeconds(delay); 
+        ObjectPoolManager.Instance._decalsPool.Release(obj);
     }
   
 

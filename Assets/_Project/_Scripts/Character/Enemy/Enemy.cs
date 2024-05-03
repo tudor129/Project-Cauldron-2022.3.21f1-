@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     {
         Walking,
         Attacking,
-        TornadoPull
+        Slowed
     }
     
     int currentPathIndex = 0;
@@ -54,7 +54,6 @@ public class Enemy : MonoBehaviour
     protected void Awake()
     {
         _enemyHealth = GetComponent<EnemyHealth>();
-        //_aiPath = GetComponent<AIPath>();
         _followerEntity = GetComponent<FollowerEntity>();
         _aiDestinationSetter = GetComponent<AIDestinationSetter>();
         _health = GetComponent<Health>();
@@ -72,6 +71,11 @@ public class Enemy : MonoBehaviour
    
     protected void OnEnable()
     {
+        if (_animatorManager._animator != null)
+        {
+            _animatorManager._animator.speed = 1.5f;
+        }
+        
         _isDead = false;
         if (_statusEffectPrefab != null)
         {
@@ -139,7 +143,7 @@ public class Enemy : MonoBehaviour
 
         if (!_health.IsDead())
         {
-            float distanceToPlayer = CalculateDistanceToPlayer();
+            float distanceToPlayer = CalculateDistanceToTarget(_playerTransform, transform);
 
             switch (_currentState)
             {
@@ -149,8 +153,8 @@ public class Enemy : MonoBehaviour
                 case EnemyState.Attacking:
                     HandleAttackingState(distanceToPlayer);
                     break;
-                case EnemyState.TornadoPull:
-                    HandleTornadoPullState();
+                case EnemyState.Slowed:
+                    HandleSlowedState();
                     break;
             }
         }
@@ -160,6 +164,8 @@ public class Enemy : MonoBehaviour
     {
         if (_health.IsDead())
         {
+            _animatorManager._animator.speed = 1.5f;
+            Debug.Log(_animatorManager._animator.speed);
             _isDead = true;
             return true;
         }
@@ -175,7 +181,9 @@ public class Enemy : MonoBehaviour
         _aiDestinationSetter.enabled = true;
         _aiDestinationSetter.target = _playerTransform;
         _isAttackAnimationPlaying = false;
+        _animatorManager.StopIsPulledAnimation();
         _animatorManager.PlayWalkingAnimation();
+        _animatorManager._animator.speed = 1.5f;
         if (EnemySpawner.Instance.GetFormation() == EnemySpawner.FormationType.Fibonacci)
         {
             HandleSpiralMovement();
@@ -226,25 +234,28 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    void HandleTornadoPullState()
+    void HandleSlowedState()
     {
-        GameObject tornado = GameObject.FindGameObjectWithTag("Tornado");
-
-        _followerEntity.enabled = false;
-        float radius = 1f;
-        float offset = 1f;
-        var normal = (transform.position - tornado.transform.position).normalized;
-        var tangent = Vector3.Cross(normal, tornado.transform.up);
-        
-        Vector3 pullPosition = Vector3.Lerp(transform.position, tornado.transform.position + normal * radius + tangent * offset, 1.5f * Time.deltaTime);
-        transform.position = pullPosition;
-        
-        
-        _animatorManager.StopWalkingAnimation();
-        _animatorManager.StopAttackAnimation();
+        _animatorManager._animator.speed = 0.5f;
+        _followerEntity.maxSpeed = 0.5f;
     }
-    
-   
+
+    IceTornadoBehavior GetClosestTornado()
+    {
+        IceTornadoBehavior closestTornado = null;
+        float minDistance = float.MaxValue;
+
+        foreach (var tornado in IceTornadoBehavior.ActiveTornadoes)
+        {
+            float distance = Vector3.Distance(transform.position, tornado.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                closestTornado = tornado;
+            }
+        }
+        return closestTornado;
+    }
     
     IEnumerator InitializePathfinding()
     {
@@ -272,23 +283,6 @@ public class Enemy : MonoBehaviour
         _isAttackAnimationPlaying = false;
         _animatorManager.StopAttackAnimation();
     }
-
-    /*void HandleReturnToPool()
-    {
-        _animatorManager.StopWalkingAnimation();
-        _returningToPool = true;
-        StartCoroutine(DelayedReturn(gameObject, 5f));
-    }
-    
-    IEnumerator DelayedReturn(GameObject obj, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        StopAllCoroutines();
-        SetPlayerTransformFromPool(GameManager.Instance.GetPlayerTransform());
-        ObjectPoolManager.ReturnEnemyObjectToPool(obj);
-        _health.Respawn();
-        _returningToPool = false;
-    }*/
 
     
     void DealDamageToPlayer()
@@ -458,9 +452,9 @@ public class Enemy : MonoBehaviour
     }
 
 
-    protected virtual float CalculateDistanceToPlayer()
+    protected virtual float CalculateDistanceToTarget(Transform target, Transform self)
     {
-        float distanceToPlayer = Vector3.Distance(_playerTransform.position, transform.position);
+        float distanceToPlayer = Vector3.Distance(target.position, self.position);
         return distanceToPlayer;
     }
     
